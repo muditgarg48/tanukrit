@@ -1,29 +1,35 @@
 import React from "react";
 import Button from "../components/Button";
+import { CONTENT } from "../theme/content";
 
 const Hero = () => {
+    const { tagline, title, description, ctaPrimary, ctaSecondary, backgroundImage } = CONTENT.hero;
+
     return (
         <section className="relative h-screen flex items-center justify-center overflow-hidden bg-primary px-4">
-            {/* Visual background overlay (to be replaced with images later) */}
-            <div className="absolute inset-0 bg-black/30 z-0"></div>
+            <div
+                className="absolute inset-0 bg-cover bg-center z-0"
+                style={{ backgroundImage: `url(${backgroundImage})` }}
+            >
+                <div className="absolute inset-0 bg-black/40"></div>
+            </div>
 
             <div className="relative z-10 text-center text-white max-w-4xl">
                 <span className="text-sm uppercase tracking-[0.3em] mb-4 block animate-fade-in opacity-80">
-                    Artfully Packaged. Emotionally Delivered.
+                    {tagline}
                 </span>
                 <h1 className="text-6xl md:text-8xl font-heading mb-8 leading-[1.1]">
-                    Tanukrit
+                    {title}
                 </h1>
                 <p className="text-lg md:text-xl font-light mb-12 max-w-2xl mx-auto leading-relaxed">
-                    Premium gifting rooted in art, intention, and meaningful expression.
-                    Every gift is a conversation.
+                    {description}
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4 justify-center">
                     <Button variant="secondary" className="!bg-white !text-primary">
-                        Explore Collection
+                        {ctaPrimary}
                     </Button>
                     <Button variant="outline" className="!border-white !text-white hover:!bg-white hover:!text-primary">
-                        Learn Our Story
+                        {ctaSecondary}
                     </Button>
                 </div>
             </div>

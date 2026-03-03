@@ -1,13 +1,9 @@
 import React from "react";
 import Button from "../components/Button";
+import { CONTENT } from "../theme/content";
 
 const Contact = () => {
-    const socials = [
-        { name: "Instagram", link: "https://instagram.com/tanu.krit", icon: "IG" },
-        { name: "WhatsApp", link: "https://wa.me/917982666274", icon: "WA" },
-        { name: "LinkedIn", link: "#", icon: "LI" },
-        { name: "Location", link: "#", icon: "Delhi" },
-    ];
+    const { title, description, socials, cta, footer } = CONTENT.contact;
 
     return (
         <section id="contact" className="relative py-32 bg-primary overflow-hidden">
@@ -17,17 +13,16 @@ const Contact = () => {
 
             <div className="max-w-4xl mx-auto text-center px-4 relative z-10">
                 <h2 className="text-white text-5xl md:text-7xl font-heading mb-8">
-                    Ready to tell your story?
+                    {title}
                 </h2>
                 <p className="text-white/70 text-xl font-light mb-16 max-w-2xl mx-auto">
-                    We look forward to creating something meaningful for you—just as we have
-                    for families and clients across the world.
+                    {description}
                 </p>
 
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-20">
                     {socials.map((social) => (
                         <a
-                            key={social.name}
+                            key={social.id}
                             href={social.link}
                             target="_blank"
                             rel="noopener noreferrer"
@@ -43,17 +38,17 @@ const Contact = () => {
 
                 <div className="inline-flex flex-col items-center">
                     <Button variant="secondary" className="!bg-accent !text-white px-12 py-4 shadow-xl shadow-accent/20">
-                        Get in Touch
+                        {cta}
                     </Button>
                     <div className="mt-8 text-white/40 text-xs tracking-[0.5em] uppercase">
-                        Artfully Packaged • Emotionally Delivered
+                        {footer.tagline}
                     </div>
                 </div>
             </div>
 
             <footer className="mt-24 pt-12 border-t border-white/5 px-4 text-center">
                 <div className="text-white/30 text-[10px] uppercase tracking-[0.3em] font-medium">
-                    © {new Date().getFullYear()} Tanukrit • Designed with Intention
+                    {footer.copyright}
                 </div>
             </footer>
         </section>
