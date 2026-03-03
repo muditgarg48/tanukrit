@@ -1,8 +1,8 @@
-import React from "react";
 import Navbar from "./components/Navbar";
 import Hero from "./sections/Hero";
 import Introduction from "./sections/Introduction";
 import Showcase from "./sections/Showcase";
+import Testimonials from "./sections/Testimonials";
 import Contact from "./sections/Contact";
 
 function App() {
@@ -12,6 +12,7 @@ function App() {
       <Hero />
       <Introduction />
       <Showcase />
+      <Testimonials />
       <Contact />
     </main>
   );

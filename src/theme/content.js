@@ -5,7 +5,7 @@ export const CONTENT = {
         links: [
             { name: "About", hash: "#about" },
             { name: "Products", hash: "#products" },
-            { name: "Philosophy", hash: "#philosophy" },
+            { name: "Testimonials", hash: "#testimonials" },
             { name: "Contact", hash: "#contact" },
         ],
     },
@@ -34,6 +34,48 @@ export const CONTENT = {
             { id: 2, title: "Milestone Gifts", category: "Personal", size: "small", image: "https://images.unsplash.com/photo-1607344645866-009c320b63e0?q=80&w=2670&auto=format&fit=crop" },
             { id: 3, title: "Custom Packaging", category: "Luxury", size: "small", image: "https://images.unsplash.com/photo-1512418503837-f83141f3e79e?q=80&w=2670&auto=format&fit=crop" },
         ],
+    },
+    testimonials: {
+        title: "Kind Words",
+        subtitle: "From those we've had the pleasure to serve",
+        items: [
+            {
+                id: 1,
+                quote: "Tanukrit doesn't just package gifts; they package emotions. The attention to detail in our corporate hampers was unlike anything we've seen before.",
+                author: "Ananya Sharma",
+                role: "Marketing Director"
+            },
+            {
+                id: 2,
+                quote: "The milestone gift created for my parents' anniversary was breathtaking. It wasn't just a present; it was a beautiful conversation piece that brought tears of joy.",
+                author: "Rohan Mehra",
+                role: "Entrepreneur"
+            },
+            {
+                id: 3,
+                quote: "Sophisticated, intentional, and truly artistic. Tanu has a way of understanding exactly what you want to convey and translating it into a physical form.",
+                author: "Priyanka Chopra",
+                role: "Family Client"
+            },
+            {
+                id: 4,
+                quote: "Working with Tanukrit was a breeze. They understood our brand ethos perfectly and delivered something that truly resonated with our partners.",
+                author: "Vikram Sethi",
+                role: "Creative Lead"
+            },
+            {
+                id: 5,
+                quote: "Every touchpoint, from the initial consultation to the final delivery, was handled with such grace and professionalism. Highly recommended.",
+                author: "Sneha Kapoor",
+                role: "Event Planner"
+            },
+            {
+                id: 6,
+                quote: "The packaging itself is a gift. My clients were so impressed with the presentation that they didn't want to open them! Absolutely stunning work.",
+                author: "Arjun Reddy",
+                role: "Luxury Consultant"
+            }
+        ]
     },
     contact: {
         title: "Ready to tell your story?",
