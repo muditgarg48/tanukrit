@@ -12,7 +12,7 @@ const Navbar = () => {
 
         const observerOptions = {
             root: null,
-            rootMargin: "-20% 0px -70% 0px", // Focus on top portion of viewport
+            rootMargin: "-20% 0px -70% 0px",
             threshold: 0
         };
 
@@ -26,10 +26,11 @@ const Navbar = () => {
         };
 
         const observer = new IntersectionObserver(handleIntersection, observerOptions);
-        const sections = document.querySelectorAll("section[data-nav-theme]");
-        sections.forEach((section) => observer.observe(section));
+        const themedElements = document.querySelectorAll("[data-nav-theme]");
+        themedElements.forEach((el) => observer.observe(el));
 
         window.addEventListener("scroll", handleScroll);
+
         return () => {
             window.removeEventListener("scroll", handleScroll);
             observer.disconnect();

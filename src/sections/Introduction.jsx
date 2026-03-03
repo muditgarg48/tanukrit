@@ -1,4 +1,3 @@
-import React from "react";
 import { CONTENT } from "../theme/content";
 
 const Introduction = () => {
@@ -33,7 +32,6 @@ const Introduction = () => {
                                 className="w-full h-full object-cover"
                             />
                         </div>
-                        <div className="absolute -bottom-8 -left-8 w-40 h-40 bg-primary/20 rounded-full blur-3xl -z-10"></div>
                     </div>
                 </div>
             </div>

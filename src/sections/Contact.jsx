@@ -15,8 +15,6 @@ const Contact = () => {
     return (
         <section id="contact" data-nav-theme="dark" className="relative pb-12 bg-primary overflow-hidden">
             {/* Decorative background shapes */}
-            <div className="absolute top-0 right-0 w-96 h-96 bg-accent/10 rounded-full -translate-y-1/2 translate-x-1/2 blur-3xl"></div>
-            <div className="absolute bottom-0 left-0 w-64 h-64 bg-secondary/10 rounded-full translate-y-1/2 -translate-x-1/2 blur-3xl"></div>
 
             <div className="max-w-4xl mx-auto text-center px-4 relative z-10">
                 <h2 className="text-white text-5xl md:text-7xl font-heading mb-8">
