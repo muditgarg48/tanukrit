@@ -5,7 +5,7 @@ const Introduction = () => {
     const { title, description, values, founderImage } = CONTENT.introduction;
 
     return (
-        <section id="about" className="py-24 bg-white px-4 overflow-hidden">
+        <section id="about" data-nav-theme="light" className="py-24 bg-white px-4 overflow-hidden">
             <div className="max-w-6xl mx-auto">
                 <div className="flex flex-col md:flex-row items-center gap-16">
                     <div className="flex-1 text-center md:text-left">

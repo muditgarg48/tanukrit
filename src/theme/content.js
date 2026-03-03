@@ -1,7 +1,7 @@
 export const CONTENT = {
     navbar: {
         logo: "Tanukrit",
-        logoSrc: "/src/assets/tanukrit_logo.jpg",
+        logoSrc: "/src/assets/tanukrit_logo_navbar.jpg",
         links: [
             { name: "About", hash: "#about" },
             { name: "Products", hash: "#products" },
@@ -14,8 +14,6 @@ export const CONTENT = {
         title: "Tanukrit",
         logoSrc: "/src/assets/tanukrit_logo.jpg",
         description: "Premium gifting rooted in art, intention, and meaningful expression. Every gift is a conversation.",
-        ctaPrimary: "Explore Collection",
-        ctaSecondary: "Learn Our Story",
         backgroundImage: "https://images.unsplash.com/photo-1549465220-1d8c9d9c4709?q=80&w=2670&auto=format&fit=crop",
     },
     introduction: {

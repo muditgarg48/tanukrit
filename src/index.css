@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 @theme {
-    --color-primary: #dca3d7;
+    --color-primary: #92688e;
     --color-secondary: #00765d;
     /* Peacock/Emerald Green from PDF logo */
     --color-accent: #d4af37;
@@ -46,10 +46,17 @@ h4,
 }
 
 .glass {
-    background: rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.15);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
     border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.glass-primary {
+    background: rgba(220, 163, 215, 0.1);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(220, 163, 215, 0.2);
 }
 
 .text-gold {
