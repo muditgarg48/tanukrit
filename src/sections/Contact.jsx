@@ -13,7 +13,7 @@ const Contact = () => {
     };
 
     return (
-        <section id="contact" data-nav-theme="dark" className="relative py-32 bg-primary overflow-hidden">
+        <section id="contact" data-nav-theme="dark" className="relative pt-32 pb-12 bg-primary overflow-hidden">
             {/* Decorative background shapes */}
             <div className="absolute top-0 right-0 w-96 h-96 bg-accent/10 rounded-full -translate-y-1/2 translate-x-1/2 blur-3xl"></div>
             <div className="absolute bottom-0 left-0 w-64 h-64 bg-secondary/10 rounded-full translate-y-1/2 -translate-x-1/2 blur-3xl"></div>
@@ -26,7 +26,7 @@ const Contact = () => {
                     {description}
                 </p>
 
-                <div className="flex flex-wrap justify-center gap-8 md:gap-12 mb-20">
+                <div className="flex flex-wrap justify-center gap-8 md:gap-12 mb-12">
                     {socials.map((social) => {
                         const IconComponent = IconMap[social.icon];
                         return (
@@ -53,7 +53,7 @@ const Contact = () => {
                 </div>
             </div>
 
-            <footer className="mt-24 pt-12 border-t border-white/5 px-4 text-center">
+            <footer className="mt-16 pt-8 border-t border-white/5 px-4 text-center">
                 <div className="text-white/30 text-[10px] uppercase tracking-[0.3em] font-medium">
                     {footer.copyright}
                 </div>

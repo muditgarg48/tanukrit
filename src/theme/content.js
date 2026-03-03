@@ -89,7 +89,7 @@ export const CONTENT = {
             { id: 5, name: "Email", link: "mailto:support@tanukrit.com", icon: "mail" },
         ],
         footer: {
-            copyright: `© ${new Date().getFullYear()} Tanukrit • Designed with Intention by Mudit and Sanjana`,
+            copyright: `© ${new Date().getFullYear()} Tanukrit • Designed with Intention`,
             tagline: "Artfully Packaged • Emotionally Delivered"
         }
     }
