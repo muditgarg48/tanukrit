@@ -1,6 +1,7 @@
 export const CONTENT = {
     navbar: {
         logo: "Tanukrit",
+        logoSrc: "/src/assets/tanukrit_logo.jpg",
         links: [
             { name: "About", hash: "#about" },
             { name: "Products", hash: "#products" },
@@ -11,6 +12,7 @@ export const CONTENT = {
     hero: {
         tagline: "Artfully Packaged. Emotionally Delivered.",
         title: "Tanukrit",
+        logoSrc: "/src/assets/tanukrit_logo.jpg",
         description: "Premium gifting rooted in art, intention, and meaningful expression. Every gift is a conversation.",
         ctaPrimary: "Explore Collection",
         ctaSecondary: "Learn Our Story",

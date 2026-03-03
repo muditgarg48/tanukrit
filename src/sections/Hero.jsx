@@ -3,7 +3,7 @@ import Button from "../components/Button";
 import { CONTENT } from "../theme/content";
 
 const Hero = () => {
-    const { tagline, title, description, ctaPrimary, ctaSecondary, backgroundImage } = CONTENT.hero;
+    const { tagline, title, logoSrc, description, ctaPrimary, ctaSecondary, backgroundImage } = CONTENT.hero;
 
     return (
         <section className="relative h-screen flex items-center justify-center overflow-hidden bg-primary px-4">
@@ -18,9 +18,13 @@ const Hero = () => {
                 <span className="text-sm uppercase tracking-[0.3em] mb-4 block animate-fade-in opacity-80">
                     {tagline}
                 </span>
-                <h1 className="text-6xl md:text-8xl font-heading mb-8 leading-[1.1]">
-                    {title}
-                </h1>
+                <div className="mb-8 animate-fade-in flex justify-center">
+                    <img
+                        src={logoSrc}
+                        alt={title}
+                        className="h-32 md:h-48 w-auto object-contain"
+                    />
+                </div>
                 <p className="text-lg md:text-xl font-light mb-12 max-w-2xl mx-auto leading-relaxed">
                     {description}
                 </p>

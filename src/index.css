@@ -1,8 +1,7 @@
 @import "tailwindcss";
 
 @theme {
-    --color-primary: #d1206d;
-    /* Vibrant Magenta */
+    --color-primary: #dca3d7;
     --color-secondary: #00765d;
     /* Peacock/Emerald Green from PDF logo */
     --color-accent: #d4af37;

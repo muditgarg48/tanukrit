@@ -4,7 +4,13 @@ const Navbar = () => {
     return (
         <nav className="fixed top-8 left-1/2 -translate-x-1/2 z-50 w-[90%] max-w-4xl">
             <div className="glass px-8 py-4 rounded-full flex justify-between items-center shadow-lg">
-                <div className="text-2xl font-heading font-bold text-primary">{CONTENT.navbar.logo}</div>
+                <a href="#" className="h-10">
+                    <img
+                        src={CONTENT.navbar.logoSrc}
+                        alt={CONTENT.navbar.logo}
+                        className="h-full w-auto object-contain"
+                    />
+                </a>
                 <div className="hidden md:flex gap-8">
                     {CONTENT.navbar.links.map((link) => (
                         <a
