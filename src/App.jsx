@@ -1,10 +1,19 @@
+import React from "react";
+import Navbar from "./components/Navbar";
+import Hero from "./sections/Hero";
+import Introduction from "./sections/Introduction";
+import Showcase from "./sections/Showcase";
+import Contact from "./sections/Contact";
+
 function App() {
   return (
-    <div className="min-h-screen bg-gray-100 flex items-center justify-center">
-      <h1 className="text-4xl font-bold text-blue-600">
-        Tanukrit
-      </h1>
-    </div>
+    <main className="font-body selection:bg-accent/30 selection:text-primary">
+      <Navbar />
+      <Hero />
+      <Introduction />
+      <Showcase />
+      <Contact />
+    </main>
   );
 }
 
