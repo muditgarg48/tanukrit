@@ -82,13 +82,14 @@ export const CONTENT = {
         description: "We look forward to creating something meaningful for you—just as we have for families and clients across the world.",
         cta: "Get in Touch",
         socials: [
-            { id: 1, name: "Instagram", link: "https://instagram.com/tanu.krit", icon: "IG" },
-            { id: 2, name: "WhatsApp", link: "https://wa.me/917982666274", icon: "WA" },
-            { id: 3, name: "LinkedIn", link: "#", icon: "LI" },
-            { id: 4, name: "Location", link: "#", icon: "Delhi" },
+            { id: 1, name: "Instagram", link: "https://www.instagram.com/tanu.krit", icon: "instagram" },
+            { id: 2, name: "WhatsApp", link: "https://wa.me/917982666274", icon: "whatsapp" },
+            { id: 3, name: "LinkedIn", link: "https://www.linkedin.com/in/tanu-agrawal-89611b3b0/", icon: "linkedin" },
+            { id: 4, name: "Location", link: "https://maps.app.goo.gl/SugEWPxAq7y1fZDy9", icon: "map-pin" },
+            { id: 5, name: "Email", link: "mailto:support@tanukrit.com", icon: "mail" },
         ],
         footer: {
-            copyright: `© ${new Date().getFullYear()} Tanukrit • Designed with Intention`,
+            copyright: `© ${new Date().getFullYear()} Tanukrit • Designed with Intention by Mudit and Sanjana`,
             tagline: "Artfully Packaged • Emotionally Delivered"
         }
     }

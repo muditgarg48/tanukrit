@@ -1,8 +1,16 @@
-import Button from "../components/Button";
+import { Instagram, MessageCircle, Linkedin, MapPin, Mail } from "lucide-react";
 import { CONTENT } from "../theme/content";
 
 const Contact = () => {
-    const { title, description, socials, cta, footer } = CONTENT.contact;
+    const { title, description, socials, footer } = CONTENT.contact;
+
+    const IconMap = {
+        instagram: Instagram,
+        whatsapp: MessageCircle,
+        linkedin: Linkedin,
+        "map-pin": MapPin,
+        mail: Mail,
+    };
 
     return (
         <section id="contact" data-nav-theme="dark" className="relative py-32 bg-primary overflow-hidden">
@@ -18,28 +26,28 @@ const Contact = () => {
                     {description}
                 </p>
 
-                <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-20">
-                    {socials.map((social) => (
-                        <a
-                            key={social.id}
-                            href={social.link}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="flex flex-col items-center group"
-                        >
-                            <div className="w-16 h-16 rounded-3xl bg-white/5 flex items-center justify-center border border-white/10 group-hover:bg-accent group-hover:border-accent group-hover:-translate-y-2 transition-all duration-300">
-                                <span className="text-white font-medium text-xs">{social.icon}</span>
-                            </div>
-                            <span className="text-white/60 text-sm mt-4 tracking-widest uppercase">{social.name}</span>
-                        </a>
-                    ))}
+                <div className="flex flex-wrap justify-center gap-8 md:gap-12 mb-20">
+                    {socials.map((social) => {
+                        const IconComponent = IconMap[social.icon];
+                        return (
+                            <a
+                                key={social.id}
+                                href={social.link}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="flex flex-col items-center group min-w-[100px]"
+                            >
+                                <div className="w-16 h-16 rounded-3xl bg-white/5 flex items-center justify-center border border-white/10 group-hover:bg-accent group-hover:border-accent group-hover:-translate-y-2 transition-all duration-300">
+                                    {IconComponent && <IconComponent className="text-white w-6 h-6" strokeWidth={1.5} />}
+                                </div>
+                                <span className="text-white/60 text-[10px] mt-4 tracking-widest uppercase">{social.name}</span>
+                            </a>
+                        );
+                    })}
                 </div>
 
                 <div className="inline-flex flex-col items-center">
-                    <Button variant="secondary" className="!bg-accent !text-white px-12 py-4 shadow-xl shadow-accent/20">
-                        {cta}
-                    </Button>
-                    <div className="mt-8 text-white/40 text-xs tracking-[0.5em] uppercase">
+                    <div className="mt-8 text-white/40 text-xs tracking-[0.5em] uppercase text-center">
                         {footer.tagline}
                     </div>
                 </div>
