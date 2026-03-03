@@ -9,7 +9,7 @@ const Testimonials = () => {
     const { title, subtitle, items } = CONTENT.testimonials;
 
     return (
-        <section id="testimonials" data-nav-theme="light" className="py-24 bg-white px-4 overflow-x-hidden">
+        <section id="testimonials" data-nav-theme="light" className="pb-24 bg-white px-4 overflow-x-hidden">
             <div className="max-w-7xl mx-auto relative group/nav">
                 <div className="text-center mb-16">
                     <h2 className="text-4xl md:text-5xl font-heading mb-4">{title}</h2>

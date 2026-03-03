@@ -28,12 +28,20 @@
     src: url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap");
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 :root {
     font-family: var(--font-body);
     background-color: var(--color-bg);
     color: var(--color-text);
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+}
+
+section {
+    padding-top: 100px;
 }
 
 h1,

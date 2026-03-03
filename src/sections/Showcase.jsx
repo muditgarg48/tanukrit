@@ -4,7 +4,7 @@ const Showcase = () => {
     const { title, subtitle, items } = CONTENT.showcase;
 
     return (
-        <section id="products" data-nav-theme="light" className="py-24 bg-[#F9F9F9] px-4">
+        <section id="products" data-nav-theme="light" className="pb-24 bg-[#F9F9F9] px-4">
             <div className="max-w-6xl mx-auto">
                 <div className="text-center mb-16">
                     <h2 className="text-4xl md:text-5xl font-heading mb-4">{title}</h2>
