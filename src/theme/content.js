@@ -1,7 +1,10 @@
+import navbarLogo from "../assets/tanukrit_logo_navbar.jpg";
+import heroLogo from "../assets/tanukrit_logo.jpg";
+
 export const CONTENT = {
     navbar: {
         logo: "Tanukrit",
-        logoSrc: "/src/assets/tanukrit_logo_navbar.jpg",
+        logoSrc: navbarLogo,
         links: [
             { name: "About", hash: "#about" },
             { name: "Products", hash: "#products" },
@@ -12,7 +15,7 @@ export const CONTENT = {
     hero: {
         tagline: "Artfully Packaged. Emotionally Delivered.",
         title: "Tanukrit",
-        logoSrc: "/src/assets/tanukrit_logo.jpg",
+        logoSrc: heroLogo,
         description: "Premium gifting rooted in art, intention, and meaningful expression. Every gift is a conversation.",
         backgroundImage: "https://images.unsplash.com/photo-1549465220-1d8c9d9c4709?q=80&w=2670&auto=format&fit=crop",
     },
