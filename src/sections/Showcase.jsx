@@ -1,4 +1,4 @@
-import { CONTENT } from "../theme/content";
+import { CONTENT } from "../constants/content";
 
 const Showcase = () => {
     const { title, subtitle, items } = CONTENT.showcase;

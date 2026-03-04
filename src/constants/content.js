@@ -18,16 +18,30 @@ export const CONTENT = {
         logoSrc: heroLogo,
         description: "Premium gifting rooted in art, intention, and meaningful expression. Every gift is a conversation.",
         backgroundImage: "https://images.unsplash.com/photo-1549465220-1d8c9d9c4709?q=80&w=2670&auto=format&fit=crop",
+        motto: {
+            text: "It says “I see you,” “I value you,” “You matter.”",
+            context: "For me a gift can strengthen relationships, heal distances, celebrate milestones, and leave a lasting emotional imprint far beyond the moment it is received."
+        }
     },
     introduction: {
         title: "A creative soul with an innate artistic sensibility.",
-        description: "Tanukrit is the natural extension of Tanu’s journey—where art meets packaging, and packaging transforms into thoughtful gifting.",
+        description: "Tanukrit is the natural extension of Tanu’s journey—where art meets packaging, and packaging transforms into thoughtful gifting. With nearly 15 years of experience teaching art and design across schools and colleges, Tanu spent years nurturing creativity in others before founding Tanukrit.",
         founderImage: "https://images.unsplash.com/photo-1598550874175-4d0ef436c909?q=80&w=2574&auto=format&fit=crop",
+        founderDetails: {
+            name: "Tanu Agrawal",
+            role: "Founder and Creative Head",
+            education: "Graduate of the prestigious College of Art, Delhi (Fine Arts with Packaging subsidiary)",
+            experience: "Nearly 15 years of experience teaching art and design"
+        },
         values: [
             { id: 1, title: "Conversation", value: "Every gift tells a story" },
             { id: 2, title: "Detailing", value: "Intentional in every touch" },
             { id: 3, title: "Purpose", value: "Gifts that carry intention" },
         ],
+        stats: {
+            established: "2023",
+            orders: "40+"
+        }
     },
     showcase: {
         title: "Our Work",
@@ -90,7 +104,9 @@ export const CONTENT = {
             { id: 3, name: "LinkedIn", link: "https://www.linkedin.com/in/tanu-agrawal-89611b3b0/", icon: "linkedin", color: "#0077B5" },
             { id: 4, name: "Email", link: "mailto:support@tanukrit.com", icon: "mail", color: "#EA4335" },
         ],
+        phones: ["+91 7982666274", "+91 7011313509"],
         location: {
+            city: "Delhi",
             address: "2nd Floor, C-526, Vikaspuri, Delhi, 110018",
             disclaimer: "Visit by appointment strictly",
             link: "https://maps.app.goo.gl/SugEWPxAq7y1fZDy9",

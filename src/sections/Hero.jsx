@@ -1,4 +1,4 @@
-import { CONTENT } from "../theme/content";
+import { CONTENT } from "../constants/content";
 
 const Hero = () => {
     const { tagline, title, logoSrc, description, ctaPrimary, ctaSecondary, backgroundImage } = CONTENT.hero;
@@ -39,9 +39,16 @@ const Hero = () => {
                         className="h-40 md:h-56 w-auto object-contain brightness-110"
                     />
                 </div>
-                <p className="text-base md:text-xl font-light mb-12 max-w-2xl mx-auto leading-relaxed opacity-90 px-4">
+                <p className="text-base md:text-xl font-light mb-8 max-w-2xl mx-auto leading-relaxed opacity-90 px-4">
                     {description}
                 </p>
+                {CONTENT.hero.motto && (
+                    <div className="animate-fade-in delay-500">
+                        <p className="text-lg md:text-2xl font-heading italic text-accent/90 mb-2">
+                            {CONTENT.hero.motto.text}
+                        </p>
+                    </div>
+                )}
             </div>
 
             {/* Scroll Indicator */}

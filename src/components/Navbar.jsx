@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { CONTENT } from "../theme/content";
+import { CONTENT } from "../constants/content";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
 

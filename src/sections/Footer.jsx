@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { ArrowUp } from "lucide-react";
-import { CONTENT } from "../theme/content";
+import { CONTENT } from "../constants/content";
 import navbarLogo from "../assets/tanukrit_logo_navbar.jpg";
 
 const Footer = () => {

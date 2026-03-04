@@ -1,5 +1,5 @@
 import { Instagram, MessageCircle, Linkedin, MapPin, Mail } from "lucide-react";
-import { CONTENT } from "../theme/content";
+import { CONTENT } from "../constants/content";
 
 const Contact = () => {
     const { title, description, socials, location, footer } = CONTENT.contact;
