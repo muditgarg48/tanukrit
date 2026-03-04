@@ -4,6 +4,7 @@ import Introduction from "./sections/Introduction";
 import Showcase from "./sections/Showcase";
 import Testimonials from "./sections/Testimonials";
 import Contact from "./sections/Contact";
+import Footer from "./sections/Footer";
 import SectionWrapper from "./components/SectionWrapper";
 
 function App() {
@@ -20,9 +21,10 @@ function App() {
       <SectionWrapper data-nav-theme="light">
         <Testimonials />
       </SectionWrapper>
-      <SectionWrapper data-nav-theme="dark" full={false}>
+      <SectionWrapper data-nav-theme="dark" full={true}>
         <Contact />
       </SectionWrapper>
+      <Footer />
     </main>
   );
 }

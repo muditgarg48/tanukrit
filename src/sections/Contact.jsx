@@ -13,10 +13,10 @@ const Contact = () => {
     };
 
     return (
-        <section id="contact" data-nav-theme="dark" className="relative pb-4 bg-primary overflow-hidden min-h-[auto]">
+        <section id="contact" data-nav-theme="dark" className="relative py-20 bg-primary overflow-hidden min-h-screen flex flex-col">
             {/* Decorative background elements could be added here if needed */}
 
-            <div className="max-w-6xl mx-auto px-4 relative z-10">
+            <div className="max-w-6xl mx-auto px-4 relative z-10 flex-1 flex flex-col justify-evenly w-full">
                 <div className="text-center mb-12">
                     <h2 className="text-white text-5xl md:text-7xl font-heading mb-6">
                         {title}
@@ -100,12 +100,6 @@ const Contact = () => {
                     </div>
                 </div>
             </div>
-
-            <footer className="mt-12 pt-6 border-t border-white/5 px-4 text-center">
-                <div className="text-white/30 text-[10px] uppercase tracking-[0.3em] font-medium">
-                    {footer.copyright}
-                </div>
-            </footer>
         </section>
     );
 };
