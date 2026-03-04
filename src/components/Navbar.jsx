@@ -6,7 +6,7 @@ import { Menu, X } from "lucide-react";
 const DesktopNavbar = ({ isLight }) => (
     <div className={`px-8 py-2.5 rounded-full flex justify-between items-center shadow-lg transition-all duration-500 relative z-10 w-full ${isLight ? "glass-primary" : "glass"
         }`}>
-        <a href="#" className="h-9 relative z-20">
+        <a href="#" className="h-12 relative z-20">
             <img
                 src={isLight ? CONTENT.navbar.logoSrc : CONTENT.hero.logoSrc}
                 alt={CONTENT.navbar.logo}
@@ -33,7 +33,7 @@ const MobileNavbar = ({ isLight, toggleMenu, isMenuOpen, menuVariants }) => (
         <div className="flex justify-between items-center relative z-10 w-full">
             <a
                 href="#"
-                className={`h-11 w-auto relative z-20 flex items-center transition-all duration-500 ${isLight ? "glass-primary" : "glass"
+                className={`h-14 w-auto relative z-20 flex items-center transition-all duration-500 ${isLight ? "glass-primary" : "glass"
                     } px-5 rounded-full shadow-lg`}
             >
                 <img

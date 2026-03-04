@@ -36,7 +36,7 @@ const Hero = () => {
                     <img
                         src={logoSrc}
                         alt={title}
-                        className="h-28 md:h-40 w-auto object-contain brightness-110"
+                        className="h-40 md:h-56 w-auto object-contain brightness-110"
                     />
                 </div>
                 <p className="text-base md:text-xl font-light mb-12 max-w-2xl mx-auto leading-relaxed opacity-90 px-4">
