@@ -1,7 +1,7 @@
 import { motion, useScroll, useTransform, useSpring } from "framer-motion";
 import { useState, useEffect, useRef } from "react";
 
-const SectionWrapper = ({ children, "data-nav-theme": navTheme }) => {
+const SectionWrapper = ({ children, "data-nav-theme": navTheme, full = true }) => {
     const containerRef = useRef(null);
     const { scrollYProgress } = useScroll({
         target: containerRef,
@@ -45,10 +45,10 @@ const SectionWrapper = ({ children, "data-nav-theme": navTheme }) => {
             ref={containerRef}
             data-nav-theme={navTheme}
             style={{
-                scrollSnapAlign: "start",
-                scrollSnapStop: "always",
+                scrollSnapAlign: full ? "start" : "none",
+                scrollSnapStop: full ? "always" : "normal",
             }}
-            className="relative w-full min-h-screen flex flex-col items-center bg-transparent"
+            className={`relative w-full ${full ? "min-h-screen" : "min-h-0"} flex flex-col items-center bg-transparent`}
         >
             <motion.div
                 style={{

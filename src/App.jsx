@@ -20,7 +20,7 @@ function App() {
       <SectionWrapper data-nav-theme="light">
         <Testimonials />
       </SectionWrapper>
-      <SectionWrapper data-nav-theme="dark">
+      <SectionWrapper data-nav-theme="dark" full={false}>
         <Contact />
       </SectionWrapper>
     </main>

@@ -85,12 +85,18 @@ export const CONTENT = {
         description: "We look forward to creating something meaningful for you—just as we have for families and clients across the world.",
         cta: "Get in Touch",
         socials: [
-            { id: 1, name: "Instagram", link: "https://www.instagram.com/tanu.krit", icon: "instagram" },
-            { id: 2, name: "WhatsApp", link: "https://wa.me/917982666274", icon: "whatsapp" },
-            { id: 3, name: "LinkedIn", link: "https://www.linkedin.com/in/tanu-agrawal-89611b3b0/", icon: "linkedin" },
-            { id: 4, name: "Location", link: "https://maps.app.goo.gl/SugEWPxAq7y1fZDy9", icon: "map-pin" },
-            { id: 5, name: "Email", link: "mailto:support@tanukrit.com", icon: "mail" },
+            { id: 1, name: "Instagram", link: "https://www.instagram.com/tanu.krit", icon: "instagram", color: "#E1306C" },
+            { id: 2, name: "WhatsApp", link: "https://wa.me/917982666274", icon: "whatsapp", color: "#25D366" },
+            { id: 3, name: "LinkedIn", link: "https://www.linkedin.com/in/tanu-agrawal-89611b3b0/", icon: "linkedin", color: "#0077B5" },
+            { id: 4, name: "Email", link: "mailto:support@tanukrit.com", icon: "mail", color: "#EA4335" },
         ],
+        location: {
+            address: "2nd Floor, C-526, Vikaspuri, Delhi, 110018",
+            disclaimer: "Visit by appointment strictly",
+            link: "https://maps.app.goo.gl/SugEWPxAq7y1fZDy9",
+            embedUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3501.442801453303!2d77.0664!3d28.6312!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390d0590ed4b2d9d%3A0x633454b5dfd4e0e!2sC-526%2C%20Vikaspuri%2C%20Delhi%2C%20110018!5e0!3m2!1sen!2sin!4v1710000000000!5m2!1sen!2sin",
+            icon: "map-pin"
+        },
         footer: {
             copyright: `© ${new Date().getFullYear()} Tanukrit • Designed with Intention`,
             tagline: "Artfully Packaged • Emotionally Delivered"
