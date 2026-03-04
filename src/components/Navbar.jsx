@@ -4,13 +4,13 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
 
 const DesktopNavbar = ({ isLight }) => (
-    <div className={`px-8 py-2.5 rounded-full flex justify-between items-center shadow-lg transition-all duration-500 relative z-10 w-full ${isLight ? "glass-primary" : "glass"
+    <div className={`px-8 py-2.5 rounded-full flex justify-between items-center shadow-lg transition-[background-color,border-color,color,transform] duration-500 relative z-10 w-full ${isLight ? "glass-primary" : "glass"
         }`}>
         <a href="#" className="h-12 relative z-20">
             <img
                 src={isLight ? CONTENT.navbar.logoSrc : CONTENT.hero.logoSrc}
                 alt={CONTENT.navbar.logo}
-                className={`h-full w-auto object-contain transition-all duration-500`}
+                className={`h-full w-auto object-contain transition-[opacity,transform] duration-500`}
             />
         </a>
         <div className="flex gap-8">
@@ -33,19 +33,19 @@ const MobileNavbar = ({ isLight, toggleMenu, isMenuOpen, menuVariants }) => (
         <div className="flex justify-between items-center relative z-10 w-full">
             <a
                 href="#"
-                className={`h-14 w-auto relative z-20 flex items-center transition-all duration-500 ${isLight ? "glass-primary" : "glass"
+                className={`h-14 w-auto relative z-20 flex items-center transition-[background-color,border-color,color,transform] duration-500 ${isLight ? "glass-primary" : "glass"
                     } px-5 rounded-full shadow-lg`}
             >
                 <img
                     src={isLight ? CONTENT.navbar.logoSrc : CONTENT.hero.logoSrc}
                     alt={CONTENT.navbar.logo}
-                    className={`h-full w-auto object-contain transition-all duration-500`}
+                    className={`h-full w-auto object-contain transition-[opacity,transform] duration-500`}
                 />
             </a>
 
             <button
                 onClick={toggleMenu}
-                className={`w-11 h-11 flex items-center justify-center rounded-full shadow-lg transition-all duration-500 relative z-20 ${isLight
+                className={`w-11 h-11 flex items-center justify-center rounded-full shadow-lg transition-[background-color,border-color,color,transform] duration-500 relative z-20 ${isLight
                     ? "glass-primary text-primary hover:bg-primary/10"
                     : "glass text-white hover:bg-white/10"
                     }`}
@@ -162,7 +162,7 @@ const Navbar = () => {
 
     return (
         <nav
-            className={`fixed top-6 left-1/2 -translate-x-1/2 z-50 w-[90%] max-w-4xl transition-all duration-700 ease-in-out ${scrolled ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-4 pointer-events-none"
+            className={`fixed top-6 left-1/2 -translate-x-1/2 z-50 w-[90%] max-w-4xl transition-[opacity,transform] duration-700 ease-in-out ${scrolled ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-4 pointer-events-none"
                 }`}
         >
             {isDesktop ? (
