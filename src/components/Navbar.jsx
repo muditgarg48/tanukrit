@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { CONTENT } from "../constants/content";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
+import { scrollToHash } from "../utils/scroll";
 
 const DesktopNavbar = ({ isLight }) => (
     <div className={`px-8 py-2.5 rounded-full flex justify-between items-center shadow-lg transition-[background-color,border-color,color,transform] duration-500 relative z-10 w-full ${isLight ? "glass-primary" : "glass"
@@ -18,6 +19,7 @@ const DesktopNavbar = ({ isLight }) => (
                 <a
                     key={link.name}
                     href={link.hash}
+                    onClick={(e) => { e.preventDefault(); scrollToHash(link.hash); }}
                     className={`text-sm font-medium transition-colors duration-500 uppercase tracking-widest ${isLight ? "text-primary hover:text-primary/70" : "text-white hover:text-white/70"
                         }`}
                 >
@@ -73,7 +75,7 @@ const MobileNavbar = ({ isLight, toggleMenu, isMenuOpen, menuVariants }) => (
                                 initial={{ opacity: 0, y: 10 }}
                                 animate={{ opacity: 1, y: 0 }}
                                 transition={{ delay: index * 0.05 }}
-                                onClick={toggleMenu}
+                                onClick={(e) => { e.preventDefault(); scrollToHash(link.hash); toggleMenu(); }}
                                 className={`text-lg font-medium uppercase tracking-widest transition-colors duration-300 ${isLight ? "text-primary hover:text-primary/60" : "text-white hover:text-white/60"
                                     }`}
                             >

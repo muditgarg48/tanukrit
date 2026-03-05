@@ -1,10 +1,11 @@
 import { CONTENT } from "../constants/content";
+import { scrollToHash } from "../utils/scroll";
 
 const Hero = () => {
     const { tagline, title, logoSrc, description, ctaPrimary, ctaSecondary, backgroundImage } = CONTENT.hero;
 
     return (
-        <section data-nav-theme="dark" className="relative h-screen flex flex-col items-center justify-center overflow-hidden bg-primary px-4 pt-20 snap-start">
+        <section data-nav-theme="dark" className="relative h-screen flex flex-col items-center justify-center overflow-hidden bg-primary px-4 pt-20">
             {/* Background Image Layer */}
             <div
                 className="absolute inset-0 bg-cover bg-center z-0"
@@ -20,6 +21,7 @@ const Hero = () => {
                         <a
                             key={link.name}
                             href={link.hash}
+                            onClick={(e) => { e.preventDefault(); scrollToHash(link.hash); }}
                             className="text-[10px] md:text-xs font-medium text-white/70 hover:text-white transition-colors uppercase tracking-[0.3em]"
                         >
                             {link.name}
