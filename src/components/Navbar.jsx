@@ -5,7 +5,7 @@ import { Menu, X } from "lucide-react";
 import { scrollToHash } from "../utils/scroll";
 
 const DesktopNavbar = ({ isLight }) => (
-    <div className={`px-8 py-2.5 rounded-full flex justify-between items-center shadow-lg transition-[background-color,border-color,color,transform] duration-500 relative z-10 w-full ${isLight ? "glass-primary" : "glass"
+    <div className={`px-8 py-2.5 rounded-full flex justify-between items-center shadow-lg transition-[background-color,border-color,color,transform] duration-500 relative z-10 w-full ${isLight ? "bg-[#dca3d7]/15 backdrop-blur-md border border-[#dca3d7]/30" : "bg-white/20 backdrop-blur-md border border-white/30"
         }`}>
         <a href="#" className="h-12 relative z-20">
             <img
@@ -35,7 +35,7 @@ const MobileNavbar = ({ isLight, toggleMenu, isMenuOpen, menuVariants }) => (
         <div className="flex justify-between items-center relative z-10 w-full">
             <a
                 href="#"
-                className={`h-14 w-auto relative z-20 flex items-center transition-[background-color,border-color,color,transform] duration-500 ${isLight ? "glass-primary" : "glass"
+                className={`h-14 w-auto relative z-20 flex items-center transition-[background-color,border-color,color,transform] duration-500 ${isLight ? "bg-[#dca3d7]/15 backdrop-blur-md border border-[#dca3d7]/30" : "bg-white/20 backdrop-blur-md border border-white/30"
                     } px-5 rounded-full shadow-lg`}
             >
                 <img
@@ -48,8 +48,8 @@ const MobileNavbar = ({ isLight, toggleMenu, isMenuOpen, menuVariants }) => (
             <button
                 onClick={toggleMenu}
                 className={`w-11 h-11 flex items-center justify-center rounded-full shadow-lg transition-[background-color,border-color,color,transform] duration-500 relative z-20 ${isLight
-                    ? "glass-primary text-primary hover:bg-primary/10"
-                    : "glass text-white hover:bg-white/10"
+                    ? "bg-[#dca3d7]/15 backdrop-blur-md border border-[#dca3d7]/30 text-primary hover:bg-primary/10"
+                    : "bg-white/20 backdrop-blur-md border border-white/30 text-white hover:bg-white/10"
                     }`}
                 aria-label="Toggle menu"
             >
@@ -64,7 +64,7 @@ const MobileNavbar = ({ isLight, toggleMenu, isMenuOpen, menuVariants }) => (
                     animate="visible"
                     exit="hidden"
                     variants={menuVariants}
-                    className={`absolute top-full left-0 right-0 mt-4 p-10 rounded-[2.5rem] shadow-2xl overflow-hidden ${isLight ? "glass-primary" : "glass"
+                    className={`absolute top-full left-0 right-0 mt-4 p-10 rounded-[2.5rem] shadow-2xl overflow-hidden ${isLight ? "bg-[#dca3d7]/15 backdrop-blur-md border border-[#dca3d7]/30" : "bg-white/20 backdrop-blur-md border border-white/30"
                         }`}
                 >
                     <div className="flex flex-wrap justify-center gap-x-10 gap-y-8">
