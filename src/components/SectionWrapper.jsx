@@ -37,7 +37,6 @@ const SectionWrapper = ({ children, "data-nav-theme": navTheme, full = true }) =
 
     const scale = useSpring(useTransform(scrollYProgress, range, [0.94, 1, 1, 0.94]), springConfig);
     const borderRadius = useSpring(useTransform(scrollYProgress, range, ["32px", "0px", "0px", "32px"]), springConfig);
-    const opacity = useTransform(scrollYProgress, [range[0], range[1], range[2], range[3]], [0.6, 1, 1, 0.6]);
     const zIndex = useTransform(scrollYProgress, [0, 0.5, 1], [1, 10, 1]);
 
     return (
@@ -54,10 +53,9 @@ const SectionWrapper = ({ children, "data-nav-theme": navTheme, full = true }) =
                 style={{
                     scale,
                     borderRadius,
-                    opacity,
                     zIndex,
                     transformOrigin: "center center",
-                    willChange: "transform, border-radius, opacity",
+                    willChange: "transform, border-radius",
                 }}
                 className="w-full overflow-hidden bg-white shadow-2xl"
             >

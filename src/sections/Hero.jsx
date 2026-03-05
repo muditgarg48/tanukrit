@@ -15,7 +15,7 @@ const Hero = () => {
 
             {/* Minimal Navigation Layer */}
             <div className="absolute top-0 left-0 w-full h-24 z-20 flex justify-center items-center">
-                <div className="flex gap-10 md:gap-16">
+                <div className="flex flex-wrap justify-center gap-x-6 gap-y-2 md:gap-x-14 px-4">
                     {CONTENT.navbar.links.map((link) => (
                         <a
                             key={link.name}

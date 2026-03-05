@@ -94,10 +94,6 @@ const Navbar = () => {
     const [isDesktop, setIsDesktop] = useState(window.innerWidth >= 768);
 
     useEffect(() => {
-        const handleScroll = () => {
-            setScrolled(window.scrollY > 100);
-        };
-
         const handleResize = () => {
             const currentIsDesktop = window.innerWidth >= 768;
             setIsDesktop(currentIsDesktop);
@@ -106,32 +102,38 @@ const Navbar = () => {
             }
         };
 
-        const observerOptions = {
-            root: null,
-            rootMargin: "-20% 0px -70% 0px",
-            threshold: 0
-        };
+        const updateNavState = () => {
+            setScrolled(window.scrollY > 100);
 
-        const handleIntersection = (entries) => {
-            entries.forEach((entry) => {
-                if (entry.isIntersecting) {
-                    const theme = entry.target.getAttribute("data-nav-theme");
-                    if (theme) setNavTheme(theme);
+            // Probe the pixel that sits at the navbar's visual center.
+            // The nav is fixed at top-6 (24px) and is ~40px tall, so its centre
+            // is at roughly y = 44px in the viewport. We check which themed
+            // section contains that exact point so the theme switches the instant
+            // the section boundary crosses the navbar — no offset.
+            const NAVBAR_CENTER_Y = 44;
+            const themedElements = document.querySelectorAll("[data-nav-theme]");
+            let matched = null;
+
+            themedElements.forEach((el) => {
+                const rect = el.getBoundingClientRect();
+                if (rect.top <= NAVBAR_CENTER_Y && rect.bottom >= NAVBAR_CENTER_Y) {
+                    matched = el;
                 }
             });
+
+            if (matched) {
+                const theme = matched.getAttribute("data-nav-theme");
+                if (theme) setNavTheme(theme);
+            }
         };
 
-        const observer = new IntersectionObserver(handleIntersection, observerOptions);
-        const themedElements = document.querySelectorAll("[data-nav-theme]");
-        themedElements.forEach((el) => observer.observe(el));
-
-        window.addEventListener("scroll", handleScroll);
+        updateNavState();
+        window.addEventListener("scroll", updateNavState, { passive: true });
         window.addEventListener("resize", handleResize);
 
         return () => {
-            window.removeEventListener("scroll", handleScroll);
+            window.removeEventListener("scroll", updateNavState);
             window.removeEventListener("resize", handleResize);
-            observer.disconnect();
         };
     }, []);
 

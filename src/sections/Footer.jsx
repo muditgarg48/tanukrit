@@ -40,9 +40,9 @@ const Footer = () => {
                     </div>
 
                     {/* Developer Credits - Mudit Garg */}
-                    <div className="flex items-center gap-2 group">
-                        <span className="text-stone-400 text-[10px] uppercase tracking-widest">
-                            Developer & Maintainer:
+                    <div className="flex items-baseline gap-2 group">
+                        <span className="text-stone-400 text-[10px] md:text-xs uppercase tracking-widest">
+                            Developer &amp; Maintainer:
                         </span>
                         <a
                             href="https://muditgarg48.github.io"
