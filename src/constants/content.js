@@ -24,23 +24,29 @@ export const CONTENT = {
         }
     },
     introduction: {
-        title: "A creative soul with an innate artistic sensibility.",
-        description: "Tanukrit is the natural extension of Tanu's journey—where art meets packaging, and packaging transforms into thoughtful gifting. With nearly 15 years of experience teaching art and design across schools and colleges, Tanu spent years nurturing creativity in others before founding Tanukrit.",
-        founderImage: "https://images.unsplash.com/photo-1598550874175-4d0ef436c909?q=80&w=2574&auto=format&fit=crop",
-        founderDetails: {
-            name: "Tanu Agrawal",
-            role: "Founder and Creative Head",
-            education: "Graduate of the prestigious College of Art, Delhi (Fine Arts with Packaging subsidiary)",
-            experience: "Nearly 15 years of experience teaching art and design"
+        story: {
+            title: "Artfully Packaged. Emotionally Delivered.",
+            description: "At Tanukrit, we believe a gift is far more than an object—it's a catalyst for connection. Our sets are designed to strengthen relationships, heal distances, and leave a lasting emotional imprint that remains long after the moment has passed.",
+            beliefs: "Every creation reflects our belief that a gift should not only look beautiful but also carry intention, emotion, and care. When you gift with purpose, you don't just give an item—you give a feeling.",
+            values: [
+                { id: 1, title: "Conversation", value: "Every gift is a dialogue between giver and receiver." },
+                { id: 2, title: "Detailing", value: "Intentionality in every fold, ribbon, and tag." },
+                { id: 3, title: "Purpose", value: "Curations guided by deep respect for the occasion." },
+            ],
         },
-        values: [
-            { id: 1, title: "Conversation", value: "Every gift tells a story" },
-            { id: 2, title: "Detailing", value: "Intentional in every touch" },
-            { id: 3, title: "Purpose", value: "Gifts that carry intention" },
-        ],
-        stats: {
-            established: "2023",
-            orders: "40+"
+        founder: {
+            title: "The Visionary Behind the Craft",
+            name: "Tanu Agrawal",
+            role: "Founder & Creative Head",
+            bio: "Tanu is a creative soul with a natural knack for beautifying everything she touches. For her, art has never been just a profession—it has been a way of seeing the world through a lens of aesthetics and purpose.",
+            education: "A graduate of the prestigious College of Art, Delhi (Fine Arts with Packaging subsidiary), she blends artistic creativity with the structural precision of packaging.",
+            experience: "Before founding Tanukrit in 2023, Tanu spent nearly 15 years nurturing creativity in others as an art and design educator across schools and colleges.",
+            stats: {
+                established: "2023",
+                orders: "40+",
+                reach: "Pan India"
+            },
+            founderImage: "https://images.unsplash.com/photo-1598550874175-4d0ef436c909?q=80&w=2574&auto=format&fit=crop", // Keep existing or update if user provides new
         }
     },
     showcase: {
