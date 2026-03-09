@@ -94,6 +94,21 @@ h4,
     background: color-mix(in srgb, var(--color-primary), black 15%);
 }
 
+@keyframes marquee {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}
+
+.animate-marquee {
+    display: flex;
+    width: max-content;
+    animation: marquee 30s linear infinite;
+}
+
+.animate-marquee:hover {
+    animation-play-state: paused;
+}
+
 * {
     scrollbar-width: thin;
     scrollbar-color: var(--color-primary) transparent;

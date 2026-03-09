@@ -1,6 +1,12 @@
 import navbarLogo from "../assets/tanukrit_logo_navbar.jpg";
 import heroLogo from "../assets/tanukrit_logo.jpg";
 import heroBackground from "../assets/hero_background.jpg";
+import founderImage from "../assets/founder_image.png";
+import metlzLogo from "../assets/brands/meltz_logo.png";
+import publicissapientLogo from "../assets/brands/publicissapient_logo.png";
+import wbiweddingsLogo from "../assets/brands/wbiweddings_logo.png";
+import badhaihoeventsLogo from "../assets/brands/badhaihoevents_logo.png";
+import jsfitnessstudioLogo from "../assets/brands/jsfitnessstudio_logo.jpg";
 
 export const CONTENT = {
     navbar: {
@@ -26,27 +32,39 @@ export const CONTENT = {
     introduction: {
         story: {
             title: "Artfully Packaged. Emotionally Delivered.",
-            description: "At Tanukrit, we believe a gift is far more than an object—it's a catalyst for connection. Our sets are designed to strengthen relationships, heal distances, and leave a lasting emotional imprint that remains long after the moment has passed.",
-            beliefs: "Every creation reflects our belief that a gift should not only look beautiful but also carry intention, emotion, and care. When you gift with purpose, you don't just give an item—you give a feeling.",
-            values: [
-                { id: 1, title: "Conversation", value: "Every gift is a dialogue between giver and receiver." },
-                { id: 2, title: "Detailing", value: "Intentionality in every fold, ribbon, and tag." },
-                { id: 3, title: "Purpose", value: "Curations guided by deep respect for the occasion." },
-            ],
+            beliefs: "The right gift is a heartfelt gesture of love, appreciation and care. We pour intention into every detail, crafting luxury hampers that tell a story. With Tanukrit, every gift is thoughtful and every detail is intentional.",
+        },
+        trustedBy: [
+            { id: 1, name: "Dusit Thani", logo: "https://www.dusit.com/wp-content/themes/dusit-global/images/corporate-logos/d/dusit-black.svg" },
+            { id: 2, name: "MELTZ", logo: metlzLogo },
+            { id: 3, name: "Publicis Sapient", logo: publicissapientLogo },
+            { id: 4, name: "WBI", logo: wbiweddingsLogo },
+            { id: 5, name: "Badhai Ho Events", logo: badhaihoeventsLogo },
+            { id: 6, name: "js Fitness Studio", logo: jsfitnessstudioLogo }
+        ],
+        trust: {
+            title: "Why Brands Trust Us",
+            items: [
+                { id: 1, title: "Thoughtful Gifting", icon: "Gift" },
+                { id: 2, title: "Custom Personalisation", icon: "UserCheck" },
+                { id: 3, title: "Premium Sourcing", icon: "Gem" },
+                { id: 4, title: "End to End Service", icon: "PackageCheck" },
+                { id: 5, title: "Bulk Gifting Solutions", icon: "Building2" },
+            ]
         },
         founder: {
-            title: "The Visionary Behind the Craft",
+            title: "Meet the Founder",
             name: "Tanu Agrawal",
             role: "Founder & Creative Head",
-            bio: "Tanu is a creative soul with a natural knack for beautifying everything she touches. For her, art has never been just a profession—it has been a way of seeing the world through a lens of aesthetics and purpose.",
-            education: "A graduate of the prestigious College of Art, Delhi (Fine Arts with Packaging subsidiary), she blends artistic creativity with the structural precision of packaging.",
+            bio: "Tanu is the founder and creative force behind every creation at Tanukrit. She envisioned gifting as something more personal - where every hamper tells a story and every element is thoughtfully designed. Through Tanukrit, she hopes to create gifts that bring joy, bring people together and become part of people’s most meaningful moments.",
+            education: "Being a graduate of the prestigious College of Art, Delhi (Fine Arts with Packaging subsidiary) and having over 15 years of experience in teaching art and design, aesthetics have always been second nature to her. Her love for detail, thoughtful curation and artistic expression inspired her to begin Tanukrit.",
             stats: {
                 established: "2023",
                 orders: "40+",
                 reach: "Pan India",
                 experience: "Nearly 15 years"
             },
-            founderImage: "https://images.unsplash.com/photo-1598550874175-4d0ef436c909?q=80&w=2574&auto=format&fit=crop", // Keep existing or update if user provides new
+            founderImage: founderImage,
         }
     },
     showcase: {

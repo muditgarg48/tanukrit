@@ -13,10 +13,10 @@ const Contact = () => {
     };
 
     return (
-        <section id="contact" data-nav-theme="dark" className="relative py-20 bg-primary overflow-hidden min-h-screen flex flex-col">
+        <section id="contact" data-nav-theme="dark" className="relative px-4 py-24 bg-primary overflow-hidden min-h-screen flex flex-col">
             {/* Decorative background elements could be added here if needed */}
 
-            <div className="max-w-6xl mx-auto px-4 relative z-10 flex-1 flex flex-col justify-evenly w-full">
+            <div className="max-w-6xl mx-auto relative z-10 flex-1 flex flex-col justify-evenly w-full">
                 <div className="text-center mb-12">
                     <h2 className="text-white text-5xl md:text-7xl font-heading mb-6">
                         {title}
