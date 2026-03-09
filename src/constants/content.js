@@ -1,5 +1,6 @@
 import navbarLogo from "../assets/tanukrit_logo_navbar.jpg";
 import heroLogo from "../assets/tanukrit_logo.jpg";
+import heroBackground from "../assets/hero_background.jpg";
 
 export const CONTENT = {
     navbar: {
@@ -13,14 +14,13 @@ export const CONTENT = {
         ],
     },
     hero: {
-        tagline: "Artfully Packaged. Emotionally Delivered.",
+        tagline: "Curated with Care. Designed with Intention.",
         title: "Tanukrit",
         logoSrc: heroLogo,
-        description: "Premium gifting rooted in art, intention, and meaningful expression. Every gift is a conversation.",
-        backgroundImage: "https://images.unsplash.com/photo-1549465220-1d8c9d9c4709?q=80&w=2670&auto=format&fit=crop",
+        description: "Every gift is more than just an exchange. It is a heartfelt gesture of love, appreciation and care. ",
+        backgroundImage: heroBackground,
         motto: {
-            text: "It says “I see you,” “I value you,” “You matter.”",
-            context: "For me a gift can strengthen relationships, heal distances, celebrate milestones, and leave a lasting emotional imprint far beyond the moment it is received."
+            text: "We curate gifts that say, “I see you,” “I value you,” “You matter.”",
         }
     },
     introduction: {
@@ -40,11 +40,11 @@ export const CONTENT = {
             role: "Founder & Creative Head",
             bio: "Tanu is a creative soul with a natural knack for beautifying everything she touches. For her, art has never been just a profession—it has been a way of seeing the world through a lens of aesthetics and purpose.",
             education: "A graduate of the prestigious College of Art, Delhi (Fine Arts with Packaging subsidiary), she blends artistic creativity with the structural precision of packaging.",
-            experience: "Before founding Tanukrit in 2023, Tanu spent nearly 15 years nurturing creativity in others as an art and design educator across schools and colleges.",
             stats: {
                 established: "2023",
                 orders: "40+",
-                reach: "Pan India"
+                reach: "Pan India",
+                experience: "Nearly 15 years"
             },
             founderImage: "https://images.unsplash.com/photo-1598550874175-4d0ef436c909?q=80&w=2574&auto=format&fit=crop", // Keep existing or update if user provides new
         }
@@ -103,21 +103,17 @@ export const CONTENT = {
     contact: {
         title: "Ready to tell your story?",
         description: "We look forward to creating something meaningful for you—just as we have for families and clients across the world.",
-        cta: "Get in Touch",
         socials: [
             { id: 1, name: "Instagram", link: "https://www.instagram.com/tanu.krit", icon: "instagram", color: "#E1306C" },
             { id: 2, name: "WhatsApp", link: "https://wa.me/917982666274", icon: "whatsapp", color: "#25D366" },
             { id: 3, name: "LinkedIn", link: "https://www.linkedin.com/in/tanu-agrawal-89611b3b0/", icon: "linkedin", color: "#0077B5" },
             { id: 4, name: "Email", link: "mailto:support@tanukrit.com", icon: "mail", color: "#EA4335" },
         ],
-        phones: ["+91 7982666274", "+91 7011313509"],
         location: {
-            city: "Delhi",
             address: "2nd Floor, C-526, Vikaspuri, Delhi, 110018",
             disclaimer: "Visit by appointment strictly",
             link: "https://maps.app.goo.gl/SugEWPxAq7y1fZDy9",
             embedUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3501.442801453303!2d77.0664!3d28.6312!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390d0590ed4b2d9d%3A0x633454b5dfd4e0e!2sC-526%2C%20Vikaspuri%2C%20Delhi%2C%20110018!5e0!3m2!1sen!2sin!4v1710000000000!5m2!1sen!2sin",
-            icon: "map-pin"
         },
         footer: {
             copyright: `© ${new Date().getFullYear()} Tanukrit • Designed with Intention`,
