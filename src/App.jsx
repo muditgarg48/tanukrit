@@ -1,4 +1,5 @@
 import Navbar from "./components/Navbar";
+import FloatingActions from "./components/FloatingActions";
 import ContentFrame from "./components/ContentFrame";
 import Hero from "./sections/Hero";
 import Introduction from "./sections/Introduction";
@@ -11,6 +12,7 @@ function App() {
   return (
     <main className="font-body selection:bg-accent/30 selection:text-primary overflow-x-hidden bg-primary">
       <Navbar />
+      <FloatingActions />
       <Hero />
       <ContentFrame>
         <Showcase />
