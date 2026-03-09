@@ -13,8 +13,8 @@ function App() {
       <Navbar />
       <Hero />
       <ContentFrame>
-        <Introduction />
         <Showcase />
+        <Introduction />
         <Testimonials />
         <Contact />
       </ContentFrame>

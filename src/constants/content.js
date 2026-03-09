@@ -6,8 +6,8 @@ export const CONTENT = {
         logo: "Tanukrit",
         logoSrc: navbarLogo,
         links: [
-            { name: "About", hash: "#about" },
-            { name: "Products", hash: "#products" },
+            { name: "Work", hash: "#products" },
+            { name: "Our Story", hash: "#about" },
             { name: "Testimonials", hash: "#testimonials" },
             { name: "Contact", hash: "#contact" },
         ],
@@ -25,7 +25,7 @@ export const CONTENT = {
     },
     introduction: {
         title: "A creative soul with an innate artistic sensibility.",
-        description: "Tanukrit is the natural extension of Tanu’s journey—where art meets packaging, and packaging transforms into thoughtful gifting. With nearly 15 years of experience teaching art and design across schools and colleges, Tanu spent years nurturing creativity in others before founding Tanukrit.",
+        description: "Tanukrit is the natural extension of Tanu's journey—where art meets packaging, and packaging transforms into thoughtful gifting. With nearly 15 years of experience teaching art and design across schools and colleges, Tanu spent years nurturing creativity in others before founding Tanukrit.",
         founderImage: "https://images.unsplash.com/photo-1598550874175-4d0ef436c909?q=80&w=2574&auto=format&fit=crop",
         founderDetails: {
             name: "Tanu Agrawal",

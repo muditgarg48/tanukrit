@@ -166,7 +166,7 @@ const Navbar = () => {
 
     return (
         <nav
-            className={`fixed top-6 left-1/2 -translate-x-1/2 z-50 w-[90%] max-w-4xl transition-[opacity,transform] duration-700 ease-in-out ${scrolled ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-4 pointer-events-none"
+            className={`fixed top-6 left-1/2 -translate-x-1/2 z-50 w-[90%] md:w-[85vw] max-w-6xl transition-[opacity,transform] duration-700 ease-in-out ${scrolled ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-4 pointer-events-none"
                 }`}
         >
             {isDesktop ? (
