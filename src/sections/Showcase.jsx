@@ -7,34 +7,65 @@ const Showcase = () => {
     const { title, subtitle, description, items, cta } = CONTENT.showcase;
     const [activeIndex, setActiveIndex] = useState(0);
     const mobileScrollRef = useRef(null);
+    const isProgrammaticScroll = useRef(false);
+    const programmaticTarget = useRef(null);
+
+    const scrollToIndex = (index) => {
+        const container = mobileScrollRef.current;
+        if (!container || container.clientWidth === 0) return;
+
+        isProgrammaticScroll.current = true;
+        programmaticTarget.current = index;
+
+        const itemElements = container.querySelectorAll('.snap-center');
+        const targetElement = itemElements[index];
+        if (targetElement) {
+            const targetScrollLeft = targetElement.offsetLeft - (container.clientWidth / 2) + (targetElement.clientWidth / 2);
+            container.scrollTo({ left: targetScrollLeft, behavior: "smooth" });
+        }
+    };
 
     const handlePrev = () => {
-        setActiveIndex((prev) => (prev === 0 ? items.length - 1 : prev - 1));
+        setActiveIndex((prev) => {
+            const next = prev === 0 ? items.length - 1 : prev - 1;
+            scrollToIndex(next);
+            return next;
+        });
     };
 
     const handleNext = () => {
-        setActiveIndex((prev) => (prev === items.length - 1 ? 0 : prev + 1));
+        setActiveIndex((prev) => {
+            const next = prev === items.length - 1 ? 0 : prev + 1;
+            scrollToIndex(next);
+            return next;
+        });
     };
-
-    // Keep mobile scroll in sync if buttons are used, or vice versa
-    useEffect(() => {
-        if (mobileScrollRef.current) {
-            const container = mobileScrollRef.current;
-            const scrollAmount = activeIndex * (container.clientWidth * 0.7 + 16); // 70vw + gap
-            container.scrollTo({
-                left: scrollAmount,
-                behavior: "smooth"
-            });
-        }
-    }, [activeIndex]);
 
     const handleMobileScroll = (e) => {
         const container = e.target;
-        const scrollPosition = container.scrollLeft;
-        const itemWidth = container.clientWidth * 0.7 + 16;
-        const newIndex = Math.round(scrollPosition / itemWidth);
-        if (newIndex !== activeIndex) {
-            setActiveIndex(newIndex);
+        const containerCenter = container.scrollLeft + container.clientWidth / 2;
+        let minDistance = Infinity;
+        let closestIndex = activeIndex;
+
+        const itemElements = container.querySelectorAll('.snap-center');
+        itemElements.forEach((child, index) => {
+            const childCenter = child.offsetLeft + child.clientWidth / 2;
+            const distance = Math.abs(childCenter - containerCenter);
+            if (distance < minDistance) {
+                minDistance = distance;
+                closestIndex = index;
+            }
+        });
+
+        if (isProgrammaticScroll.current) {
+            if (closestIndex === programmaticTarget.current) {
+                isProgrammaticScroll.current = false;
+            }
+            return;
+        }
+
+        if (closestIndex !== activeIndex) {
+            setActiveIndex(closestIndex);
         }
     };
 
@@ -130,8 +161,11 @@ const Showcase = () => {
                                 return (
                                     <div
                                         key={item.id}
-                                        onClick={() => setActiveIndex(index)}
-                                        className={`shrink-0 w-[80vw] sm:w-[70vw] h-[55vh] max-h-[450px] min-h-[350px] snap-center relative rounded-[2.5rem] overflow-hidden group shadow-sm transition-transform duration-500 ease-out ${isActive ? 'scale-100 opacity-100' : 'scale-95 opacity-80'}`}
+                                        onClick={() => {
+                                            setActiveIndex(index);
+                                            scrollToIndex(index);
+                                        }}
+                                        className={`shrink-0 w-[80vw] sm:w-[70vw] h-[55vh] max-h-[450px] min-h-[350px] snap-center relative rounded-[2.5rem] overflow-hidden group shadow-sm transition-transform duration-500 ease-out ${isActive ? 'scale-100 opacity-100' : 'scale-90 opacity-80'}`}
                                     >
                                         <div
                                             className="absolute inset-0 bg-cover bg-center transition-transform duration-700 scale-100 group-hover:scale-110"
