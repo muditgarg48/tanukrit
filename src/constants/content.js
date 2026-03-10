@@ -1,25 +1,25 @@
-import navbarLogo from "../assets/tanukrit_logo_navbar.jpg";
-import heroLogo from "../assets/tanukrit_logo.jpg";
-import heroBackground from "../assets/hero_background.jpg";
-import founderImage from "../assets/founder_image.png";
+import navbarLogo from "../assets/tanukrit_logo_navbar.webp";
+import heroLogo from "../assets/tanukrit_logo.webp";
+import heroBackground from "../assets/hero_background.webp";
+import founderImage from "../assets/founder_image.webp";
 
 // Brands
-import metlzLogo from "../assets/brands/meltz_logo.png";
-import publicissapientLogo from "../assets/brands/publicissapient_logo.png";
-import wbiweddingsLogo from "../assets/brands/wbiweddings_logo.png";
-import badhaihoeventsLogo from "../assets/brands/badhaihoevents_logo.png";
-import jsfitnessstudioLogo from "../assets/brands/jsfitnessstudio_logo.jpg";
+import metlzLogo from "../assets/brands/meltz_logo.webp";
+import publicissapientLogo from "../assets/brands/publicissapient_logo.webp";
+import wbiweddingsLogo from "../assets/brands/wbiweddings_logo.webp";
+import badhaihoeventsLogo from "../assets/brands/badhaihoevents_logo.webp";
+import jsfitnessstudioLogo from "../assets/brands/jsfitnessstudio_logo.webp";
 // Work
-import babyShowerImage from "../assets/work/baby_shower.jpg";
-import birthdayFavoursImage from "../assets/work/birthday_favours.jpg";
-import corporateHampersImage from "../assets/work/corporate_hampers.jpg";
-import festivalsImage from "../assets/work/festivals.jpeg";
-import milestoneCelebrationsImage from "../assets/work/milestone_celebrations.jpg";
-import returnFavoursImage from "../assets/work/return_favours.jpg";
-import roomHampersImage from "../assets/work/room_hampers.jpg";
-import trousseauImage from "../assets/work/trousseau.jpg";
-import weddingFavoursImage from "../assets/work/wedding_favours.jpg";
-import weddingInvitesImage from "../assets/work/wedding_invites.jpg";
+import babyShowerImage from "../assets/work/baby_shower.webp";
+import birthdayFavoursImage from "../assets/work/birthday_favours.webp";
+import corporateHampersImage from "../assets/work/corporate_hampers.webp";
+import festivalsImage from "../assets/work/festivals.webp";
+import milestoneCelebrationsImage from "../assets/work/milestone_celebrations.webp";
+import returnFavoursImage from "../assets/work/return_favours.webp";
+import roomHampersImage from "../assets/work/room_hampers.webp";
+import trousseauImage from "../assets/work/trousseau.webp";
+import weddingFavoursImage from "../assets/work/wedding_favours.webp";
+import weddingInvitesImage from "../assets/work/wedding_invites.webp";
 
 export const CONTENT = {
     navbar: {
