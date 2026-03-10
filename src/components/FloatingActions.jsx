@@ -90,9 +90,9 @@ const FloatingActions = () => {
                         {!isDesktop && (
                             <button
                                 onClick={() => setIsOpen(!isOpen)}
-                                className={`w-11 h-11 flex items-center justify-center rounded-full shadow-lg transition-[background-color,border-color,color,transform] duration-500 relative z-20 cursor-pointer ${isLight
-                                        ? "bg-[#dca3d7]/15 backdrop-blur-md border border-[#dca3d7]/30 text-primary hover:bg-primary/10"
-                                        : "bg-white/20 backdrop-blur-md border border-white/30 text-white hover:bg-white/10"
+                                className={`w-14 h-14 flex items-center justify-center rounded-full shadow-lg transition-[background-color,border-color,color,transform] duration-500 relative z-20 cursor-pointer ${isLight
+                                    ? "bg-[#dca3d7]/15 backdrop-blur-md border border-[#dca3d7]/30 text-primary hover:bg-primary/10"
+                                    : "bg-white/20 backdrop-blur-md border border-white/30 text-white hover:bg-white/10"
                                     }`}
                                 aria-label="Toggle contact menu"
                             >
@@ -124,10 +124,10 @@ const FloatingActions = () => {
                                                 title="WhatsApp"
                                             >
                                                 <div
-                                                    className="w-12 h-12 rounded-xl border border-white/20 shadow-xl flex items-center justify-center transition-all duration-300 group-hover:brightness-110 group-hover:-translate-x-1"
+                                                    className={`w-14 h-14 rounded-full border border-white/20 shadow-xl flex items-center justify-center transition-[background-color,border-color,color,transform] duration-500 group-hover:brightness-110 group-hover:-translate-x-1 backdrop-blur-md`}
                                                     style={{ backgroundColor: whatsapp.color }}
                                                 >
-                                                    <MessageCircle className="text-white w-5 h-5" strokeWidth={1.5} />
+                                                    <MessageCircle className="text-white" size={24} strokeWidth={1.5} />
                                                 </div>
                                             </motion.a>
                                         )}
@@ -145,10 +145,10 @@ const FloatingActions = () => {
                                                 title="Instagram"
                                             >
                                                 <div
-                                                    className="w-12 h-12 rounded-xl border border-white/20 shadow-xl flex items-center justify-center transition-all duration-300 group-hover:brightness-110 group-hover:-translate-x-1"
+                                                    className={`w-14 h-14 rounded-full border border-white/20 shadow-xl flex items-center justify-center transition-[background-color,border-color,color,transform] duration-500 group-hover:brightness-110 group-hover:-translate-x-1 backdrop-blur-md`}
                                                     style={{ backgroundColor: instagram.color }}
                                                 >
-                                                    <Instagram className="text-white w-5 h-5" strokeWidth={1.5} />
+                                                    <Instagram className="text-white" size={24} strokeWidth={1.5} />
                                                 </div>
                                             </motion.a>
                                         )}
