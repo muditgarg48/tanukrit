@@ -34,6 +34,15 @@ export const CONTENT = {
             title: "Artfully Packaged. Emotionally Delivered.",
             beliefs: "The right gift is a heartfelt gesture of love, appreciation and care. We pour intention into every detail, crafting luxury hampers that tell a story. With Tanukrit, every gift is thoughtful and every detail is intentional.",
         },
+        howItWorks: {
+            title: "How It Works",
+            steps: [
+                { id: "01", title: "Share Your Requirement", description: "Tell us the occasion, quantity and hamper references (if any)." },
+                { id: "02", title: "We Curate Your Hampers", description: "Our team designs a personalised hamper concept for you." },
+                { id: "03", title: "Approve & Personalise", description: "Review the sample and add custom details." },
+                { id: "04", title: "We Pack & Deliver", description: "Your hampers are beautifully packed and delivered on time." },
+            ]
+        },
         trustedBy: [
             { id: 1, name: "Dusit Thani", logo: "https://www.dusit.com/wp-content/themes/dusit-global/images/corporate-logos/d/dusit-black.svg" },
             { id: 2, name: "MELTZ", logo: metlzLogo },
@@ -45,11 +54,10 @@ export const CONTENT = {
         trust: {
             title: "Why Brands Trust Us",
             items: [
-                { id: 1, title: "Thoughtful Gifting", icon: "Gift" },
-                { id: 2, title: "Custom Personalisation", icon: "UserCheck" },
-                { id: 3, title: "Premium Sourcing", icon: "Gem" },
-                { id: 4, title: "End to End Service", icon: "PackageCheck" },
-                { id: 5, title: "Bulk Gifting Solutions", icon: "Building2" },
+                { id: 1, title: "Thoughtful Gifting", description: "Every hamper is designed with intention and emotion", icon: "Gift" },
+                { id: 2, title: "Custom Personalisation", description: "Hampers personalised according to your occasion and preferences.", icon: "UserCheck" },
+                { id: 3, title: "Premium Sourcing", description: "Carefully selected products from trusted vendors.", icon: "Gem" },
+                { id: 4, title: "Reliability & Execution", description: "From concept to Pan-India delivery – we handle it all seamlessly.", icon: "ShieldCheck" },
             ]
         },
         founder: {

@@ -4,7 +4,7 @@ import {
     Gift,
     UserCheck,
     Gem,
-    PackageCheck,
+    ShieldCheck,
     Building2
 } from "lucide-react";
 
@@ -12,17 +12,17 @@ const icons = {
     Gift,
     UserCheck,
     Gem,
-    PackageCheck,
+    ShieldCheck,
     Building2
 };
 
 const Introduction = () => {
-    const { story, trustedBy, trust, founder } = CONTENT.introduction;
+    const { story, howItWorks, trustedBy, trust, founder } = CONTENT.introduction;
 
     return (
         <section id="about" data-nav-theme="light" className="bg-white px-4 py-24">
             {/* Block 1: Our Story */}
-            <div className="pb-24 flex flex-col justify-center border-b border-gray-50">
+            <div className="pb-12 flex flex-col justify-center border-b border-gray-50">
                 <div className="max-w-6xl mx-auto w-full">
                     <div className="text-center mb-16">
                         <h4 className="text-accent text-sm font-bold uppercase tracking-[0.3em] mb-4">Our Narrative</h4>
@@ -39,8 +39,34 @@ const Introduction = () => {
                 </div>
             </div>
 
+            {/* Block 1.1: How It Works */}
+            <div className="py-8 border-b border-gray-50">
+                <div className="max-w-4xl mx-auto w-full">
+                    <div className="text-center md:text-left mb-10 px-4">
+                        <h4 className="text-accent text-sm font-bold uppercase tracking-[0.3em] mb-4">The Process</h4>
+                        <h2 className="text-3xl md:text-5xl font-heading text-primary">{howItWorks.title}</h2>
+                    </div>
+
+                    <div className="space-y-0 px-4">
+                        {howItWorks.steps.map((step, idx) => (
+                            <div key={idx} className="group border-t border-stone-100 py-6 md:py-8 flex flex-col md:flex-row gap-6 md:gap-12 items-start md:items-center last:border-b last:border-stone-100">
+                                <div className="text-5xl md:text-6xl font-heading text-stone-200 group-hover:text-accent/40 transition-all duration-700 leading-none">
+                                    {step.id}
+                                </div>
+                                <div className="flex-1">
+                                    <h3 className="text-2xl md:text-2xl font-heading text-gray-800 mb-1">{step.title}</h3>
+                                    <p className="text-gray-500 text-base leading-relaxed max-w-xl">
+                                        {step.description}
+                                    </p>
+                                </div>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            </div>
+
             {/* Block 1.2: Trusted By (Marquee) */}
-            <div className="py-24 border-b border-gray-50 overflow-hidden">
+            <div className="py-12 border-b border-gray-50 overflow-hidden">
                 <div className="max-w-6xl mx-auto w-full mb-12 text-center md:text-left">
                     <h4 className="text-accent text-sm font-bold uppercase tracking-[0.3em]">Trusted by</h4>
                 </div>
@@ -69,29 +95,31 @@ const Introduction = () => {
             </div>
 
             {/* Block 1.5: Why Brands Trust Us */}
-            <div className="py-24 bg-primary/5 overflow-hidden relative">
+            <div className="py-12 bg-primary/5 overflow-hidden relative">
                 {/* Decorative Pattern */}
                 <div className="absolute top-0 right-0 w-64 h-64 bg-accent/5 rounded-full -translate-y-1/2 translate-x-1/2 blur-3xl pointer-events-none" />
                 <div className="absolute bottom-0 left-0 w-64 h-64 bg-primary/10 rounded-full translate-y-1/2 -translate-x-1/2 blur-3xl pointer-events-none" />
 
-                <div className="max-w-6xl mx-auto w-full relative">
-                    <div className="text-center mb-16">
-                        <h4 className="text-accent text-sm font-bold uppercase tracking-[0.3em] mb-4">Branded Solutions</h4>
-                        <h2 className="text-4xl md:text-5xl font-heading mb-4 leading-tight">{trust.title}</h2>
-                        <div className="w-24 h-1 bg-accent/30 mx-auto rounded-full" />
+                <div className="max-w-6xl mx-auto relative z-10 w-full">
+                    <div className="text-center mb-16 px-4">
+                        <h4 className="text-accent text-sm font-bold uppercase tracking-[0.3em] mb-4">The Standard</h4>
+                        <h2 className="text-4xl md:text-5xl font-heading text-primary">{trust.title}</h2>
                     </div>
 
-                    <div className="grid grid-cols-2 md:grid-cols-5 gap-6 md:gap-12">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 px-4">
                         {trust.items.map((item) => {
-                            const Icon = icons[item.icon];
+                            const IconComponent = icons[item.icon];
                             return (
-                                <div key={item.id} className="flex flex-col items-center text-center group">
-                                    <div className="w-20 h-20 bg-white rounded-full flex items-center justify-center shadow-sm border border-stone-100 mb-6 group-hover:shadow-md group-hover:border-accent/20 transition-all duration-500">
-                                        {Icon && <Icon size={32} strokeWidth={1.2} className="text-accent group-hover:scale-110 transition-transform duration-500" />}
+                                <div key={item.id} className="group p-6 sm:p-8 rounded-[2rem] sm:rounded-[2.5rem] bg-white border border-stone-100 hover:border-primary/20 hover:shadow-2xl transition-all duration-500 flex flex-row sm:flex-col items-center sm:items-center text-left sm:text-center gap-6 sm:gap-0">
+                                    <div className="w-[24%] sm:w-20 sm:h-20 shrink-0 rounded-2xl sm:rounded-3xl bg-primary/5 flex items-center justify-center mb-0 sm:mb-6 group-hover:scale-110 transition-transform duration-500 aspect-square">
+                                        <IconComponent className="text-primary w-11 h-11 sm:w-12 h-12" strokeWidth={1.2} />
                                     </div>
-                                    <h5 className="text-sm font-bold uppercase tracking-widest text-gray-700 leading-tight">
-                                        {item.title}
-                                    </h5>
+                                    <div className="flex-1">
+                                        <h3 className="text-lg font-heading text-primary mb-1 sm:mb-3 leading-tight tracking-tight sm:tracking-normal">{item.title}</h3>
+                                        <p className="text-xs sm:text-sm text-gray-500 leading-relaxed font-light">
+                                            {item.description}
+                                        </p>
+                                    </div>
                                 </div>
                             );
                         })}
@@ -100,7 +128,7 @@ const Introduction = () => {
             </div>
 
             {/* Block 2: The Founder */}
-            <div className="pt-24 flex flex-col justify-center bg-stone-50/30">
+            <div className="pt-12 flex flex-col justify-center bg-stone-50/30">
                 <div className="max-w-6xl mx-auto w-full">
                     <div className="grid grid-cols-1 md:grid-cols-[1fr_40%] gap-y-12 md:gap-y-6 md:gap-x-24 items-center">
                         {/* 1. Headings Area */}
