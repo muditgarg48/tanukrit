@@ -2,11 +2,24 @@ import navbarLogo from "../assets/tanukrit_logo_navbar.jpg";
 import heroLogo from "../assets/tanukrit_logo.jpg";
 import heroBackground from "../assets/hero_background.jpg";
 import founderImage from "../assets/founder_image.png";
+
+// Brands
 import metlzLogo from "../assets/brands/meltz_logo.png";
 import publicissapientLogo from "../assets/brands/publicissapient_logo.png";
 import wbiweddingsLogo from "../assets/brands/wbiweddings_logo.png";
 import badhaihoeventsLogo from "../assets/brands/badhaihoevents_logo.png";
 import jsfitnessstudioLogo from "../assets/brands/jsfitnessstudio_logo.jpg";
+// Work
+import babyShowerImage from "../assets/work/baby_shower.jpg";
+import birthdayFavoursImage from "../assets/work/birthday_favours.jpg";
+import corporateHampersImage from "../assets/work/corporate_hampers.jpg";
+import festivalsImage from "../assets/work/festivals.jpeg";
+import milestoneCelebrationsImage from "../assets/work/milestone_celebrations.jpg";
+import returnFavoursImage from "../assets/work/return_favours.jpg";
+import roomHampersImage from "../assets/work/room_hampers.jpg";
+import trousseauImage from "../assets/work/trousseau.jpg";
+import weddingFavoursImage from "../assets/work/wedding_favours.jpg";
+import weddingInvitesImage from "../assets/work/wedding_invites.jpg";
 
 export const CONTENT = {
     navbar: {
@@ -77,12 +90,26 @@ export const CONTENT = {
     },
     showcase: {
         title: "Our Work",
-        subtitle: "Crafted with intention",
+        subtitle: "Custom Hampers for every occasion",
+        description: "Thoughtfully curated hampers designed for meaningful moments.",
         items: [
-            { id: 1, title: "Artful Hampers", category: "Corporate", size: "large", image: "https://images.unsplash.com/photo-1549465220-1d8c9d9c4709?q=80&w=2670&auto=format&fit=crop" },
-            { id: 2, title: "Milestone Gifts", category: "Personal", size: "small", image: "https://images.unsplash.com/photo-1607344645866-009c320b63e0?q=80&w=2670&auto=format&fit=crop" },
-            { id: 3, title: "Custom Packaging", category: "Luxury", size: "small", image: "https://images.unsplash.com/photo-1512418503837-f83141f3e79e?q=80&w=2670&auto=format&fit=crop" },
+            { id: 1, title: "Baby Shower", category: "Personal", image: babyShowerImage },
+            { id: 2, title: "Corporate Hampers", category: "Corporate", image: corporateHampersImage },
+            { id: 3, title: "Wedding Favours", category: "Favours", image: weddingFavoursImage },
+            { id: 4, title: "Festivals", category: "Festival", image: festivalsImage },
+            { id: 5, title: "Milestone celebrations", category: "Celebration", image: milestoneCelebrationsImage },
+            { id: 6, title: "Wedding Invites", category: "Invites", image: weddingInvitesImage },
+            { id: 7, title: "Return Favours", category: "Favours", image: returnFavoursImage },
+            { id: 8, title: "Birthday Favours", category: "Favours", image: birthdayFavoursImage },
+            { id: 9, title: "Trousseau", category: "Gifts", image: trousseauImage },
+            { id: 10, title: "Room Hampers", category: "Hampers", image: roomHampersImage },
         ],
+        cta: {
+            title: "Love What You See?",
+            description: "Let's design a hamper for your next celebration.",
+            buttonText: "Design your hamper",
+            buttonLink: "#contact"
+        }
     },
     testimonials: {
         title: "Kind Words",

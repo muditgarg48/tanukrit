@@ -1,41 +1,209 @@
+import { useState, useRef, useEffect } from "react";
 import { CONTENT } from "../constants/content";
+import { motion, AnimatePresence } from "framer-motion";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 
 const Showcase = () => {
-    const { title, subtitle, items } = CONTENT.showcase;
+    const { title, subtitle, description, items, cta } = CONTENT.showcase;
+    const [activeIndex, setActiveIndex] = useState(0);
+    const mobileScrollRef = useRef(null);
+
+    const handlePrev = () => {
+        setActiveIndex((prev) => (prev === 0 ? items.length - 1 : prev - 1));
+    };
+
+    const handleNext = () => {
+        setActiveIndex((prev) => (prev === items.length - 1 ? 0 : prev + 1));
+    };
+
+    // Keep mobile scroll in sync if buttons are used, or vice versa
+    useEffect(() => {
+        if (mobileScrollRef.current) {
+            const container = mobileScrollRef.current;
+            const scrollAmount = activeIndex * (container.clientWidth * 0.7 + 16); // 70vw + gap
+            container.scrollTo({
+                left: scrollAmount,
+                behavior: "smooth"
+            });
+        }
+    }, [activeIndex]);
+
+    const handleMobileScroll = (e) => {
+        const container = e.target;
+        const scrollPosition = container.scrollLeft;
+        const itemWidth = container.clientWidth * 0.7 + 16;
+        const newIndex = Math.round(scrollPosition / itemWidth);
+        if (newIndex !== activeIndex) {
+            setActiveIndex(newIndex);
+        }
+    };
+
+    const getVisibleIndices = () => {
+        const total = items.length;
+        const indices = [];
+        // Only show 5 items on desktop for a cleaner look
+        for (let i = -2; i <= 2; i++) {
+            let index = (activeIndex + i) % total;
+            if (index < 0) index += total;
+            indices.push(index);
+        }
+        return indices;
+    };
+
+    const visibleIndices = getVisibleIndices();
 
     return (
-        <section id="products" data-nav-theme="light" className="min-h-screen flex flex-col bg-[#F9F9F9] px-4 pb-24">
+        <section id="products" data-nav-theme="light" className="min-h-screen flex flex-col bg-[#F9F9F9] px-4 pt-24 pb-12 lg:pt-28 lg:pb-16">
             <div className="flex-1 flex flex-col justify-center">
-                <div className="max-w-6xl mx-auto w-full">
-                    <div className="text-center mb-16">
-                        <h2 className="text-4xl md:text-5xl font-heading mb-4">{title}</h2>
-                        <p className="text-gray-500 uppercase tracking-widest text-sm">{subtitle}</p>
+                <div className="max-w-7xl mx-auto w-full">
+                    <div className="text-center mb-6">
+                        {subtitle && <h4 className="text-accent text-sm font-bold uppercase tracking-[0.3em] mb-1">{subtitle}</h4>}
+                        <h2 className="text-4xl md:text-6xl font-heading mb-4 leading-tight max-w-4xl mx-auto">{title}</h2>
+                        {description && (
+                            <p className="text-gray-500 max-w-3xl mx-auto leading-relaxed">{description}</p>
+                        )}
                     </div>
 
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                        {items.map((item) => (
-                            <div
-                                key={item.id}
-                                className={`group relative rounded-[2.5rem] overflow-hidden bg-white hover:scale-[1.02] transition-transform duration-500 ease-out shadow-sm hover:shadow-xl cursor-pointer ${item.size === 'large' ? 'md:col-span-2' : ''}`}
-                            >
-                                <div className="aspect-video w-full bg-gray-200 overflow-hidden">
+                    {/* Navigation Buttons Container */}
+                    <div className="relative w-full">
+                        {/* Desktop View: Window Blinds Carousel (Limited to 5 visible) */}
+                        <div className="hidden md:flex w-full h-[60vh] max-h-[600px] min-h-[350px] gap-4 relative overflow-hidden">
+                            <AnimatePresence mode="popLayout">
+                                {visibleIndices.map((index) => {
+                                    const item = items[index];
+                                    const isActive = activeIndex === index;
+                                    return (
+                                        <motion.div
+                                            key={item.id}
+                                            layout
+                                            onClick={() => setActiveIndex(index)}
+                                            initial={{ opacity: 0, scale: 0.8 }}
+                                            animate={{
+                                                opacity: 1,
+                                                scale: 1,
+                                                flex: isActive ? 6 : 1,
+                                            }}
+                                            exit={{ opacity: 0, scale: 0.8, flex: 0 }}
+                                            transition={{ duration: 0.5, ease: [0.32, 0.72, 0, 1] }}
+                                            className="relative rounded-[2.5rem] overflow-hidden cursor-pointer group shadow-sm hover:shadow-xl origin-center min-w-0"
+                                        >
+                                            <div
+                                                className="absolute inset-0 bg-cover bg-center transition-transform duration-700 w-full h-full"
+                                                style={{ backgroundImage: `url(${item.image})` }}
+                                            />
+                                            <motion.div
+                                                animate={{ opacity: isActive ? 1 : 0 }}
+                                                transition={{ duration: 0.4 }}
+                                                className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent p-10 flex flex-col justify-end"
+                                            >
+                                                {isActive && (
+                                                    <motion.div
+                                                        initial={{ y: 20, opacity: 0 }}
+                                                        animate={{ y: 0, opacity: 1 }}
+                                                        transition={{ delay: 0.2, duration: 0.5 }}
+                                                    >
+                                                        <span className="text-accent text-xs uppercase tracking-[0.2em] mb-2 block">{item.category}</span>
+                                                        <h3 className="text-white text-3xl lg:text-4xl font-heading">{item.title}</h3>
+                                                    </motion.div>
+                                                )}
+                                            </motion.div>
+                                        </motion.div>
+                                    );
+                                })}
+                            </AnimatePresence>
+                        </div>
+
+                        {/* Mobile View: Basic Carousel */}
+                        <div
+                            ref={mobileScrollRef}
+                            onScroll={handleMobileScroll}
+                            className="flex md:hidden overflow-x-auto snap-x snap-mandatory gap-4 pb-8 -mx-4 px-4 hide-scrollbar"
+                            style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
+                        >
+                            <style>{`
+                                .hide-scrollbar::-webkit-scrollbar {
+                                    display: none;
+                                }
+                            `}</style>
+                            {items.map((item, index) => {
+                                const isActive = activeIndex === index;
+                                return (
                                     <div
-                                        className="w-full h-full bg-cover bg-center group-hover:scale-110 transition-transform duration-700"
-                                        style={{ backgroundImage: `url(${item.image})` }}
+                                        key={item.id}
+                                        onClick={() => setActiveIndex(index)}
+                                        className={`shrink-0 w-[80vw] sm:w-[70vw] h-[55vh] max-h-[450px] min-h-[350px] snap-center relative rounded-[2.5rem] overflow-hidden group shadow-sm transition-transform duration-500 ease-out ${isActive ? 'scale-100 opacity-100' : 'scale-95 opacity-80'}`}
                                     >
+                                        <div
+                                            className="absolute inset-0 bg-cover bg-center transition-transform duration-700 scale-100 group-hover:scale-110"
+                                            style={{ backgroundImage: `url(${item.image})` }}
+                                        />
+                                        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent p-8 flex flex-col justify-end">
+                                            <span className="text-accent text-xs uppercase tracking-[0.2em] mb-2 block">{item.category}</span>
+                                            <h3 className="text-white text-3xl font-heading">{item.title}</h3>
+                                        </div>
                                     </div>
-                                </div>
-                                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent p-10 flex flex-col justify-end translate-y-4 group-hover:translate-y-0 transition-transform">
-                                    <span className="text-accent text-xs uppercase tracking-[0.2em] mb-2">{item.category}</span>
-                                    <h3 className="text-white text-3xl font-heading mb-4">{item.title}</h3>
-                                    <button className="text-white/70 text-sm flex items-center gap-2 hover:text-white transition-colors">
-                                        View Project
-                                        <span className="text-xl">→</span>
-                                    </button>
-                                </div>
+                                );
+                            })}
+                        </div>
+
+                        {/* Carousel Navigation Buttons */}
+                        <div className="absolute top-1/2 -translate-y-1/2 -left-4 md:-left-12 lg:-left-16 z-10 hidden sm:block">
+                            <button
+                                onClick={handlePrev}
+                                className="w-10 h-10 md:w-12 md:h-12 flex items-center justify-center rounded-full bg-white/80 backdrop-blur shadow-md text-gray-800 hover:bg-white transition-colors"
+                            >
+                                <ChevronLeft className="w-5 h-5 md:w-6 md:h-6" />
+                            </button>
+                        </div>
+                        <div className="absolute top-1/2 -translate-y-1/2 -right-4 md:-right-12 lg:-right-16 z-10 hidden sm:block">
+                            <button
+                                onClick={handleNext}
+                                className="w-10 h-10 md:w-12 md:h-12 flex items-center justify-center rounded-full bg-white/80 backdrop-blur shadow-md text-gray-800 hover:bg-white transition-colors"
+                            >
+                                <ChevronRight className="w-5 h-5 md:w-6 md:h-6" />
+                            </button>
+                        </div>
+
+                        {/* Mobile bottom navigation dots/buttons */}
+                        <div className="flex sm:hidden justify-center items-center gap-4 mt-6">
+                            <button
+                                onClick={handlePrev}
+                                className="w-10 h-10 flex items-center justify-center rounded-full bg-white shadow-sm text-gray-800 active:scale-95 transition-transform"
+                            >
+                                <ChevronLeft className="w-5 h-5" />
+                            </button>
+                            <div className="flex gap-2">
+                                {items.map((_, idx) => (
+                                    <div
+                                        key={idx}
+                                        className={`h-2 rounded-full transition-all duration-300 ${idx === activeIndex ? 'w-6 bg-primary' : 'w-2 bg-gray-300'}`}
+                                    />
+                                ))}
                             </div>
-                        ))}
+                            <button
+                                onClick={handleNext}
+                                className="w-10 h-10 flex items-center justify-center rounded-full bg-white shadow-sm text-gray-800 active:scale-95 transition-transform"
+                            >
+                                <ChevronRight className="w-5 h-5" />
+                            </button>
+                        </div>
                     </div>
+
+                    {/* CTA Block */}
+                    {cta && (
+                        <div className="mt-20 md:mt-32 text-center max-w-3xl mx-auto px-4 pb-4">
+                            <h3 className="text-3xl md:text-5xl font-heading mb-4 leading-tight">{cta.title}</h3>
+                            <p className="text-gray-500 text-lg md:text-xl mb-8 leading-relaxed font-light">{cta.description}</p>
+                            <a
+                                href={cta.buttonLink}
+                                rel="noopener noreferrer"
+                                className="inline-flex items-center gap-2 bg-primary text-white px-8 py-4 rounded-full hover:bg-primary/90 transition-all hover:-translate-y-1 shadow-md hover:shadow-xl group"
+                            >
+                                <span className="text-sm uppercase tracking-widest font-bold">{cta.buttonText}</span>
+                                <span className="group-hover:translate-x-1 transition-transform">→</span>
+                            </a>
+                        </div>
+                    )}
                 </div>
             </div>
         </section>
