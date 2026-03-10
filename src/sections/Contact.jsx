@@ -59,9 +59,14 @@ const Contact = () => {
                     {/* Location Info */}
                     <div className="flex flex-col items-center md:items-start text-center md:text-left max-w-sm">
                         <div className="group flex flex-col items-center md:items-start w-full">
-                            <p className="text-white/70 text-sm font-light leading-relaxed mb-6">
+                            <p className="text-white/70 text-sm font-light leading-relaxed mb-4">
                                 {location.address}
                             </p>
+
+                            <div className="flex flex-col items-center md:items-start mb-6 w-full">
+                                <p className="text-white/80 font-medium text-sm tracking-wide">{location.workingDays}</p>
+                                <p className="text-white/60 text-xs mt-1 tracking-wide">{location.workingHours}</p>
+                            </div>
 
                             {/* Google Maps Embed */}
                             <div className="w-full h-40 rounded-2xl overflow-hidden border border-white/10 mb-4 shadow-inner bg-white/5">

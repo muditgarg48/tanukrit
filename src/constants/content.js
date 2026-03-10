@@ -158,12 +158,14 @@ export const CONTENT = {
         description: "We look forward to creating something meaningful for you—just as we have for families and clients across the world.",
         socials: [
             { id: 1, name: "Instagram", link: "https://www.instagram.com/tanu.krit", icon: "instagram", color: "#E1306C" },
-            { id: 2, name: "WhatsApp", link: "https://wa.me/917982666274", icon: "whatsapp", color: "#25D366" },
+            { id: 2, name: "WhatsApp", link: "https://wa.me/917982666274?text=Hey%20Tanu!%20Came%20across%20your%20work%20on%20your%20website%20and%20I%20love%20it!%20I%20would%20like%20to%20enquire%20more.", icon: "whatsapp", color: "#25D366" },
             { id: 3, name: "LinkedIn", link: "https://www.linkedin.com/in/tanu-agrawal-89611b3b0/", icon: "linkedin", color: "#0077B5" },
             { id: 4, name: "Email", link: "mailto:support@tanukrit.com", icon: "mail", color: "#EA4335" },
         ],
         location: {
             address: "2nd Floor, C-526, Vikaspuri, Delhi, 110018",
+            workingDays: "Monday - Sunday",
+            workingHours: "10:30 AM - 7:00 PM IST",
             disclaimer: "Visit by appointment strictly",
             link: "https://maps.app.goo.gl/SugEWPxAq7y1fZDy9",
             embedUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3501.442801453303!2d77.0664!3d28.6312!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390d0590ed4b2d9d%3A0x633454b5dfd4e0e!2sC-526%2C%20Vikaspuri%2C%20Delhi%2C%20110018!5e0!3m2!1sen!2sin!4v1710000000000!5m2!1sen!2sin",
