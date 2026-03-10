@@ -14,17 +14,17 @@ const Footer = () => {
     };
 
     return (
-        <footer className="relative bg-primary pt-4 md:pt-6 pb-2 px-6 overflow-hidden">
+        <footer className="relative bg-primary pb-2 px-6 overflow-hidden">
             <div className="max-w-6xl mx-auto flex flex-col items-center">
                 {/* Back to Top — glass style matching hero / navbar language */}
                 <motion.button
                     onClick={scrollToTop}
-                    whileHover={{ scale: 1.1, y: -5 }}
+                    whileHover={{ boxShadow: "0px 5px 12px rgba(255, 255, 255, 0.4)" }}
                     whileTap={{ scale: 0.9 }}
-                    className="group relative flex items-center justify-center w-10 h-10 md:w-12 md:h-12 rounded-full glass mb-6 md:mb-8 cursor-pointer transition-all duration-300"
+                    className="group relative flex items-center justify-center w-10 h-10 md:w-12 md:h-12 rounded-full glass border border-white/20 shadow-lg hover:border-white/50 mb-6 md:mb-8 cursor-pointer transition-all duration-300"
                 >
                     <ArrowUp className="w-4 h-4 md:w-5 md:h-5 text-white/70 group-hover:text-white transition-colors duration-300" />
-                    <span className="absolute -bottom-8 opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-[8px] uppercase tracking-widest text-white/60 font-bold whitespace-nowrap">
+                    <span className="absolute -bottom-8 opacity-100 transition-opacity duration-300 text-[8px] uppercase tracking-widest text-white/60 font-bold whitespace-nowrap">
                         Back to Top
                     </span>
                 </motion.button>
