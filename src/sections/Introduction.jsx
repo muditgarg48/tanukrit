@@ -49,35 +49,6 @@ const Introduction = () => {
 
             <Ribbon text={CONTENT.ribbons.howItWorksToTrustedBy} className="my-8" />
 
-            {/* Block 1.2: Trusted By (Marquee) */}
-            <div className="py-8 md:py-12 border-b border-gray-50 overflow-hidden">
-                <div className="max-w-6xl mx-auto w-full mb-8 md:mb-12 text-center">
-                    <h2 className="text-2xl md:text-3xl font-heading text-primary">Trusted by</h2>
-                </div>
-                <div className="relative group/marquee">
-                    <div className="animate-marquee flex gap-24 items-center">
-                        {/* Double the items for seamless CSS marquee loop */}
-                        {[...trustedBy, ...trustedBy].map((brand, idx) => (
-                            <div key={`${brand.id}-${idx}`} className="group relative flex flex-col items-center">
-                                <div className="h-16 md:h-20 flex items-center justify-center opacity-40 group-hover:opacity-100 group-hover:scale-110 transition-all duration-500 ease-out cursor-pointer">
-                                    <img
-                                        src={brand.logo}
-                                        alt={brand.name}
-                                        className="h-full w-auto object-contain max-w-[120px] md:max-w-[160px]"
-                                    />
-                                </div>
-                                {/* Name revealed on hover */}
-                                <div className="absolute -bottom-10 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-all duration-500 pointer-events-none whitespace-nowrap">
-                                    <span className="text-xs uppercase tracking-[0.2em] text-primary font-bold bg-white/80 backdrop-blur-sm px-3 py-1 rounded-full shadow-sm">
-                                        {brand.name}
-                                    </span>
-                                </div>
-                            </div>
-                        ))}
-                    </div>
-                </div>
-            </div>
-
             {/* Block 1.5: Why Brands Trust Us */}
             <div className="py-10 md:py-12 bg-primary/5 overflow-hidden relative">
                 {/* Decorative Pattern */}
@@ -106,6 +77,35 @@ const Introduction = () => {
                                 </div>
                             );
                         })}
+                    </div>
+                </div>
+            </div>
+
+            {/* Block 1.2: Trusted By (Marquee) */}
+            <div className="py-8 md:py-12 border-b border-gray-50 overflow-hidden">
+                <div className="max-w-6xl mx-auto w-full mb-8 md:mb-12 text-center">
+                    <h2 className="text-2xl md:text-3xl font-heading text-primary">Trusted by</h2>
+                </div>
+                <div className="relative group/marquee">
+                    <div className="animate-marquee flex gap-24 items-center">
+                        {/* Double the items for seamless CSS marquee loop */}
+                        {[...trustedBy, ...trustedBy].map((brand, idx) => (
+                            <div key={`${brand.id}-${idx}`} className="group relative flex flex-col items-center">
+                                <div className="h-16 md:h-20 flex items-center justify-center opacity-40 group-hover:opacity-100 group-hover:scale-110 transition-all duration-500 ease-out cursor-pointer">
+                                    <img
+                                        src={brand.logo}
+                                        alt={brand.name}
+                                        className="h-full w-auto object-contain max-w-[120px] md:max-w-[160px]"
+                                    />
+                                </div>
+                                {/* Name revealed on hover */}
+                                <div className="absolute -bottom-10 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-all duration-500 pointer-events-none whitespace-nowrap">
+                                    <span className="text-xs uppercase tracking-[0.2em] text-primary font-bold bg-white/80 backdrop-blur-sm px-3 py-1 rounded-full shadow-sm">
+                                        {brand.name}
+                                    </span>
+                                </div>
+                            </div>
+                        ))}
                     </div>
                 </div>
             </div>
