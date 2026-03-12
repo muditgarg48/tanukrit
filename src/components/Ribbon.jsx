@@ -27,6 +27,7 @@ const Ribbon = ({ text, className = "" }) => {
         >
             {content.map((item, i) => (
                 <React.Fragment key={i}>
+                    {i == 0 && <span className="w-1.5 h-1.5 bg-white/40 rounded-full shrink-0" />}
                     <span className="whitespace-nowrap uppercase tracking-[0.15em] text-[10px] md:text-sm font-medium leading-relaxed">
                         {item}
                     </span>

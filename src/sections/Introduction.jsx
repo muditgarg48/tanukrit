@@ -20,7 +20,7 @@ const Introduction = () => {
     const { howItWorks, trustedBy, trust, founder } = CONTENT.introduction;
 
     return (
-        <section id="about" data-nav-theme="light" className="bg-white px-4 py-12 md:py-24">
+        <section id="about" data-nav-theme="light" className="bg-white py-12 md:py-24">
 
             {/* Block 1.1: How It Works */}
             <div className="py-8 border-b border-gray-50">
@@ -59,7 +59,7 @@ const Introduction = () => {
                         {/* Double the items for seamless CSS marquee loop */}
                         {[...trustedBy, ...trustedBy].map((brand, idx) => (
                             <div key={`${brand.id}-${idx}`} className="group relative flex flex-col items-center">
-                                <div className="h-16 md:h-20 flex items-center justify-center grayscale opacity-40 group-hover:grayscale-0 group-hover:opacity-100 group-hover:scale-110 transition-all duration-500 ease-out cursor-pointer">
+                                <div className="h-16 md:h-20 flex items-center justify-center opacity-40 group-hover:opacity-100 group-hover:scale-110 transition-all duration-500 ease-out cursor-pointer">
                                     <img
                                         src={brand.logo}
                                         alt={brand.name}
