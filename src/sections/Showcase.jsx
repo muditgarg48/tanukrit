@@ -136,7 +136,7 @@ const Showcase = () => {
                                                         transition={{ delay: 0.2, duration: 0.5 }}
                                                     >
                                                         <span className="text-primary text-xs uppercase tracking-[0.2em] mb-2 block">{item.category}</span>
-                                                        <h3 className="text-white text-3xl lg:text-4xl font-heading">{item.title}</h3>
+                                                        <h3 className="text-white text-2xl lg:text-3xl font-heading">{item.title}</h3>
                                                     </motion.div>
                                                 )}
                                             </motion.div>
@@ -177,7 +177,7 @@ const Showcase = () => {
                                             className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 scale-100 group-hover:scale-110"
                                         />
                                         <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent p-8 flex flex-col justify-end">
-                                            <h3 className="text-white text-3xl font-heading">{item.title}</h3>
+                                            <h3 className="text-white text-2xl font-heading">{item.title}</h3>
                                         </div>
                                     </div>
                                 );
