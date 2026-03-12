@@ -131,7 +131,7 @@ const Introduction = () => {
                                 />
                                 <div className="absolute inset-x-0 bottom-0 p-8 bg-gradient-to-t from-black/60 to-transparent text-white">
                                     <div className="text-2xl font-heading">{founder.name}</div>
-                                    <div className="text-[10px] uppercase tracking-widest opacity-80">{founder.role}</div>
+                                    <div className="text-xs uppercase tracking-widest opacity-80">{founder.role}</div>
                                 </div>
                             </div>
 
@@ -139,7 +139,7 @@ const Introduction = () => {
 
                         {/* 3. Bio Area */}
                         <div className="order-3 text-justify md:text-left">
-                            <div className="space-y-6 text-gray-500 leading-relaxed">
+                            <div className="space-y-6 text-sm md:text-base text-gray-500 leading-relaxed">
                                 <p>{founder.bio}</p>
                                 <p className="text-primary italic">
                                     {founder.education}
@@ -148,13 +148,13 @@ const Introduction = () => {
 
                             <div className="mt-12 flex flex-wrap justify-center md:justify-start gap-8">
                                 <div>
-                                    <div className="text-2xl font-medium text-primary">{founder.stats.established}</div>
-                                    <div className="text-[10px] uppercase tracking-widest text-gray-400">Established</div>
+                                    <div className="text-xl md:text-2xl lg:text-3xl font-medium text-primary">{founder.stats.established}</div>
+                                    <div className="text-[10px] md:text-xs uppercase tracking-widest text-gray-400">Established</div>
                                 </div>
                                 <div className="w-px h-10 bg-stone-200" />
                                 <div>
-                                    <div className="text-2xl font-medium text-primary">{founder.stats.orders}</div>
-                                    <div className="text-[10px] uppercase tracking-widest text-gray-400">Orders Delivered</div>
+                                    <div className="text-xl md:text-2xl lg:text-3xl font-medium text-primary">{founder.stats.orders}</div>
+                                    <div className="text-[10px] md:text-xs uppercase tracking-widest text-gray-400">Orders Delivered</div>
                                 </div>
                             </div>
                         </div>

@@ -26,7 +26,7 @@ const Hero = () => {
                             key={link.name}
                             href={link.hash}
                             onClick={(e) => { e.preventDefault(); scrollToHash(link.hash); }}
-                            className="text-[10px] md:text-xs font-medium text-white/80 hover:text-white transition-colors uppercase tracking-[0.3em]"
+                            className="text-xs font-light hover:font-medium text-white/80 hover:text-white transition-colors uppercase tracking-[0.3em]"
                         >
                             {link.name}
                         </a>
@@ -42,7 +42,7 @@ const Hero = () => {
                         className="h-[32vh] md:h-[45vh] lg:h-[48vh] w-auto object-contain brightness-110"
                     />
                 </div>
-                <span className="text-[11px] md:text-sm uppercase tracking-[0.4em] block animate-fade-in opacity-90 font-medium text-white shadow-black/20 text-shadow-sm">
+                <span className="text-xs md:text-sm uppercase tracking-[0.4em] block animate-fade-in opacity-90 font-medium text-white shadow-black/20 text-shadow-sm">
                     {tagline}
                 </span>
             </div>

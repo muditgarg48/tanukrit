@@ -21,7 +21,7 @@ const Footer = () => {
                     className="group relative flex items-center justify-center w-8 h-8 md:w-10 md:h-10 rounded-full glass border border-white/20 shadow-lg hover:border-white/50 mb-4 md:mb-6 cursor-pointer transition-all duration-300"
                 >
                     <ArrowUp className="w-3 h-3 md:w-4 md:h-4 text-white/70 group-hover:text-white transition-colors duration-300" />
-                    <span className="absolute -bottom-6 opacity-100 transition-opacity duration-300 text-[8px] uppercase tracking-widest text-white/60 font-bold whitespace-nowrap">
+                    <span className="absolute -bottom-6 opacity-100 transition-opacity duration-300 text-[10px] md:text-xs uppercase tracking-widest text-white/60 font-bold whitespace-nowrap">
                         Back to Top
                     </span>
                 </motion.button>

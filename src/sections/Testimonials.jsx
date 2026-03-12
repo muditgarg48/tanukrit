@@ -47,7 +47,7 @@ const Testimonials = () => {
                                         <span className="text-7xl text-primary/20 font-serif absolute top-6 left-8 pointer-events-none group-hover:text-white/20 transition-colors leading-none">“</span>
 
                                         <div className="flex-grow flex items-center mb-10 mt-6">
-                                            <p className="text-lg font-light leading-relaxed text-gray-700 relative z-10 italic group-hover:text-white transition-colors">
+                                            <p className="text-sm md:text-base lg:text-lg font-light leading-relaxed text-gray-700 relative z-10 italic group-hover:text-white transition-colors">
                                                 {item.quote}
                                             </p>
                                         </div>
@@ -57,8 +57,8 @@ const Testimonials = () => {
                                                 {item.author[0]}
                                             </div>
                                             <div>
-                                                <h4 className="font-heading text-xl text-text leading-none group-hover:text-white transition-colors">{item.author}</h4>
-                                                <span className="text-[10px] uppercase tracking-[0.2em] text-primary/60 group-hover:text-white/60 mt-2 block font-medium transition-colors">
+                                                <h4 className="font-heading text-base md:text-lg lg:text-xl text-text leading-none group-hover:text-white transition-colors">{item.author}</h4>
+                                                <span className="text-xs uppercase tracking-[0.2em] text-primary/60 group-hover:text-white/60 mt-2 block font-medium transition-colors">
                                                     {item.role}
                                                 </span>
                                             </div>

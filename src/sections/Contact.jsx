@@ -86,7 +86,7 @@ const Contact = () => {
                             href={location.link}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="inline-flex items-center gap-2 text-white/90 hover:text-white text-[10px] tracking-widest uppercase font-bold transition-all hover:gap-4 self-start"
+                            className="inline-flex items-center gap-2 text-white/90 hover:text-white text-xs tracking-widest uppercase transition-all hover:gap-4 self-center"
                         >
                             View on Google Maps <ExternalLink size={10} />
                         </a>
@@ -97,26 +97,26 @@ const Contact = () => {
 
                     <div className="w-full pt-4 md:pt-6 border-t border-white/5">
                         <div className="flex flex-col md:flex-row justify-between items-center gap-4 md:gap-6">
-                            <div className="text-white/40 text-[9px] md:text-[10px] tracking-[0.2em] md:tracking-[0.4em] uppercase order-2 md:order-1">
+                            <div className="text-white/40 text-[10px] md:text-xs tracking-[0.2em] md:tracking-[0.4em] uppercase order-2 md:order-1 text-center">
                                 {footer.tagline}
                             </div>
                             <div className="flex flex-col items-center md:items-end gap-1.5 md:gap-2 order-1 md:order-2">
                                 {/* Developer Credits moved here */}
                                 <div className="flex items-baseline gap-2 group">
-                                    <span className="text-white/40 text-[9px] md:text-[10px] uppercase tracking-widest">
+                                    <span className="text-white/40 text-[10px] md:text-xs uppercase tracking-widest">
                                         Developer &amp; Maintainer:
                                     </span>
                                     <a
                                         href="https://muditgarg48.github.io"
                                         target="_blank"
                                         rel="noopener noreferrer"
-                                        className="relative text-white/70 text-[9px] md:text-[10px] font-semibold uppercase tracking-[0.2em] transition-all duration-300 hover:text-white hover:tracking-[0.3em]"
+                                        className="relative text-white/70 text-[10px] md:text-xs font-semibold uppercase tracking-[0.2em] transition-all duration-300 hover:text-white hover:tracking-[0.3em]"
                                     >
                                         Mudit Garg
                                         <span className="absolute -bottom-1 left-0 w-0 h-px bg-white/60 transition-all duration-300 group-hover:w-full" />
                                     </a>
                                 </div>
-                                <div className="text-white/40 text-[9px] md:text-[10px] tracking-[0.2em] uppercase">
+                                <div className="text-white/40 text-[10px] md:text-xs tracking-[0.2em] uppercase text-center">
                                     {footer.copyright}
                                 </div>
                             </div>
