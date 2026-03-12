@@ -1,11 +1,13 @@
+import { lazy, Suspense } from "react";
 import Navbar from "./components/Navbar";
 import FloatingActions from "./components/FloatingActions";
 import Hero from "./sections/Hero";
-import Introduction from "./sections/Introduction";
-import Showcase from "./sections/Showcase";
-import Testimonials from "./sections/Testimonials";
-import Contact from "./sections/Contact";
-import Footer from "./sections/Footer";
+
+const Showcase = lazy(() => import("./sections/Showcase"));
+const Introduction = lazy(() => import("./sections/Introduction"));
+const Testimonials = lazy(() => import("./sections/Testimonials"));
+const Contact = lazy(() => import("./sections/Contact"));
+const Footer = lazy(() => import("./sections/Footer"));
 
 function App() {
   return (
@@ -13,11 +15,13 @@ function App() {
       <Navbar />
       <FloatingActions />
       <Hero />
-      <Showcase />
-      <Introduction />
-      <Testimonials />
-      <Contact />
-      <Footer />
+      <Suspense fallback={null}>
+        <Showcase />
+        <Introduction />
+        <Testimonials />
+        <Contact />
+        <Footer />
+      </Suspense>
     </main>
   );
 }

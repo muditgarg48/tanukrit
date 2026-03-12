@@ -118,9 +118,12 @@ const Showcase = () => {
                                             transition={{ duration: 0.5, ease: [0.32, 0.72, 0, 1] }}
                                             className="relative rounded-[2.5rem] overflow-hidden cursor-pointer group shadow-sm hover:shadow-xl origin-center min-w-0"
                                         >
-                                            <div
-                                                className="absolute inset-0 bg-cover bg-center transition-transform duration-700 w-full h-full"
-                                                style={{ backgroundImage: `url(${item.image})` }}
+                                            <img
+                                                src={item.image}
+                                                alt={item.title}
+                                                loading="lazy"
+                                                decoding="async"
+                                                className="absolute inset-0 w-full h-full object-cover transition-transform duration-700"
                                             />
                                             <motion.div
                                                 animate={{ opacity: isActive ? 1 : 0 }}
@@ -167,9 +170,12 @@ const Showcase = () => {
                                         }}
                                         className={`shrink-0 w-[80vw] sm:w-[70vw] h-[55vh] max-h-[450px] min-h-[350px] snap-center relative rounded-[2.5rem] overflow-hidden group shadow-sm transition-transform duration-500 ease-out ${isActive ? 'scale-100 opacity-100' : 'scale-90 opacity-80'}`}
                                     >
-                                        <div
-                                            className="absolute inset-0 bg-cover bg-center transition-transform duration-700 scale-100 group-hover:scale-110"
-                                            style={{ backgroundImage: `url(${item.image})` }}
+                                        <img
+                                            src={item.image}
+                                            alt={item.title}
+                                            loading="lazy"
+                                            decoding="async"
+                                            className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 scale-100 group-hover:scale-110"
                                         />
                                         <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent p-8 flex flex-col justify-end">
                                             <h3 className="text-white text-3xl font-heading">{item.title}</h3>
