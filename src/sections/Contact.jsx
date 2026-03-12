@@ -1,16 +1,17 @@
 import { Mail, Phone, MapPin, ExternalLink } from "lucide-react";
 import { CONTENT } from "../constants/content";
+import logo from "../assets/tanukrit_logo.webp";
 
 const Contact = () => {
     const { title, description, email, phone, location, footer } = CONTENT.contact;
 
     return (
-        <section id="contact" data-nav-theme="dark" className="relative px-4 py-16 md:py-20 bg-primary overflow-hidden flex flex-col justify-center">
+        <section id="contact" data-nav-theme="dark" className="relative px-4 py-12 md:py-16 bg-primary overflow-hidden flex flex-col justify-center">
             {/* Background pattern could be added here */}
 
             <div className="max-w-6xl mx-auto relative z-10 w-full">
-                <div className="mb-10 md:mb-16">
-                    <h2 className="text-white text-4xl md:text-7xl font-heading mb-6 leading-tight whitespace-pre-line">
+                <div className="mb-8 md:mb-16">
+                    <h2 className="text-white text-3xl md:text-7xl font-heading mb-4 md:mb-6 leading-tight whitespace-pre-line">
                         {title}
                     </h2>
                     <p className="text-white/70 text-base md:text-xl font-light max-w-2xl leading-relaxed">
@@ -18,9 +19,9 @@ const Contact = () => {
                     </p>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-20 items-start">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-20 items-start">
                     {/* Left Column: Contact Details */}
-                    <div className="space-y-12">
+                    <div className="space-y-6 md:space-y-12">
                         {/* Contact Us Section */}
                         <div>
                             <h4 className="text-white/40 text-[10px] uppercase tracking-[0.3em] font-bold mb-6">Contact Us</h4>
@@ -62,6 +63,14 @@ const Contact = () => {
                                 </p>
                             </div>
                         </div>
+
+                        <div className="opacity-[0.08] select-none pointer-events-none ml-1 md:ml-2 mt-4 md:mt-0">
+                            <img
+                                src={logo}
+                                alt="Tanukrit Logo"
+                                className="h-24 md:h-32 object-contain mix-blend-screen brightness-200 transition-all duration-300 -ml-1 md:-ml-4"
+                            />
+                        </div>
                     </div>
 
                     {/* Right Column: Map & Link */}
@@ -83,20 +92,40 @@ const Contact = () => {
                             href={location.link}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="inline-flex items-center gap-2 text-white/90 hover:text-white text-xs tracking-widest uppercase font-bold transition-all hover:gap-4 self-start"
+                            className="inline-flex items-center gap-2 text-white/90 hover:text-white text-[10px] tracking-widest uppercase font-bold transition-all hover:gap-4 self-start"
                         >
-                            View on Google Maps <ExternalLink size={12} />
+                            View on Google Maps <ExternalLink size={10} />
                         </a>
                     </div>
                 </div>
 
-                <div className="mt-16 md:mt-24 pt-8 border-t border-white/5">
-                    <div className="flex flex-col md:flex-row justify-between items-center gap-6">
-                        <div className="text-white/40 text-[10px] tracking-[0.4em] uppercase order-2 md:order-1">
-                            {footer.tagline}
-                        </div>
-                        <div className="text-white/40 text-[10px] tracking-[0.2em] uppercase order-1 md:order-2">
-                            {footer.copyright}
+                <div className="mt-8 md:mt-12 flex flex-col items-start">
+
+                    <div className="w-full pt-4 md:pt-6 border-t border-white/5">
+                        <div className="flex flex-col md:flex-row justify-between items-center gap-4 md:gap-6">
+                            <div className="text-white/40 text-[9px] md:text-[10px] tracking-[0.2em] md:tracking-[0.4em] uppercase order-2 md:order-1">
+                                {footer.tagline}
+                            </div>
+                            <div className="flex flex-col items-center md:items-end gap-1.5 md:gap-2 order-1 md:order-2">
+                                {/* Developer Credits moved here */}
+                                <div className="flex items-baseline gap-2 group">
+                                    <span className="text-white/40 text-[9px] md:text-[10px] uppercase tracking-widest">
+                                        Developer &amp; Maintainer:
+                                    </span>
+                                    <a
+                                        href="https://muditgarg48.github.io"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="relative text-white/70 text-[9px] md:text-[10px] font-semibold uppercase tracking-[0.2em] transition-all duration-300 hover:text-white hover:tracking-[0.3em]"
+                                    >
+                                        Mudit Garg
+                                        <span className="absolute -bottom-1 left-0 w-0 h-px bg-white/60 transition-all duration-300 group-hover:w-full" />
+                                    </a>
+                                </div>
+                                <div className="text-white/40 text-[9px] md:text-[10px] tracking-[0.2em] uppercase">
+                                    {footer.copyright}
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>

@@ -111,8 +111,8 @@ const FloatingActions = () => {
                                             className="group flex items-center gap-3 self-end"
                                             title="WhatsApp"
                                         >
-                                            {/* Label */}
-                                            <span className={`transition-opacity duration-300 text-[10px] font-bold tracking-[0.2em] uppercase text-white bg-black/30 backdrop-blur-md px-3 py-1.5 rounded-full border border-white/10 whitespace-nowrap shadow-sm ${(isDesktop || isOpen) ? 'opacity-100' : 'opacity-0'
+                                            {/* Label - Hover on desktop, Always visible on mobile */}
+                                            <span className={`transition-opacity duration-300 text-[10px] font-bold tracking-[0.2em] uppercase text-white bg-black/30 backdrop-blur-md px-3 py-1.5 rounded-full border border-white/10 whitespace-nowrap shadow-sm ${isDesktop ? 'opacity-0 group-hover:opacity-100' : 'opacity-100'
                                                 }`}>
                                                 {whatsapp.name}
                                             </span>
@@ -137,8 +137,8 @@ const FloatingActions = () => {
                                             className="group flex items-center gap-3 self-end"
                                             title="Instagram"
                                         >
-                                            {/* Label */}
-                                            <span className={`transition-opacity duration-300 text-[10px] font-bold tracking-[0.2em] uppercase text-white bg-black/30 backdrop-blur-md px-3 py-1.5 rounded-full border border-white/10 whitespace-nowrap shadow-sm ${(isDesktop || isOpen) ? 'opacity-100' : 'opacity-0'
+                                            {/* Label - Hover on desktop, Always visible on mobile */}
+                                            <span className={`transition-opacity duration-300 text-[10px] font-bold tracking-[0.2em] uppercase text-white bg-black/30 backdrop-blur-md px-3 py-1.5 rounded-full border border-white/10 whitespace-nowrap shadow-sm ${isDesktop ? 'opacity-0 group-hover:opacity-100' : 'opacity-100'
                                                 }`}>
                                                 {instagram.name}
                                             </span>

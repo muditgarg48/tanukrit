@@ -1,6 +1,5 @@
 import Navbar from "./components/Navbar";
 import FloatingActions from "./components/FloatingActions";
-import ContentFrame from "./components/ContentFrame";
 import Hero from "./sections/Hero";
 import Introduction from "./sections/Introduction";
 import Showcase from "./sections/Showcase";
@@ -14,12 +13,10 @@ function App() {
       <Navbar />
       <FloatingActions />
       <Hero />
-      <ContentFrame>
-        <Showcase />
-        <Introduction />
-        <Testimonials />
-        <Contact />
-      </ContentFrame>
+      <Showcase />
+      <Introduction />
+      <Testimonials />
+      <Contact />
       <Footer />
     </main>
   );
