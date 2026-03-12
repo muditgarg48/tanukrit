@@ -1,11 +1,15 @@
 import { CONTENT } from "../constants/content";
 import { scrollToHash } from "../utils/scroll";
+import LocationIndicator from "../components/LocationIndicator";
 
 const Hero = () => {
     const { tagline, title, logoSrc, description, backgroundImage } = CONTENT.hero;
 
     return (
         <section data-nav-theme="dark" className="relative h-screen flex flex-col items-center justify-center overflow-hidden bg-primary px-4 pt-20">
+            <div className="absolute top-0 left-0 w-full z-30">
+                <LocationIndicator variant="hero" />
+            </div>
             {/* Background Image Layer */}
             <div
                 className="absolute inset-0 bg-cover bg-center z-0"
@@ -15,7 +19,7 @@ const Hero = () => {
             </div>
 
             {/* Minimal Navigation Layer */}
-            <div className="absolute top-0 left-0 w-full h-24 z-20 flex justify-center items-center">
+            <div className="absolute top-8 left-0 w-full h-24 z-20 flex justify-center items-center">
                 <div className="flex flex-wrap justify-center gap-x-6 gap-y-2 md:gap-x-14 px-4 drop-shadow-md">
                     {CONTENT.navbar.links.map((link) => (
                         <a

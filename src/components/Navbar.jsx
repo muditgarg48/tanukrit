@@ -3,40 +3,44 @@ import { CONTENT } from "../constants/content";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import { scrollToHash } from "../utils/scroll";
+import LocationIndicator from "./LocationIndicator";
 
 const DesktopNavbar = ({ isLight }) => (
-    <div className={`px-8 py-2.5 rounded-full flex justify-between items-center shadow-lg transition-[background-color,border-color,color,transform] duration-500 relative z-10 w-full ${isLight ? "bg-[#dca3d7]/15 backdrop-blur-md border border-[#dca3d7]/30" : "bg-white/20 backdrop-blur-md border border-white/30"
-        }`}>
-        <a href="#" className="h-12 relative z-20">
-            <img
-                src={isLight ? CONTENT.navbar.logoSrc : CONTENT.hero.logoSrc}
-                alt={CONTENT.navbar.logo}
-                className={`h-full w-auto object-contain transition-[opacity,transform] duration-500`}
-            />
-        </a>
-        <div className="flex gap-8">
-            {CONTENT.navbar.links.map((link) => (
-                <a
-                    key={link.name}
-                    href={link.hash}
-                    onClick={(e) => { e.preventDefault(); scrollToHash(link.hash); }}
-                    className={`text-sm font-medium transition-colors duration-500 uppercase tracking-widest ${isLight ? "text-primary hover:text-primary/70" : "text-white hover:text-white/70"
-                        }`}
-                >
-                    {link.name}
-                </a>
-            ))}
+    <div className="flex flex-col items-center w-full relative z-10 transition-[opacity,transform] duration-500">
+        <div className={`px-8 py-2.5 rounded-full flex justify-between items-center shadow-lg transition-[background-color,border-color,color,transform] duration-500 relative z-10 w-full ${isLight ? "bg-[#dca3d7]/15 backdrop-blur-md border border-[#dca3d7]/30" : "bg-white/20 backdrop-blur-md border border-white/30"
+            }`}>
+            <a href="#" className="h-12 relative z-20">
+                <img
+                    src={isLight ? CONTENT.navbar.logoSrc : CONTENT.hero.logoSrc}
+                    alt={CONTENT.navbar.logo}
+                    className={`h-full w-auto object-contain transition-[opacity,transform] duration-500`}
+                />
+            </a>
+            <div className="flex gap-8">
+                {CONTENT.navbar.links.map((link) => (
+                    <a
+                        key={link.name}
+                        href={link.hash}
+                        onClick={(e) => { e.preventDefault(); scrollToHash(link.hash); }}
+                        className={`text-sm font-medium transition-colors duration-500 uppercase tracking-widest ${isLight ? "text-primary hover:text-primary/70" : "text-white hover:text-white/70"
+                            }`}
+                    >
+                        {link.name}
+                    </a>
+                ))}
+            </div>
         </div>
+        <LocationIndicator variant="navbar-desktop" isLight={isLight} />
     </div>
 );
 
 const MobileNavbar = ({ isLight, toggleMenu, isMenuOpen, menuVariants }) => (
     <>
-        <div className="flex justify-between items-center relative z-10 w-full">
+        <div className={`flex justify-between items-center relative z-10 w-full px-4 py-2 rounded-full shadow-lg transition-[background-color,border-color,color,transform] duration-500 ${isLight ? "bg-[#dca3d7]/15 backdrop-blur-md border border-[#dca3d7]/30" : "bg-white/20 backdrop-blur-md border border-white/30"
+            }`}>
             <a
                 href="#"
-                className={`h-14 w-auto relative z-20 flex items-center transition-[background-color,border-color,color,transform] duration-500 ${isLight ? "bg-[#dca3d7]/15 backdrop-blur-md border border-[#dca3d7]/30" : "bg-white/20 backdrop-blur-md border border-white/30"
-                    } px-5 rounded-full shadow-lg`}
+                className="h-10 w-auto relative z-20 flex items-center"
             >
                 <img
                     src={isLight ? CONTENT.navbar.logoSrc : CONTENT.hero.logoSrc}
@@ -45,15 +49,17 @@ const MobileNavbar = ({ isLight, toggleMenu, isMenuOpen, menuVariants }) => (
                 />
             </a>
 
+            <LocationIndicator variant="navbar-mobile" isLight={isLight} />
+
             <button
                 onClick={toggleMenu}
-                className={`w-11 h-11 flex items-center justify-center rounded-full shadow-lg transition-[background-color,border-color,color,transform] duration-500 relative z-20 ${isLight
-                    ? "bg-[#dca3d7]/15 backdrop-blur-md border border-[#dca3d7]/30 text-primary hover:bg-primary/10"
-                    : "bg-white/20 backdrop-blur-md border border-white/30 text-white hover:bg-white/10"
+                className={`w-10 h-10 flex items-center justify-center rounded-full transition-colors duration-500 relative z-20 ${isLight
+                    ? "text-primary hover:bg-primary/10"
+                    : "text-white hover:bg-white/10"
                     }`}
                 aria-label="Toggle menu"
             >
-                {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+                {isMenuOpen ? <X size={20} /> : <Menu size={20} />}
             </button>
         </div>
 
