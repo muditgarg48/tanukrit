@@ -43,8 +43,9 @@ export const CONTENT = {
     },
     introduction: {
         story: {
-            title: "Artfully Packaged. Emotionally Delivered.",
-            beliefs: "The right gift is a heartfelt gesture of love, appreciation and care. We pour intention into every detail, crafting luxury hampers that tell a story. With Tanukrit, every gift is thoughtful and every detail is intentional.",
+            title: "Brand Story",
+            description: "Tanukrit is a premium gifting brand that believes a gift is more than just an exchange. It is a heartfelt gesture of love, appreciation and care. We pour intention into every detail, crafting luxury hampers that tell a story.",
+            highlight: "With Tanukrit, every gift is thoughtful and every detail is intentional."
         },
         howItWorks: {
             title: "How It Works",

@@ -3,6 +3,7 @@ import Navbar from "./components/Navbar";
 import FloatingActions from "./components/FloatingActions";
 import Hero from "./sections/Hero";
 
+const BrandStory = lazy(() => import("./sections/BrandStory"));
 const Showcase = lazy(() => import("./sections/Showcase"));
 const Introduction = lazy(() => import("./sections/Introduction"));
 const Testimonials = lazy(() => import("./sections/Testimonials"));
@@ -16,6 +17,7 @@ function App() {
       <FloatingActions />
       <Hero />
       <Suspense fallback={null}>
+        <BrandStory />
         <Showcase />
         <Introduction />
         <Testimonials />
