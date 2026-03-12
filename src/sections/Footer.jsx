@@ -1,10 +1,7 @@
 import { motion } from "framer-motion";
 import { ArrowUp } from "lucide-react";
-import { CONTENT } from "../constants/content";
-import logo from "../assets/tanukrit_logo.webp";
 
 const Footer = () => {
-    const { footer } = CONTENT.contact;
 
     const scrollToTop = () => {
         window.scrollTo({

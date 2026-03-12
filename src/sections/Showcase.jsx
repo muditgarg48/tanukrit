@@ -4,7 +4,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
 const Showcase = () => {
-    const { title, eyebrow, description, items, cta } = CONTENT.showcase;
+    const { title, description, items, cta } = CONTENT.showcase;
     const [activeIndex, setActiveIndex] = useState(0);
     const mobileScrollRef = useRef(null);
     const isProgrammaticScroll = useRef(false);

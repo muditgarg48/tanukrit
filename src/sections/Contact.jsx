@@ -1,4 +1,4 @@
-import { Mail, Phone, MapPin, ExternalLink } from "lucide-react";
+import { Mail, Phone, ExternalLink } from "lucide-react";
 import { CONTENT } from "../constants/content";
 import logo from "../assets/tanukrit_logo.webp";
 

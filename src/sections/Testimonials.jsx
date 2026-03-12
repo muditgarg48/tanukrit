@@ -6,7 +6,7 @@ import "swiper/css/navigation";
 import { CONTENT } from "../constants/content";
 
 const Testimonials = () => {
-    const { title, eyebrow, items } = CONTENT.testimonials;
+    const { title, items } = CONTENT.testimonials;
 
     return (
         <section id="testimonials" data-nav-theme="light" className="min-h-screen flex flex-col bg-white px-4 pb-12 md:pb-24 overflow-x-hidden">

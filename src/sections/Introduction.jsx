@@ -17,7 +17,7 @@ const icons = {
 };
 
 const Introduction = () => {
-    const { story, howItWorks, trustedBy, trust, founder } = CONTENT.introduction;
+    const { howItWorks, trustedBy, trust, founder } = CONTENT.introduction;
 
     return (
         <section id="about" data-nav-theme="light" className="bg-white px-4 py-12 md:py-24">

@@ -3,7 +3,7 @@ import { scrollToHash } from "../utils/scroll";
 import LocationIndicator from "../components/LocationIndicator";
 
 const Hero = () => {
-    const { tagline, title, logoSrc, description, backgroundImage } = CONTENT.hero;
+    const { tagline, title, logoSrc, backgroundImage } = CONTENT.hero;
 
     return (
         <section data-nav-theme="dark" className="relative h-screen flex flex-col items-center justify-center overflow-hidden bg-primary px-4 pt-12 md:pt-20">
