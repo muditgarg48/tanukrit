@@ -34,64 +34,83 @@ const DesktopNavbar = ({ isLight }) => (
     </div>
 );
 
-const MobileNavbar = ({ isLight, toggleMenu, isMenuOpen, menuVariants }) => (
+const MobileNavbarToggle = ({ isLight, toggleMenu, isMenuOpen }) => (
+    <div className={`flex justify-between items-center relative z-10 w-full px-4 py-2 rounded-full shadow-lg transition-[background-color,border-color,color,transform] duration-500 ${isLight ? "bg-[#dca3d7]/15 backdrop-blur-md border border-[#dca3d7]/30" : "bg-white/20 backdrop-blur-md border border-white/30"
+        }`}>
+        <a
+            href="#"
+            className="h-10 w-auto relative z-20 flex items-center"
+        >
+            <img
+                src={isLight ? CONTENT.navbar.logoSrc : CONTENT.hero.logoSrc}
+                alt={CONTENT.navbar.logo}
+                className={`h-full w-auto object-contain transition-[opacity,transform] duration-500`}
+            />
+        </a>
+
+        <LocationIndicator variant="navbar-mobile" isLight={isLight} />
+
+        <button
+            onClick={toggleMenu}
+            className={`w-10 h-10 flex items-center justify-center rounded-full transition-colors duration-500 relative z-20 ${isLight
+                ? "text-primary hover:bg-primary/10"
+                : "text-white hover:bg-white/10"
+                }`}
+            aria-label="Toggle menu"
+        >
+            {isMenuOpen ? <X size={20} /> : <Menu size={20} />}
+        </button>
+    </div>
+);
+
+const MobileSidebar = ({ toggleMenu, sidebarVariants, backdropVariants }) => (
     <>
-        <div className={`flex justify-between items-center relative z-10 w-full px-4 py-2 rounded-full shadow-lg transition-[background-color,border-color,color,transform] duration-500 ${isLight ? "bg-[#dca3d7]/15 backdrop-blur-md border border-[#dca3d7]/30" : "bg-white/20 backdrop-blur-md border border-white/30"
-            }`}>
-            <a
-                href="#"
-                className="h-10 w-auto relative z-20 flex items-center"
-            >
-                <img
-                    src={isLight ? CONTENT.navbar.logoSrc : CONTENT.hero.logoSrc}
-                    alt={CONTENT.navbar.logo}
-                    className={`h-full w-auto object-contain transition-[opacity,transform] duration-500`}
-                />
-            </a>
-
-            <LocationIndicator variant="navbar-mobile" isLight={isLight} />
-
+        <motion.div
+            initial="hidden"
+            animate="visible"
+            exit="hidden"
+            variants={backdropVariants}
+            onClick={toggleMenu}
+            className="fixed inset-0 z-[60] bg-black/40 backdrop-blur-sm"
+        />
+        <motion.div
+            initial="hidden"
+            animate="visible"
+            exit="hidden"
+            variants={sidebarVariants}
+            className="fixed top-0 right-0 bottom-0 z-[70] w-[85%] max-w-sm h-full p-8 shadow-2xl flex flex-col items-start justify-center rounded-l-[2.5rem] border-l bg-white/95 backdrop-blur-2xl border-primary/10"
+        >
             <button
                 onClick={toggleMenu}
-                className={`w-10 h-10 flex items-center justify-center rounded-full transition-colors duration-500 relative z-20 ${isLight
-                    ? "text-primary hover:bg-primary/10"
-                    : "text-white hover:bg-white/10"
-                    }`}
-                aria-label="Toggle menu"
+                className="absolute top-8 right-8 w-12 h-12 flex items-center justify-center rounded-full transition-colors duration-300 text-primary hover:bg-primary/10"
             >
-                {isMenuOpen ? <X size={20} /> : <Menu size={20} />}
+                <X size={28} />
             </button>
-        </div>
 
-        <AnimatePresence>
-            {isMenuOpen && (
-                <motion.div
-                    initial="hidden"
-                    animate="visible"
-                    exit="hidden"
-                    variants={menuVariants}
-                    className={`absolute top-full left-0 right-0 mt-4 p-6 md:p-10 rounded-[2.5rem] shadow-2xl overflow-hidden ${isLight ? "bg-[#dca3d7]/15 backdrop-blur-md border border-[#dca3d7]/30" : "bg-white/20 backdrop-blur-md border border-white/30"
-                        }`}
-                >
-                    <div className="flex flex-wrap justify-center gap-x-6 gap-y-6 md:gap-x-10 md:gap-y-8">
-                        {CONTENT.navbar.links.map((link, index) => (
-                            <motion.a
-                                key={link.name}
-                                href={link.hash}
-                                initial={{ opacity: 0, y: 10 }}
-                                animate={{ opacity: 1, y: 0 }}
-                                transition={{ delay: index * 0.05 }}
-                                onClick={(e) => { e.preventDefault(); scrollToHash(link.hash); toggleMenu(); }}
-                                className={`text-lg font-medium uppercase tracking-widest transition-colors duration-300 ${isLight ? "text-primary hover:text-primary/60" : "text-white hover:text-white/60"
-                                    }`}
-                            >
-                                {link.name}
-                            </motion.a>
-                        ))}
-                    </div>
-                </motion.div>
-            )}
-        </AnimatePresence>
+            <div className="flex flex-col items-start gap-8 w-full pl-6">
+                {CONTENT.navbar.links.map((link, index) => (
+                    <motion.a
+                        key={link.name}
+                        href={link.hash}
+                        initial={{ opacity: 0, x: 50 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ delay: 0.1 + index * 0.1, type: "spring", stiffness: 200, damping: 25 }}
+                        onClick={(e) => { e.preventDefault(); scrollToHash(link.hash); toggleMenu(); }}
+                        className="text-2xl font-medium uppercase tracking-[0.25em] transition-all duration-300 hover:scale-110 origin-left text-primary/80 hover:text-primary"
+                    >
+                        {link.name}
+                    </motion.a>
+                ))}
+            </div>
+
+            <div className="absolute bottom-12 left-1/2 -translate-x-1/2">
+                <img
+                    src={CONTENT.navbar.logoSrc}
+                    alt={CONTENT.navbar.logo}
+                    className="h-16 w-auto opacity-30 grayscale"
+                />
+            </div>
+        </motion.div>
     </>
 );
 
@@ -148,44 +167,58 @@ const Navbar = () => {
     const isLight = navTheme === "light";
     const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
 
-    const menuVariants = {
+    const sidebarVariants = {
         hidden: {
-            opacity: 0,
-            y: -20,
-            scale: 0.95,
+            x: "100%",
             transition: {
-                duration: 0.2,
-                ease: "easeInOut"
+                type: "spring",
+                stiffness: 400,
+                damping: 40
             }
         },
         visible: {
-            opacity: 1,
-            y: 0,
-            scale: 1,
+            x: 0,
             transition: {
                 type: "spring",
-                stiffness: 300,
-                damping: 30
+                stiffness: 400,
+                damping: 40,
+                when: "beforeChildren"
             }
         }
     };
 
+    const backdropVariants = {
+        hidden: { opacity: 0 },
+        visible: { opacity: 1 }
+    };
+
     return (
-        <nav
-            className={`fixed top-6 left-1/2 -translate-x-1/2 z-50 w-[90%] md:w-[85vw] max-w-6xl transition-[opacity,transform] duration-700 ease-in-out ${scrolled ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-4 pointer-events-none"
-                }`}
-        >
-            {isDesktop ? (
-                <DesktopNavbar isLight={isLight} />
-            ) : (
-                <MobileNavbar
-                    isLight={isLight}
-                    toggleMenu={toggleMenu}
-                    isMenuOpen={isMenuOpen}
-                    menuVariants={menuVariants}
-                />
-            )}
-        </nav>
+        <>
+            <nav
+                className={`fixed top-6 left-1/2 -translate-x-1/2 z-50 w-[90%] md:w-[85vw] max-w-6xl transition-[opacity,transform] duration-700 ease-in-out ${scrolled ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-4 pointer-events-none"
+                    }`}
+            >
+                {isDesktop ? (
+                    <DesktopNavbar isLight={isLight} />
+                ) : (
+                    <MobileNavbarToggle
+                        isLight={isLight}
+                        toggleMenu={toggleMenu}
+                        isMenuOpen={isMenuOpen}
+                    />
+                )}
+            </nav>
+
+            <AnimatePresence>
+                {isMenuOpen && !isDesktop && (
+                    <MobileSidebar
+                        toggleMenu={toggleMenu}
+                        sidebarVariants={sidebarVariants}
+                        backdropVariants={backdropVariants}
+                    />
+                )}
+            </AnimatePresence>
+        </>
     );
 };
 
