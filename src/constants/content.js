@@ -172,5 +172,9 @@ export const CONTENT = {
             copyright: `© ${new Date().getFullYear()} Tanukrit • Designed with Intention`,
             tagline: "Artfully Packaged • Emotionally Delivered"
         }
+    },
+    ribbons: {
+        brandStoryToShowcase: ["We curate gifts that say:", "“I see you”", "“I value you”", "“You matter”"],
+        howItWorksToTrustedBy: ["Artfully packed", "Emotionally Delivered"]
     }
 };

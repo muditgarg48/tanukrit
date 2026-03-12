@@ -2,6 +2,8 @@ import { lazy, Suspense } from "react";
 import Navbar from "./components/Navbar";
 import FloatingActions from "./components/FloatingActions";
 import Hero from "./sections/Hero";
+import Ribbon from "./components/Ribbon";
+import { CONTENT } from "./constants/content";
 
 const BrandStory = lazy(() => import("./sections/BrandStory"));
 const Showcase = lazy(() => import("./sections/Showcase"));
@@ -18,6 +20,9 @@ function App() {
       <Hero />
       <Suspense fallback={null}>
         <BrandStory />
+        <Ribbon
+          text={CONTENT.ribbons.brandStoryToShowcase}
+        />
         <Showcase />
         <Introduction />
         <Testimonials />

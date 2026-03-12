@@ -1,4 +1,3 @@
-import { motion } from "framer-motion";
 import { CONTENT } from "../constants/content";
 import {
     Gift,
@@ -7,6 +6,7 @@ import {
     ShieldCheck,
     Building2
 } from "lucide-react";
+import Ribbon from "../components/Ribbon";
 
 const icons = {
     Gift,
@@ -46,6 +46,8 @@ const Introduction = () => {
                     </div>
                 </div>
             </div>
+
+            <Ribbon text={CONTENT.ribbons.howItWorksToTrustedBy} className="my-8" />
 
             {/* Block 1.2: Trusted By (Marquee) */}
             <div className="py-8 md:py-12 border-b border-gray-50 overflow-hidden">
