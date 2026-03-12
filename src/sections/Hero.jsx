@@ -6,7 +6,7 @@ const Hero = () => {
     const { tagline, title, logoSrc, description, backgroundImage } = CONTENT.hero;
 
     return (
-        <section data-nav-theme="dark" className="relative h-screen flex flex-col items-center justify-center overflow-hidden bg-primary px-4 pt-20">
+        <section data-nav-theme="dark" className="relative h-screen flex flex-col items-center justify-center overflow-hidden bg-primary px-4 pt-12 md:pt-20">
             <div className="absolute top-0 left-0 w-full z-30">
                 <LocationIndicator variant="hero" />
             </div>
@@ -35,26 +35,16 @@ const Hero = () => {
             </div>
 
             <div className="relative z-10 text-center text-white max-w-4xl flex flex-col items-center drop-shadow-2xl">
-                <span className="text-[10px] md:text-xs uppercase tracking-[0.4em] mb-4 md:mb-8 block animate-fade-in opacity-90 font-medium text-white shadow-black/20 text-shadow-sm">
-                    {tagline}
-                </span>
-                <div className="mb-6 md:mb-10 animate-fade-in filter drop-shadow-[0_0_20px_rgba(0,0,0,0.3)]">
+                <div className="mb-12 md:mb-10 animate-fade-in filter drop-shadow-[0_0_20_rgba(0,0,0,0.3)]">
                     <img
                         src={logoSrc}
                         alt={title}
-                        className="h-[15vh] md:h-[25vh] lg:h-[30vh] w-auto object-contain brightness-110"
+                        className="h-[32vh] md:h-[45vh] lg:h-[48vh] w-auto object-contain brightness-110"
                     />
                 </div>
-                <p className="text-base md:text-xl font-light mb-6 md:mb-8 max-w-2xl mx-auto leading-relaxed opacity-100 px-4 drop-shadow-lg">
-                    {description}
-                </p>
-                {CONTENT.hero.motto && (
-                    <div className="animate-fade-in delay-500 bg-black/10 backdrop-blur-sm px-6 py-3 rounded-full border border-white/5">
-                        <p className="text-lg md:text-2xl font-heading italic text-white mb-0 drop-shadow-md">
-                            {CONTENT.hero.motto.text}
-                        </p>
-                    </div>
-                )}
+                <span className="text-[11px] md:text-sm uppercase tracking-[0.4em] block animate-fade-in opacity-90 font-medium text-white shadow-black/20 text-shadow-sm">
+                    {tagline}
+                </span>
             </div>
 
             {/* Scroll Indicator */}

@@ -39,11 +39,7 @@ export const CONTENT = {
         tagline: "Curated with Care. Designed with Intention.",
         title: "Tanukrit",
         logoSrc: heroLogo,
-        description: "Every gift is more than just an exchange. It is a heartfelt gesture of love, appreciation and care. ",
         backgroundImage: heroBackground,
-        motto: {
-            text: "We curate gifts that say, “I see you,” “I value you,” “You matter.”",
-        }
     },
     introduction: {
         story: {
