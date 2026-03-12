@@ -98,7 +98,7 @@ const MobileSidebar = ({ toggleMenu, sidebarVariants, backdropVariants }) => (
                         animate={{ opacity: 1, x: 0 }}
                         transition={{ delay: 0.1 + index * 0.1, type: "spring", stiffness: 200, damping: 25 }}
                         onClick={(e) => { e.preventDefault(); scrollToHash(link.hash); toggleMenu(); }}
-                        className="text-2xl font-medium uppercase tracking-[0.25em] transition-all duration-300 hover:scale-110 origin-left text-primary/80 hover:text-primary"
+                        className="text-lg font-medium uppercase tracking-[0.25em] transition-all duration-300 hover:scale-110 origin-left text-primary/80 hover:text-primary"
                     >
                         {link.name}
                     </motion.a>

@@ -112,7 +112,7 @@ const Introduction = () => {
 
             {/* Block 2: The Founder */}
             <div className="pt-8 md:pt-12 flex flex-col justify-center bg-stone-50/30">
-                <div className="max-w-6xl mx-auto w-full">
+                <div className="max-w-6xl mx-auto w-full px-4">
                     <div className="grid grid-cols-1 md:grid-cols-[1fr_40%] gap-y-8 md:gap-y-6 md:gap-x-24 items-center">
                         {/* 1. Headings Area */}
                         <div className="order-1 text-center md:text-left">
