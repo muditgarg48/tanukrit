@@ -1,4 +1,4 @@
-import { Mail, Phone, ExternalLink } from "lucide-react";
+import { ExternalLink } from "lucide-react";
 import { CONTENT } from "../constants/content";
 import logo from "../assets/tanukrit_logo.webp";
 
@@ -11,10 +11,10 @@ const Contact = () => {
 
             <div className="max-w-6xl mx-auto relative z-10 w-full">
                 <div className="mb-8 md:mb-16">
-                    <h2 className="text-white text-3xl md:text-5xl font-heading mb-4 md:mb-6 leading-tight whitespace-pre-line">
+                    <h2 className="text-white text-2xl md:text-3xl font-heading mb-4 md:mb-6 leading-tight whitespace-pre-line">
                         {title}
                     </h2>
-                    <p className="text-white/70 text-base md:text-xl font-light max-w-2xl leading-relaxed">
+                    <p className="text-white/70 text-sm md:text-base font-light max-w-2xl leading-relaxed">
                         {description}
                     </p>
                 </div>
@@ -23,39 +23,33 @@ const Contact = () => {
                     {/* Left Column: Contact Details */}
                     <div className="space-y-6 md:space-y-12">
                         {/* Contact Us Section */}
-                        <div>
-                            <h4 className="text-white/40 text-[10px] uppercase tracking-[0.3em] font-bold mb-6">Contact Us</h4>
-                            <div className="space-y-4">
+                        <div className="mb-6 md:mb-10">
+                            <h4 className="text-white/40 text-sm md:text-base uppercase tracking-[0.2em] font-bold mb-4 font-body">Contact Us</h4>
+                            <div className="flex flex-col space-y-0">
                                 <a
                                     href={`mailto:${email}`}
-                                    className="flex items-center gap-4 text-white group hover:text-white/80 transition-colors"
+                                    className="block text-white/80 group hover:text-white transition-colors"
                                 >
-                                    <div className="w-10 h-10 rounded-xl bg-white/10 flex items-center justify-center border border-white/5 transition-transform group-hover:scale-110">
-                                        <Mail size={18} strokeWidth={1.5} />
-                                    </div>
-                                    <span className="text-lg md:text-xl font-medium tracking-tight">{email}</span>
+                                    <span className="text-sm md:text-base tracking-tight underline underline-offset-4 decoration-white/20 group-hover:decoration-white/100 font-body">{email}</span>
                                 </a>
                                 <a
                                     href={`tel:${phone.replace(/\s/g, '')}`}
-                                    className="flex items-center gap-4 text-white group hover:text-white/80 transition-colors"
+                                    className="block text-white/80 group hover:text-white transition-colors"
                                 >
-                                    <div className="w-10 h-10 rounded-xl bg-white/10 flex items-center justify-center border border-white/5 transition-transform group-hover:scale-110">
-                                        <Phone size={18} strokeWidth={1.5} />
-                                    </div>
-                                    <span className="text-lg md:text-xl font-medium tracking-tight">{phone}</span>
+                                    <span className="text-sm md:text-base tracking-tight font-body">{phone}</span>
                                 </a>
-                                <div className="pt-2">
-                                    <p className="text-white font-medium text-sm tracking-wide">{location.workingDays}</p>
-                                    <p className="text-white/60 text-xs mt-1 tracking-wide">{location.workingHours}</p>
+                                <div>
+                                    <p className="text-white/80 font-medium text-sm md:text-base tracking-tight font-body">{location.workingDays}</p>
+                                    <p className="text-white/80 text-sm md:text-base tracking-tight font-body">{location.workingHours}</p>
                                 </div>
                             </div>
                         </div>
 
                         {/* Studio Address Section */}
-                        <div>
-                            <h4 className="text-white/40 text-[10px] uppercase tracking-[0.3em] font-bold mb-6">Studio Address</h4>
-                            <div className="space-y-4">
-                                <p className="text-white/80 text-lg md:text-xl font-light leading-relaxed max-w-md">
+                        <div className="mb-0">
+                            <h4 className="text-white/40 text-sm md:text-base uppercase tracking-[0.2em] font-bold mb-4 font-body">Studio Address</h4>
+                            <div className="flex flex-col space-y-2">
+                                <p className="text-white/80 text-sm md:text-base font-light leading-relaxed max-w-md font-body">
                                     {location.address}
                                 </p>
                                 <p className="text-white/60 text-sm tracking-wide italic font-medium">

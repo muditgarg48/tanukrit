@@ -153,7 +153,7 @@ export const CONTENT = {
         title: "Planning a Celebration?\nLet's create something special!",
         email: "support@tanukrit.com",
         phone: "+91 79826 66274",
-        description: "We look forward to creating something meaningful for you—just as we have for families and clients across India.",
+        description: "We look forward to creating something meaningful for you, just as we have for families and clients across India.",
         socials: [
             { id: 1, name: "Instagram", link: "https://www.instagram.com/tanu.krit", icon: "instagram", color: "#E1306C" },
             { id: 2, name: "WhatsApp", link: "https://wa.me/917982666274?text=Hey%20Tanu!%20Came%20across%20your%20work%20on%20your%20website%20and%20I%20love%20it!%20I%20would%20like%20to%20enquire%20more.", icon: "whatsapp", color: "#25D366" },
@@ -170,7 +170,7 @@ export const CONTENT = {
         },
         footer: {
             copyright: `© ${new Date().getFullYear()} Tanukrit • Designed with Intention`,
-            tagline: "Artfully Packaged • Emotionally Delivered"
+            tagline: "Artfully Packed • Emotionally Delivered"
         }
     },
     ribbons: {
