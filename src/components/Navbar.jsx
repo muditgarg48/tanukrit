@@ -48,8 +48,6 @@ const MobileNavbarToggle = ({ isLight, toggleMenu, isMenuOpen }) => (
             />
         </a>
 
-        <LocationIndicator variant="navbar-mobile" isLight={isLight} />
-
         <button
             onClick={toggleMenu}
             className={`w-10 h-10 flex items-center justify-center rounded-full transition-colors duration-500 relative z-20 ${isLight
@@ -87,7 +85,11 @@ const MobileSidebar = ({ toggleMenu, sidebarVariants, backdropVariants }) => (
                 <X size={28} />
             </button>
 
-            <div className="flex flex-col items-start gap-8 w-full pl-6">
+            <div className="absolute top-24 left-1/2 -translate-x-1/2 scale-150">
+                <LocationIndicator variant="navbar-mobile" isLight={true} />
+            </div>
+
+            <div className="flex flex-col items-start gap-8 w-full pl-6 mt-12">
                 {CONTENT.navbar.links.map((link, index) => (
                     <motion.a
                         key={link.name}
