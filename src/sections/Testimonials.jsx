@@ -6,15 +6,15 @@ import "swiper/css/navigation";
 import { CONTENT } from "../constants/content";
 
 const Testimonials = () => {
-    const { title, subtitle, items } = CONTENT.testimonials;
+    const { title, eyebrow, items } = CONTENT.testimonials;
 
     return (
-        <section id="testimonials" data-nav-theme="light" className="min-h-screen flex flex-col bg-white px-4 pb-24 overflow-x-hidden">
+        <section id="testimonials" data-nav-theme="light" className="min-h-screen flex flex-col bg-white px-4 pb-12 md:pb-24 overflow-x-hidden">
             <div className="flex-1 flex flex-col justify-center">
                 <div className="max-w-7xl mx-auto relative group/nav w-full">
-                    <div className="text-center mb-16">
-                        <h2 className="text-4xl md:text-5xl font-heading mb-4">{title}</h2>
-                        <p className="text-gray-500 uppercase tracking-widest text-sm">{subtitle}</p>
+                    <div className="text-center mb-10 md:mb-16">
+                        {eyebrow && <h4 className="text-primary text-sm font-bold uppercase tracking-[0.3em] mb-4">{eyebrow}</h4>}
+                        <h2 className="text-4xl md:text-5xl font-heading mb-4 leading-tight">{title}</h2>
                     </div>
 
                     <div className="relative px-4 sm:px-12 overflow-hidden">
@@ -44,7 +44,7 @@ const Testimonials = () => {
                         >
                             {items.map((item) => (
                                 <SwiperSlide key={item.id} className="!h-auto">
-                                    <div className="group relative p-12 rounded-[2.5rem] bg-stone-50/50 border border-stone-100 flex flex-col h-full hover:bg-primary transition-all duration-500 shadow-sm hover:shadow-2xl border-b-4 border-b-transparent hover:border-b-white/20">
+                                    <div className="group relative p-8 md:p-12 rounded-[2.5rem] bg-stone-50/50 border border-stone-100 flex flex-col h-full hover:bg-primary transition-all duration-500 shadow-sm hover:shadow-2xl border-b-4 border-b-transparent hover:border-b-white/20">
                                         <span className="text-7xl text-primary/20 font-serif absolute top-6 left-8 pointer-events-none group-hover:text-white/20 transition-colors leading-none">“</span>
 
                                         <div className="flex-grow flex items-center mb-10 mt-6">

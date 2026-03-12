@@ -1,107 +1,103 @@
-import { Instagram, MessageCircle, Linkedin, MapPin, Mail } from "lucide-react";
+import { Mail, Phone, MapPin, ExternalLink } from "lucide-react";
 import { CONTENT } from "../constants/content";
 
 const Contact = () => {
-    const { title, description, socials, location, footer } = CONTENT.contact;
-
-    const IconMap = {
-        instagram: Instagram,
-        whatsapp: MessageCircle,
-        linkedin: Linkedin,
-        "map-pin": MapPin,
-        mail: Mail,
-    };
+    const { title, description, email, phone, location, footer } = CONTENT.contact;
 
     return (
-        <section id="contact" data-nav-theme="dark" className="relative px-4 py-24 bg-primary overflow-hidden min-h-screen flex flex-col">
-            {/* Decorative background elements could be added here if needed */}
+        <section id="contact" data-nav-theme="dark" className="relative px-4 py-16 md:py-20 bg-primary overflow-hidden flex flex-col justify-center">
+            {/* Background pattern could be added here */}
 
-            <div className="max-w-6xl mx-auto relative z-10 flex-1 flex flex-col justify-evenly w-full">
-                <div className="text-center mb-12">
-                    <h2 className="text-white text-5xl md:text-7xl font-heading mb-6">
+            <div className="max-w-6xl mx-auto relative z-10 w-full">
+                <div className="mb-10 md:mb-16">
+                    <h2 className="text-white text-4xl md:text-7xl font-heading mb-6 leading-tight whitespace-pre-line">
                         {title}
                     </h2>
-                    <p className="text-white/70 text-lg font-light max-w-2xl mx-auto">
+                    <p className="text-white/70 text-base md:text-xl font-light max-w-2xl leading-relaxed">
                         {description}
                     </p>
                 </div>
 
-                <div className="flex flex-col md:flex-row items-center justify-center gap-12 md:gap-24 mb-8">
-                    {/* Socials Grid */}
-                    <div className="grid grid-cols-2 gap-6 md:gap-8">
-                        {socials.map((social) => {
-                            const IconComponent = IconMap[social.icon];
-                            return (
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-20 items-start">
+                    {/* Left Column: Contact Details */}
+                    <div className="space-y-12">
+                        {/* Contact Us Section */}
+                        <div>
+                            <h4 className="text-white/40 text-[10px] uppercase tracking-[0.3em] font-bold mb-6">Contact Us</h4>
+                            <div className="space-y-4">
                                 <a
-                                    key={social.id}
-                                    href={social.link}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className="flex flex-col items-center group w-24 md:w-32"
+                                    href={`mailto:${email}`}
+                                    className="flex items-center gap-4 text-white group hover:text-white/80 transition-colors"
                                 >
-                                    <div
-                                        className="w-16 h-16 rounded-3xl bg-white/5 flex items-center justify-center border border-white/10 group-hover:border-transparent transition-all duration-300 group-hover:-translate-y-2 shadow-lg hover:shadow-2xl"
-                                        style={{ "--hover-color": social.color }}
-                                        onMouseEnter={(e) => e.currentTarget.style.backgroundColor = social.color}
-                                        onMouseLeave={(e) => e.currentTarget.style.backgroundColor = "rgba(255, 255, 255, 0.05)"}
-                                    >
-                                        {IconComponent && <IconComponent className="text-white w-7 h-7" strokeWidth={1.5} />}
+                                    <div className="w-10 h-10 rounded-xl bg-white/10 flex items-center justify-center border border-white/5 transition-transform group-hover:scale-110">
+                                        <Mail size={18} strokeWidth={1.5} />
                                     </div>
-                                    <span className="text-white/60 text-[10px] mt-3 tracking-widest uppercase font-medium">{social.name}</span>
+                                    <span className="text-lg md:text-xl font-medium tracking-tight">{email}</span>
                                 </a>
-                            );
-                        })}
+                                <a
+                                    href={`tel:${phone.replace(/\s/g, '')}`}
+                                    className="flex items-center gap-4 text-white group hover:text-white/80 transition-colors"
+                                >
+                                    <div className="w-10 h-10 rounded-xl bg-white/10 flex items-center justify-center border border-white/5 transition-transform group-hover:scale-110">
+                                        <Phone size={18} strokeWidth={1.5} />
+                                    </div>
+                                    <span className="text-lg md:text-xl font-medium tracking-tight">{phone}</span>
+                                </a>
+                                <div className="pt-2">
+                                    <p className="text-white font-medium text-sm tracking-wide">{location.workingDays}</p>
+                                    <p className="text-white/60 text-xs mt-1 tracking-wide">{location.workingHours}</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        {/* Studio Address Section */}
+                        <div>
+                            <h4 className="text-white/40 text-[10px] uppercase tracking-[0.3em] font-bold mb-6">Studio Address</h4>
+                            <div className="space-y-4">
+                                <p className="text-white/80 text-lg md:text-xl font-light leading-relaxed max-w-md">
+                                    {location.address}
+                                </p>
+                                <p className="text-white/60 text-sm tracking-wide italic font-medium">
+                                    {location.disclaimer}
+                                </p>
+                            </div>
+                        </div>
                     </div>
 
-                    {/* Divider for desktop */}
-                    <div className="hidden md:block w-px h-48 bg-white/10" />
-
-                    {/* Location Info */}
-                    <div className="flex flex-col items-center md:items-start text-center md:text-left max-w-sm">
-                        <div className="group flex flex-col items-center md:items-start w-full">
-                            <p className="text-white/70 text-sm font-light leading-relaxed mb-4">
-                                {location.address}
-                            </p>
-
-                            <div className="flex flex-col items-center md:items-start mb-6 w-full">
-                                <p className="text-white/80 font-medium text-sm tracking-wide">{location.workingDays}</p>
-                                <p className="text-white/60 text-xs mt-1 tracking-wide">{location.workingHours}</p>
-                            </div>
-
-                            {/* Google Maps Embed */}
-                            <div className="w-full h-40 rounded-2xl overflow-hidden border border-white/10 mb-4 shadow-inner bg-white/5">
-                                <iframe
-                                    src={location.embedUrl}
-                                    width="100%"
-                                    height="100%"
-                                    style={{ border: 0, filter: "grayscale(0.5) contrast(1.2) opacity(0.8)" }}
-                                    allowFullScreen=""
-                                    loading="lazy"
-                                    referrerPolicy="no-referrer-when-downgrade"
-                                    title="Tanukrit Location"
-                                    className="hover:grayscale-0 hover:opacity-100 transition-all duration-500"
-                                ></iframe>
-                            </div>
-
-                            <a
-                                href={location.link}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="text-accent hover:text-white text-xs tracking-widest uppercase font-medium mb-4 transition-colors"
-                            >
-                                View on Google Maps →
-                            </a>
-
-                            <p className="text-accent/80 text-[10px] uppercase tracking-widest font-semibold italic">
-                                * {location.disclaimer}
-                            </p>
+                    {/* Right Column: Map & Link */}
+                    <div className="flex flex-col gap-6">
+                        <div className="w-full aspect-video md:aspect-[4/3] rounded-[2.5rem] overflow-hidden border border-white/10 shadow-2xl bg-white/5">
+                            <iframe
+                                src={location.embedUrl}
+                                width="100%"
+                                height="100%"
+                                style={{ border: 0, filter: "grayscale(0.5) contrast(0.8) invert(1) opacity(0.8)" }}
+                                allowFullScreen=""
+                                loading="lazy"
+                                referrerPolicy="no-referrer-when-downgrade"
+                                title="Tanukrit Location"
+                                className="hover:grayscale-0 hover:invert-0 hover:opacity-100 transition-all duration-700"
+                            ></iframe>
                         </div>
+                        <a
+                            href={location.link}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-flex items-center gap-2 text-white/90 hover:text-white text-xs tracking-widest uppercase font-bold transition-all hover:gap-4 self-start"
+                        >
+                            View on Google Maps <ExternalLink size={12} />
+                        </a>
                     </div>
                 </div>
 
-                <div className="text-center mt-8">
-                    <div className="text-white/40 text-[10px] tracking-[0.5em] uppercase">
-                        {footer.tagline}
+                <div className="mt-16 md:mt-24 pt-8 border-t border-white/5">
+                    <div className="flex flex-col md:flex-row justify-between items-center gap-6">
+                        <div className="text-white/40 text-[10px] tracking-[0.4em] uppercase order-2 md:order-1">
+                            {footer.tagline}
+                        </div>
+                        <div className="text-white/40 text-[10px] tracking-[0.2em] uppercase order-1 md:order-2">
+                            {footer.copyright}
+                        </div>
                     </div>
                 </div>
             </div>

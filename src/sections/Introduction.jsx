@@ -20,13 +20,13 @@ const Introduction = () => {
     const { story, howItWorks, trustedBy, trust, founder } = CONTENT.introduction;
 
     return (
-        <section id="about" data-nav-theme="light" className="bg-white px-4 py-24">
+        <section id="about" data-nav-theme="light" className="bg-white px-4 py-12 md:py-24">
             {/* Block 1: Our Story */}
-            <div className="pb-12 flex flex-col justify-center border-b border-gray-50">
+            <div className="pb-8 md:pb-12 flex flex-col justify-center border-b border-gray-50">
                 <div className="max-w-6xl mx-auto w-full">
-                    <div className="text-center mb-16">
-                        <h4 className="text-accent text-sm font-bold uppercase tracking-[0.3em] mb-4">Our Narrative</h4>
-                        <h2 className="text-4xl md:text-6xl font-heading mb-8 leading-tight max-w-4xl mx-auto">
+                    <div className="text-center mb-10 md:mb-16">
+                        <h4 className="text-primary text-sm font-bold uppercase tracking-[0.3em] mb-4">{story.eyebrow}</h4>
+                        <h2 className="text-4xl md:text-6xl font-heading mb-4 md:mb-8 leading-tight max-w-4xl mx-auto">
                             {story.title}
                         </h2>
                     </div>
@@ -42,20 +42,20 @@ const Introduction = () => {
             {/* Block 1.1: How It Works */}
             <div className="py-8 border-b border-gray-50">
                 <div className="max-w-4xl mx-auto w-full">
-                    <div className="text-center md:text-left mb-10 px-4">
-                        <h4 className="text-accent text-sm font-bold uppercase tracking-[0.3em] mb-4">The Process</h4>
-                        <h2 className="text-3xl md:text-5xl font-heading text-primary">{howItWorks.title}</h2>
+                    <div className="text-center md:text-left mb-8 md:mb-10 px-4">
+                        <h4 className="text-primary text-sm font-bold uppercase tracking-[0.3em] mb-2 md:mb-4">{howItWorks.eyebrow}</h4>
+                        <h2 className="text-3xl md:text-5xl font-heading">{howItWorks.title}</h2>
                     </div>
 
                     <div className="space-y-0 px-4">
                         {howItWorks.steps.map((step, idx) => (
-                            <div key={idx} className="group border-t border-stone-100 py-6 md:py-8 flex flex-col md:flex-row gap-6 md:gap-12 items-start md:items-center last:border-b last:border-stone-100">
-                                <div className="text-5xl md:text-6xl font-heading text-stone-200 group-hover:text-accent/40 transition-all duration-700 leading-none">
+                            <div key={idx} className="group border-t border-stone-100 py-4 md:py-8 flex flex-row gap-5 md:gap-12 items-start md:items-center last:border-b last:border-stone-100">
+                                <div className="text-4xl md:text-6xl font-heading text-stone-200 group-hover:text-primary/40 transition-all duration-700 leading-none pt-0.5 md:pt-0 shrink-0">
                                     {step.id}
                                 </div>
                                 <div className="flex-1">
-                                    <h3 className="text-2xl md:text-2xl font-heading text-gray-800 mb-1">{step.title}</h3>
-                                    <p className="text-gray-500 text-base leading-relaxed max-w-xl">
+                                    <h3 className="text-xl md:text-2xl font-heading text-gray-800 mb-1 text-primary">{step.title}</h3>
+                                    <p className="text-sm md:text-base text-gray-500 leading-relaxed max-w-xl">
                                         {step.description}
                                     </p>
                                 </div>
@@ -66,9 +66,9 @@ const Introduction = () => {
             </div>
 
             {/* Block 1.2: Trusted By (Marquee) */}
-            <div className="py-12 border-b border-gray-50 overflow-hidden">
-                <div className="max-w-6xl mx-auto w-full mb-12 text-center md:text-left">
-                    <h4 className="text-accent text-sm font-bold uppercase tracking-[0.3em]">Trusted by</h4>
+            <div className="py-8 md:py-12 border-b border-gray-50 overflow-hidden">
+                <div className="max-w-6xl mx-auto w-full mb-8 md:mb-12 text-center md:text-left">
+                    <h4 className="text-primary text-sm font-bold uppercase tracking-[0.3em]">{CONTENT.introduction.trustedByEyebrow}</h4>
                 </div>
                 <div className="relative group/marquee">
                     <div className="animate-marquee flex gap-24 items-center">
@@ -84,7 +84,7 @@ const Introduction = () => {
                                 </div>
                                 {/* Name revealed on hover */}
                                 <div className="absolute -bottom-10 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-all duration-500 pointer-events-none whitespace-nowrap">
-                                    <span className="text-xs uppercase tracking-[0.2em] text-accent font-bold bg-white/80 backdrop-blur-sm px-3 py-1 rounded-full shadow-sm">
+                                    <span className="text-xs uppercase tracking-[0.2em] text-primary font-bold bg-white/80 backdrop-blur-sm px-3 py-1 rounded-full shadow-sm">
                                         {brand.name}
                                     </span>
                                 </div>
@@ -95,15 +95,15 @@ const Introduction = () => {
             </div>
 
             {/* Block 1.5: Why Brands Trust Us */}
-            <div className="py-12 bg-primary/5 overflow-hidden relative">
+            <div className="py-10 md:py-12 bg-primary/5 overflow-hidden relative">
                 {/* Decorative Pattern */}
-                <div className="absolute top-0 right-0 w-64 h-64 bg-accent/5 rounded-full -translate-y-1/2 translate-x-1/2 blur-3xl pointer-events-none" />
+                <div className="absolute top-0 right-0 w-64 h-64 bg-primary/5 rounded-full -translate-y-1/2 translate-x-1/2 blur-3xl pointer-events-none" />
                 <div className="absolute bottom-0 left-0 w-64 h-64 bg-primary/10 rounded-full translate-y-1/2 -translate-x-1/2 blur-3xl pointer-events-none" />
 
                 <div className="max-w-6xl mx-auto relative z-10 w-full">
-                    <div className="text-center mb-16 px-4">
-                        <h4 className="text-accent text-sm font-bold uppercase tracking-[0.3em] mb-4">The Standard</h4>
-                        <h2 className="text-4xl md:text-5xl font-heading text-primary">{trust.title}</h2>
+                    <div className="text-center mb-10 md:mb-16 px-4">
+                        <h4 className="text-primary text-sm font-bold uppercase tracking-[0.3em] mb-4">{trust.eyebrow}</h4>
+                        <h2 className="text-4xl md:text-5xl font-heading">{trust.title}</h2>
                     </div>
 
                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 px-4">
@@ -128,12 +128,12 @@ const Introduction = () => {
             </div>
 
             {/* Block 2: The Founder */}
-            <div className="pt-12 flex flex-col justify-center bg-stone-50/30">
+            <div className="pt-8 md:pt-12 flex flex-col justify-center bg-stone-50/30">
                 <div className="max-w-6xl mx-auto w-full">
-                    <div className="grid grid-cols-1 md:grid-cols-[1fr_40%] gap-y-12 md:gap-y-6 md:gap-x-24 items-center">
+                    <div className="grid grid-cols-1 md:grid-cols-[1fr_40%] gap-y-8 md:gap-y-6 md:gap-x-24 items-center">
                         {/* 1. Headings Area */}
                         <div className="order-1 text-center md:text-left">
-                            <h4 className="text-accent text-sm font-bold uppercase tracking-[0.3em] mb-4">The Visionary</h4>
+                            <h4 className="text-primary text-sm font-bold uppercase tracking-[0.3em] mb-4">{founder.eyebrow}</h4>
                             <h2 className="text-4xl md:text-5xl font-heading mb-4 leading-tight">
                                 {founder.title}
                             </h2>
@@ -156,34 +156,23 @@ const Introduction = () => {
                         </div>
 
                         {/* 3. Bio Area */}
-                        <div className="order-3 text-center md:text-left">
-                            <div className="space-y-6 text-gray-600 leading-relaxed text-lg">
+                        <div className="order-3 text-justify md:text-left">
+                            <div className="space-y-6 text-gray-500 leading-relaxed">
                                 <p>{founder.bio}</p>
-                                <p className="border-l-4 border-accent pl-6 italic">
+                                <p className="text-primary italic">
                                     {founder.education}
                                 </p>
-                                <div className="pt-4">
-                                    <div className="text-primary font-bold mb-2">Heritage of Creativity</div>
-                                    <p className="text-base text-gray-500">
-                                        {founder.experience}
-                                    </p>
-                                </div>
                             </div>
 
                             <div className="mt-12 flex flex-wrap justify-center md:justify-start gap-8">
                                 <div>
-                                    <div className="text-2xl font-bold text-primary">{founder.stats.established}</div>
+                                    <div className="text-2xl font-medium text-primary">{founder.stats.established}</div>
                                     <div className="text-[10px] uppercase tracking-widest text-gray-400">Established</div>
                                 </div>
                                 <div className="w-px h-10 bg-stone-200" />
                                 <div>
-                                    <div className="text-2xl font-bold text-primary">{founder.stats.orders}</div>
+                                    <div className="text-2xl font-medium text-primary">{founder.stats.orders}</div>
                                     <div className="text-[10px] uppercase tracking-widest text-gray-400">Orders Delivered</div>
-                                </div>
-                                <div className="w-px h-10 bg-stone-200" />
-                                <div>
-                                    <div className="text-2xl font-bold text-primary">{founder.stats.reach}</div>
-                                    <div className="text-[10px] uppercase tracking-widest text-gray-400">Reach</div>
                                 </div>
                             </div>
                         </div>

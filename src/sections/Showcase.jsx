@@ -1,10 +1,10 @@
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef } from "react";
 import { CONTENT } from "../constants/content";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
 const Showcase = () => {
-    const { title, subtitle, description, items, cta } = CONTENT.showcase;
+    const { title, eyebrow, description, items, cta } = CONTENT.showcase;
     const [activeIndex, setActiveIndex] = useState(0);
     const mobileScrollRef = useRef(null);
     const isProgrammaticScroll = useRef(false);
@@ -84,11 +84,11 @@ const Showcase = () => {
     const visibleIndices = getVisibleIndices();
 
     return (
-        <section id="products" data-nav-theme="light" className="min-h-screen flex flex-col bg-[#F9F9F9] px-4 pt-24 pb-12 lg:pt-28 lg:pb-16">
+        <section id="products" data-nav-theme="light" className="min-h-screen flex flex-col bg-[#F9F9F9] px-4 pt-16 md:pt-24 pb-12 lg:pt-28 lg:pb-16">
             <div className="flex-1 flex flex-col justify-center">
                 <div className="max-w-7xl mx-auto w-full">
                     <div className="text-center mb-6">
-                        {subtitle && <h4 className="text-accent text-sm font-bold uppercase tracking-[0.3em] mb-1">{subtitle}</h4>}
+                        {eyebrow && <h4 className="text-primary text-sm font-bold uppercase tracking-[0.3em] mb-1">{eyebrow}</h4>}
                         <h2 className="text-4xl md:text-6xl font-heading mb-4 leading-tight max-w-4xl mx-auto">{title}</h2>
                         {description && (
                             <p className="text-gray-500 max-w-3xl mx-auto leading-relaxed">{description}</p>
@@ -133,7 +133,7 @@ const Showcase = () => {
                                                         animate={{ y: 0, opacity: 1 }}
                                                         transition={{ delay: 0.2, duration: 0.5 }}
                                                     >
-                                                        <span className="text-accent text-xs uppercase tracking-[0.2em] mb-2 block">{item.category}</span>
+                                                        <span className="text-primary text-xs uppercase tracking-[0.2em] mb-2 block">{item.category}</span>
                                                         <h3 className="text-white text-3xl lg:text-4xl font-heading">{item.title}</h3>
                                                     </motion.div>
                                                 )}
@@ -172,7 +172,6 @@ const Showcase = () => {
                                             style={{ backgroundImage: `url(${item.image})` }}
                                         />
                                         <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent p-8 flex flex-col justify-end">
-                                            <span className="text-accent text-xs uppercase tracking-[0.2em] mb-2 block">{item.category}</span>
                                             <h3 className="text-white text-3xl font-heading">{item.title}</h3>
                                         </div>
                                     </div>
@@ -225,7 +224,7 @@ const Showcase = () => {
 
                     {/* CTA Block */}
                     {cta && (
-                        <div className="mt-20 md:mt-32 text-center max-w-3xl mx-auto px-4 pb-4">
+                        <div className="mt-12 md:mt-24 lg:mt-32 text-center max-w-3xl mx-auto px-4 pb-4">
                             <h3 className="text-3xl md:text-5xl font-heading mb-4 leading-tight">{cta.title}</h3>
                             <p className="text-gray-500 text-lg md:text-xl mb-8 leading-relaxed font-light">{cta.description}</p>
                             <a

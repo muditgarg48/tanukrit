@@ -64,10 +64,10 @@ const MobileNavbar = ({ isLight, toggleMenu, isMenuOpen, menuVariants }) => (
                     animate="visible"
                     exit="hidden"
                     variants={menuVariants}
-                    className={`absolute top-full left-0 right-0 mt-4 p-10 rounded-[2.5rem] shadow-2xl overflow-hidden ${isLight ? "bg-[#dca3d7]/15 backdrop-blur-md border border-[#dca3d7]/30" : "bg-white/20 backdrop-blur-md border border-white/30"
+                    className={`absolute top-full left-0 right-0 mt-4 p-6 md:p-10 rounded-[2.5rem] shadow-2xl overflow-hidden ${isLight ? "bg-[#dca3d7]/15 backdrop-blur-md border border-[#dca3d7]/30" : "bg-white/20 backdrop-blur-md border border-white/30"
                         }`}
                 >
-                    <div className="flex flex-wrap justify-center gap-x-10 gap-y-8">
+                    <div className="flex flex-wrap justify-center gap-x-6 gap-y-6 md:gap-x-10 md:gap-y-8">
                         {CONTENT.navbar.links.map((link, index) => (
                             <motion.a
                                 key={link.name}

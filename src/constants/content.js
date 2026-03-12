@@ -8,7 +8,6 @@ import metlzLogo from "../assets/brands/meltz_logo.webp";
 import publicissapientLogo from "../assets/brands/publicissapient_logo.webp";
 import wbiweddingsLogo from "../assets/brands/wbiweddings_logo.webp";
 import badhaihoeventsLogo from "../assets/brands/badhaihoevents_logo.webp";
-import jsfitnessstudioLogo from "../assets/brands/jsfitnessstudio_logo.webp";
 // Work
 import babyShowerImage from "../assets/work/baby_shower.webp";
 import birthdayFavoursImage from "../assets/work/birthday_favours.webp";
@@ -44,10 +43,12 @@ export const CONTENT = {
     },
     introduction: {
         story: {
+            eyebrow: "Our Narrative",
             title: "Artfully Packaged. Emotionally Delivered.",
             beliefs: "The right gift is a heartfelt gesture of love, appreciation and care. We pour intention into every detail, crafting luxury hampers that tell a story. With Tanukrit, every gift is thoughtful and every detail is intentional.",
         },
         howItWorks: {
+            eyebrow: "The Process",
             title: "How It Works",
             steps: [
                 { id: "01", title: "Share Your Requirement", description: "Tell us the occasion, quantity and hamper references (if any)." },
@@ -56,15 +57,16 @@ export const CONTENT = {
                 { id: "04", title: "We Pack & Deliver", description: "Your hampers are beautifully packed and delivered on time." },
             ]
         },
+        trustedByEyebrow: "Trusted by",
         trustedBy: [
             { id: 1, name: "Dusit Thani", logo: "https://www.dusit.com/wp-content/themes/dusit-global/images/corporate-logos/d/dusit-black.svg" },
             { id: 2, name: "MELTZ", logo: metlzLogo },
             { id: 3, name: "Publicis Sapient", logo: publicissapientLogo },
             { id: 4, name: "WBI", logo: wbiweddingsLogo },
-            { id: 5, name: "Badhai Ho Events", logo: badhaihoeventsLogo },
-            { id: 6, name: "js Fitness Studio", logo: jsfitnessstudioLogo }
+            { id: 5, name: "Badhai Ho Events", logo: badhaihoeventsLogo }
         ],
         trust: {
+            eyebrow: "The Standard",
             title: "Why Brands Trust Us",
             items: [
                 { id: 1, title: "Thoughtful Gifting", description: "Every hamper is designed with intention and emotion", icon: "Gift" },
@@ -74,6 +76,7 @@ export const CONTENT = {
             ]
         },
         founder: {
+            eyebrow: "The Visionary",
             title: "Meet the Founder",
             name: "Tanu Agrawal",
             role: "Founder & Creative Head",
@@ -82,27 +85,26 @@ export const CONTENT = {
             stats: {
                 established: "2023",
                 orders: "40+",
-                reach: "Pan India",
                 experience: "Nearly 15 years"
             },
             founderImage: founderImage,
         }
     },
     showcase: {
+        eyebrow: "Custom Hampers for every occasion",
         title: "Our Work",
-        subtitle: "Custom Hampers for every occasion",
         description: "Thoughtfully curated hampers designed for meaningful moments.",
         items: [
-            { id: 1, title: "Baby Shower", category: "Personal", image: babyShowerImage },
-            { id: 2, title: "Corporate Hampers", category: "Corporate", image: corporateHampersImage },
-            { id: 3, title: "Wedding Favours", category: "Favours", image: weddingFavoursImage },
-            { id: 4, title: "Festivals", category: "Festival", image: festivalsImage },
-            { id: 5, title: "Milestone celebrations", category: "Celebration", image: milestoneCelebrationsImage },
-            { id: 6, title: "Wedding Invites", category: "Invites", image: weddingInvitesImage },
-            { id: 7, title: "Return Favours", category: "Favours", image: returnFavoursImage },
-            { id: 8, title: "Birthday Favours", category: "Favours", image: birthdayFavoursImage },
-            { id: 9, title: "Trousseau", category: "Gifts", image: trousseauImage },
-            { id: 10, title: "Room Hampers", category: "Hampers", image: roomHampersImage },
+            { id: 1, title: "Baby Shower", image: babyShowerImage },
+            { id: 2, title: "Corporate Hampers", image: corporateHampersImage },
+            { id: 3, title: "Wedding Favours", image: weddingFavoursImage },
+            { id: 4, title: "Festivals", image: festivalsImage },
+            { id: 5, title: "Milestone celebrations", image: milestoneCelebrationsImage },
+            { id: 6, title: "Wedding Invites", image: weddingInvitesImage },
+            { id: 7, title: "Return Favours", image: returnFavoursImage },
+            { id: 8, title: "Birthday Favours", image: birthdayFavoursImage },
+            { id: 9, title: "Trousseau", image: trousseauImage },
+            { id: 10, title: "Room Hampers", image: roomHampersImage },
         ],
         cta: {
             title: "Love What You See?",
@@ -112,8 +114,8 @@ export const CONTENT = {
         }
     },
     testimonials: {
-        title: "Kind Words",
-        subtitle: "From those we've had the pleasure to serve",
+        eyebrow: "From those we've had the pleasure to serve",
+        title: "What our Clients Say",
         items: [
             {
                 id: 1,
@@ -154,7 +156,9 @@ export const CONTENT = {
         ]
     },
     contact: {
-        title: "Ready to tell your story?",
+        title: "Planning a Celebration?\nLet's create something special!",
+        email: "support@tanukrit.com",
+        phone: "+91 79826 66274",
         description: "We look forward to creating something meaningful for you—just as we have for families and clients across the world.",
         socials: [
             { id: 1, name: "Instagram", link: "https://www.instagram.com/tanu.krit", icon: "instagram", color: "#E1306C" },
@@ -166,9 +170,9 @@ export const CONTENT = {
             address: "2nd Floor, C-526, Vikaspuri, Delhi, 110018",
             workingDays: "Monday - Sunday",
             workingHours: "10:30 AM - 7:00 PM IST",
-            disclaimer: "Visit by appointment strictly",
+            disclaimer: "Visit by appointment only.",
             link: "https://maps.app.goo.gl/SugEWPxAq7y1fZDy9",
-            embedUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3501.442801453303!2d77.0664!3d28.6312!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390d0590ed4b2d9d%3A0x633454b5dfd4e0e!2sC-526%2C%20Vikaspuri%2C%20Delhi%2C%20110018!5e0!3m2!1sen!2sin!4v1710000000000!5m2!1sen!2sin",
+            embedUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3501.7540358776773!2d77.0733064!3d28.637133!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390d059764f71653%3A0xbeaeccfa3c9fa614!2sTanukrit!5e0!3m2!1sen!2sin!4v1773301467594!5m2!1sen!2sin",
         },
         footer: {
             copyright: `© ${new Date().getFullYear()} Tanukrit • Designed with Intention`,

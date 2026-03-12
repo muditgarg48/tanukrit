@@ -10,7 +10,7 @@ import Footer from "./sections/Footer";
 
 function App() {
   return (
-    <main className="font-body selection:bg-accent/30 selection:text-primary overflow-x-hidden bg-primary">
+    <main className="font-body selection:bg-primary/30 selection:text-white overflow-x-hidden bg-primary">
       <Navbar />
       <FloatingActions />
       <Hero />
