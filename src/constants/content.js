@@ -47,12 +47,10 @@ export const CONTENT = {
     },
     introduction: {
         story: {
-            eyebrow: "Our Narrative",
             title: "Artfully Packaged. Emotionally Delivered.",
             beliefs: "The right gift is a heartfelt gesture of love, appreciation and care. We pour intention into every detail, crafting luxury hampers that tell a story. With Tanukrit, every gift is thoughtful and every detail is intentional.",
         },
         howItWorks: {
-            eyebrow: "The Process",
             title: "How It Works",
             steps: [
                 { id: "01", title: "Share Your Requirement", description: "Tell us the occasion, quantity and hamper references (if any)." },
@@ -61,7 +59,6 @@ export const CONTENT = {
                 { id: "04", title: "We Pack & Deliver", description: "Your hampers are beautifully packed and delivered on time." },
             ]
         },
-        trustedByEyebrow: "Trusted by",
         trustedBy: [
             { id: 1, name: "Dusit Thani", logo: "https://www.dusit.com/wp-content/themes/dusit-global/images/corporate-logos/d/dusit-black.svg" },
             { id: 2, name: "MELTZ", logo: metlzLogo },
@@ -70,7 +67,6 @@ export const CONTENT = {
             { id: 5, name: "Badhai Ho Events", logo: badhaihoeventsLogo }
         ],
         trust: {
-            eyebrow: "The Standard",
             title: "Why Brands Trust Us",
             items: [
                 { id: 1, title: "Thoughtful Gifting", description: "Every hamper is designed with intention and emotion", icon: "Gift" },
@@ -80,7 +76,6 @@ export const CONTENT = {
             ]
         },
         founder: {
-            eyebrow: "The Visionary",
             title: "Meet the Founder",
             name: "Tanu Agrawal",
             role: "Founder & Creative Head",
@@ -95,8 +90,7 @@ export const CONTENT = {
         }
     },
     showcase: {
-        eyebrow: "Custom Hampers for every occasion",
-        title: "Our Work",
+        title: "Custom Hampers for every occasion",
         description: "Thoughtfully curated hampers designed for meaningful moments.",
         items: [
             { id: 1, title: "Baby Shower", image: babyShowerImage },
@@ -118,7 +112,6 @@ export const CONTENT = {
         }
     },
     testimonials: {
-        eyebrow: "From those we've had the pleasure to serve",
         title: "What our Clients Say",
         items: [
             {

@@ -21,30 +21,12 @@ const Introduction = () => {
 
     return (
         <section id="about" data-nav-theme="light" className="bg-white px-4 py-12 md:py-24">
-            {/* Block 1: Our Story */}
-            <div className="pb-8 md:pb-12 flex flex-col justify-center border-b border-gray-50">
-                <div className="max-w-6xl mx-auto w-full">
-                    <div className="text-center mb-10 md:mb-16">
-                        <h4 className="text-primary text-sm font-bold uppercase tracking-[0.3em] mb-4">{story.eyebrow}</h4>
-                        <h2 className="text-4xl md:text-6xl font-heading mb-4 md:mb-8 leading-tight max-w-4xl mx-auto">
-                            {story.title}
-                        </h2>
-                    </div>
-
-                    <div className="text-center">
-                        <p className="text-gray-500 max-w-3xl mx-auto leading-relaxed">
-                            {story.beliefs}
-                        </p>
-                    </div>
-                </div>
-            </div>
 
             {/* Block 1.1: How It Works */}
             <div className="py-8 border-b border-gray-50">
                 <div className="max-w-4xl mx-auto w-full">
-                    <div className="text-center md:text-left mb-8 md:mb-10 px-4">
-                        <h4 className="text-primary text-sm font-bold uppercase tracking-[0.3em] mb-2 md:mb-4">{howItWorks.eyebrow}</h4>
-                        <h2 className="text-3xl md:text-5xl font-heading">{howItWorks.title}</h2>
+                    <div className="text-center mb-8 md:mb-12 px-4">
+                        <h2 className="text-2xl md:text-3xl font-heading text-primary">{howItWorks.title}</h2>
                     </div>
 
                     <div className="space-y-0 px-4">
@@ -67,8 +49,8 @@ const Introduction = () => {
 
             {/* Block 1.2: Trusted By (Marquee) */}
             <div className="py-8 md:py-12 border-b border-gray-50 overflow-hidden">
-                <div className="max-w-6xl mx-auto w-full mb-8 md:mb-12 text-center md:text-left">
-                    <h4 className="text-primary text-sm font-bold uppercase tracking-[0.3em]">{CONTENT.introduction.trustedByEyebrow}</h4>
+                <div className="max-w-6xl mx-auto w-full mb-8 md:mb-12 text-center">
+                    <h2 className="text-2xl md:text-3xl font-heading text-primary">Trusted by</h2>
                 </div>
                 <div className="relative group/marquee">
                     <div className="animate-marquee flex gap-24 items-center">
@@ -101,9 +83,8 @@ const Introduction = () => {
                 <div className="absolute bottom-0 left-0 w-64 h-64 bg-primary/10 rounded-full translate-y-1/2 -translate-x-1/2 blur-3xl pointer-events-none" />
 
                 <div className="max-w-6xl mx-auto relative z-10 w-full">
-                    <div className="text-center mb-10 md:mb-16 px-4">
-                        <h4 className="text-primary text-sm font-bold uppercase tracking-[0.3em] mb-4">{trust.eyebrow}</h4>
-                        <h2 className="text-4xl md:text-5xl font-heading">{trust.title}</h2>
+                    <div className="text-center mb-8 md:mb-12 px-4">
+                        <h2 className="text-2xl md:text-3xl font-heading text-primary">{trust.title}</h2>
                     </div>
 
                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 px-4">
@@ -133,8 +114,7 @@ const Introduction = () => {
                     <div className="grid grid-cols-1 md:grid-cols-[1fr_40%] gap-y-8 md:gap-y-6 md:gap-x-24 items-center">
                         {/* 1. Headings Area */}
                         <div className="order-1 text-center md:text-left">
-                            <h4 className="text-primary text-sm font-bold uppercase tracking-[0.3em] mb-4">{founder.eyebrow}</h4>
-                            <h2 className="text-4xl md:text-5xl font-heading mb-4 leading-tight">
+                            <h2 className="text-2xl md:text-3xl font-heading mb-4 leading-tight text-primary">
                                 {founder.title}
                             </h2>
                         </div>

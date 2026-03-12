@@ -12,9 +12,8 @@ const Testimonials = () => {
         <section id="testimonials" data-nav-theme="light" className="min-h-screen flex flex-col bg-white px-4 pb-12 md:pb-24 overflow-x-hidden">
             <div className="flex-1 flex flex-col justify-center">
                 <div className="max-w-7xl mx-auto relative group/nav w-full">
-                    <div className="text-center mb-10 md:mb-16">
-                        {eyebrow && <h4 className="text-primary text-sm font-bold uppercase tracking-[0.3em] mb-4">{eyebrow}</h4>}
-                        <h2 className="text-4xl md:text-5xl font-heading mb-4 leading-tight">{title}</h2>
+                    <div className="text-center mb-8 md:mb-12 px-4">
+                        <h2 className="text-2xl md:text-3xl font-heading text-primary">{title}</h2>
                     </div>
 
                     <div className="relative px-4 sm:px-12 overflow-hidden">

@@ -11,7 +11,7 @@ const Contact = () => {
 
             <div className="max-w-6xl mx-auto relative z-10 w-full">
                 <div className="mb-8 md:mb-16">
-                    <h2 className="text-white text-3xl md:text-7xl font-heading mb-4 md:mb-6 leading-tight whitespace-pre-line">
+                    <h2 className="text-white text-3xl md:text-5xl font-heading mb-4 md:mb-6 leading-tight whitespace-pre-line">
                         {title}
                     </h2>
                     <p className="text-white/70 text-base md:text-xl font-light max-w-2xl leading-relaxed">

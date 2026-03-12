@@ -87,11 +87,10 @@ const Showcase = () => {
         <section id="products" data-nav-theme="light" className="min-h-screen flex flex-col bg-[#F9F9F9] px-4 pt-16 md:pt-24 pb-12 lg:pt-28 lg:pb-16">
             <div className="flex-1 flex flex-col justify-center">
                 <div className="max-w-7xl mx-auto w-full">
-                    <div className="text-center mb-6">
-                        {eyebrow && <h4 className="text-primary text-sm font-bold uppercase tracking-[0.3em] mb-1">{eyebrow}</h4>}
-                        <h2 className="text-4xl md:text-6xl font-heading mb-4 leading-tight max-w-4xl mx-auto">{title}</h2>
+                    <div className="text-center mb-8 md:mb-12 px-4">
+                        <h2 className="text-2xl md:text-3xl font-heading text-primary">{title}</h2>
                         {description && (
-                            <p className="text-gray-500 max-w-3xl mx-auto leading-relaxed">{description}</p>
+                            <p className="text-gray-500 max-w-3xl mx-auto leading-relaxed mt-4">{description}</p>
                         )}
                     </div>
 
@@ -231,8 +230,8 @@ const Showcase = () => {
                     {/* CTA Block */}
                     {cta && (
                         <div className="mt-12 md:mt-24 lg:mt-32 text-center max-w-3xl mx-auto px-4 pb-4">
-                            <h3 className="text-3xl md:text-5xl font-heading mb-4 leading-tight">{cta.title}</h3>
-                            <p className="text-gray-500 text-lg md:text-xl mb-8 leading-relaxed font-light">{cta.description}</p>
+                            <h3 className="text-2xl md:text-4xl font-heading mb-4 leading-tight text-primary">{cta.title}</h3>
+                            <p className="text-gray-500 max-w-3xl mx-auto leading-relaxed mt-4 mb-8">{cta.description}</p>
                             <a
                                 href={cta.buttonLink}
                                 rel="noopener noreferrer"
