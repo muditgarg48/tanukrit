@@ -172,7 +172,8 @@ const Showcase = () => {
                             <div className="hidden md:flex w-full h-[85vh] max-h-[750px] min-h-[500px] relative overflow-hidden justify-center items-center transition-all duration-300">
                                 {extendedItems.map((item, index) => {
                                     const distance = index - displayIndex;
-                                    const isVisible = Math.abs(distance) <= 2;
+                                    const absDist = Math.abs(distance);
+                                    const isVisible = absDist <= 3;
                                     const isActive = index === displayIndex;
 
                                     return (
@@ -180,22 +181,29 @@ const Showcase = () => {
                                             key={`${item.id}-${index}`}
                                             onClick={() => isActive ? openGallery(item) : setDisplayIndex(index)}
                                             style={{
-                                                flex: isVisible ? (isActive ? 7 : (Math.abs(distance) === 1 ? 1 : 0.4)) : 0,
-                                                opacity: isVisible ? 1 : (Math.abs(distance) === 3 ? 0.3 : 0),
+                                                flex: isVisible ? (isActive ? 4.5 : (absDist === 1 ? 1.5 : (absDist === 2 ? 0.8 : 0.4))) : 0,
+                                                opacity: isVisible ? (absDist === 3 ? 0.4 : 1) : 0,
                                                 margin: isVisible ? "0 10px" : "0",
                                                 minWidth: isVisible ? "20px" : "0",
-                                                height: isVisible ? (isActive ? "100%" : (Math.abs(distance) === 1 ? "85%" : "70%")) : "70%",
+                                                height: isVisible ? (isActive ? "100%" : (absDist === 1 ? "85%" : (absDist === 2 ? "70%" : "55%"))) : "55%",
                                                 transition: enableTransitions ? "flex 0.6s cubic-bezier(0.32, 0.72, 0, 1), height 0.6s cubic-bezier(0.32, 0.72, 0, 1), opacity 0.4s ease, margin 0.6s ease" : "none"
                                             }}
                                             className="relative rounded-[2rem] overflow-hidden cursor-pointer group shadow-md hover:shadow-xl min-w-0 bg-black/5"
                                         >
                                             {/* No-Crop Aesthetic: Blurred backdrop + object-contain */}
+                                            {isActive && (
+                                                <img
+                                                    src={item.coverImage}
+                                                    alt=""
+                                                    className="absolute inset-0 w-full h-full object-cover blur-2xl opacity-40 scale-110"
+                                                />
+                                            )}
                                             <img
                                                 src={item.coverImage}
                                                 alt={item.title}
                                                 loading="lazy"
                                                 decoding="async"
-                                                className="absolute inset-0 w-full h-full object-cover rounded-[2rem] transition-transform duration-700 group-hover:scale-110 z-10"
+                                                className={`absolute inset-0 w-full h-full rounded-[2rem] transition-transform duration-700 group-hover:scale-105 z-10 ${isActive ? "object-contain" : "object-cover"}`}
                                             />
                                             <div
                                                 className={`absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent p-5 flex flex-col justify-end transition-opacity duration-300 z-20 ${isActive ? 'opacity-100' : 'opacity-0'}`}
