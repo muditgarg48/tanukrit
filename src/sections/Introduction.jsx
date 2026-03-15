@@ -7,6 +7,7 @@ import {
     Building2
 } from "lucide-react";
 import Ribbon from "../components/Ribbon";
+import Counter from "../components/Counter";
 
 const icons = {
     Gift,
@@ -91,7 +92,7 @@ const Introduction = () => {
                         {/* Double the items for seamless CSS marquee loop */}
                         {[...trustedBy, ...trustedBy].map((brand, idx) => (
                             <div key={`${brand.id}-${idx}`} className="group relative flex flex-col items-center">
-                                <div className="h-16 md:h-20 flex items-center justify-center opacity-40 group-hover:opacity-100 group-hover:scale-110 transition-all duration-500 ease-out cursor-pointer">
+                                <div className="h-16 md:h-20 flex items-center justify-center opacity-100 group-hover:opacity-100 group-hover:scale-110 transition-all duration-500 ease-out cursor-pointer">
                                     <img
                                         src={brand.logo}
                                         alt={brand.name}
@@ -153,7 +154,9 @@ const Introduction = () => {
                                 </div>
                                 <div className="w-px h-10 bg-stone-200" />
                                 <div>
-                                    <div className="text-xl md:text-2xl lg:text-3xl font-medium text-primary">{founder.stats.orders}</div>
+                                    <div className="text-xl md:text-2xl lg:text-3xl font-medium text-primary">
+                                        <Counter target={100} duration={1} suffix="+" />
+                                    </div>
                                     <div className="text-[10px] md:text-xs uppercase tracking-widest text-gray-400">Orders Delivered</div>
                                 </div>
                             </div>

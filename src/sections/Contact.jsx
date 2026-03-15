@@ -58,7 +58,7 @@ const Contact = () => {
                             </div>
                         </div>
 
-                        <div className="opacity-[0.08] select-none pointer-events-none ml-1 md:ml-2 mt-4 md:mt-0">
+                        <div className="select-none pointer-events-none ml-1 md:ml-2 mt-4 md:mt-0">
                             <img
                                 src={logo}
                                 alt="Tanukrit Logo"

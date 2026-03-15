@@ -95,8 +95,13 @@ h4,
 }
 
 @keyframes marquee {
-    0% { transform: translateX(0); }
-    100% { transform: translateX(-50%); }
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-50%);
+    }
 }
 
 .animate-marquee {
@@ -107,6 +112,37 @@ h4,
 
 .animate-marquee:hover {
     animation-play-state: paused;
+}
+
+@keyframes scroll-line {
+    0% {
+        transform: scaleY(0);
+        transform-origin: top;
+    }
+
+    45% {
+        transform: scaleY(1);
+        transform-origin: top;
+    }
+
+    50% {
+        transform: scaleY(1);
+        transform-origin: bottom;
+    }
+
+    95% {
+        transform: scaleY(0);
+        transform-origin: bottom;
+    }
+
+    100% {
+        transform: scaleY(0);
+        transform-origin: bottom;
+    }
+}
+
+.animate-scroll-line {
+    animation: scroll-line 2.5s cubic-bezier(0.45, 0, 0.55, 1) infinite;
 }
 
 * {

@@ -1,22 +1,38 @@
+import { useState, useEffect } from "react";
 import { CONTENT } from "../constants/content";
 import { scrollToHash } from "../utils/scroll";
 import LocationIndicator from "../components/LocationIndicator";
 
 const Hero = () => {
-    const { tagline, title, logoSrc, backgroundImage } = CONTENT.hero;
+    const { tagline, title, logoSrc, backgroundImages, imageTransitionInterval } = CONTENT.hero;
+    const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
+    useEffect(() => {
+        if (!backgroundImages || backgroundImages.length <= 1) return;
+
+        const intervalId = setInterval(() => {
+            setCurrentImageIndex((prev) => (prev + 1) % backgroundImages.length);
+        }, imageTransitionInterval || 5000);
+
+        return () => clearInterval(intervalId);
+    }, [backgroundImages, imageTransitionInterval]);
 
     return (
-        <section data-nav-theme="dark" className="relative h-screen flex flex-col items-center justify-center overflow-hidden bg-primary px-4 pt-12 md:pt-20">
+        <section data-nav-theme="dark" className="relative h-screen flex flex-col items-center justify-center overflow-hidden bg-primary px-4">
             <div className="absolute top-0 left-0 w-full z-30">
                 <LocationIndicator variant="hero" />
             </div>
             {/* Background Image Layer */}
-            <div
-                className="absolute inset-0 bg-cover bg-center z-0"
-                style={{ backgroundImage: `url(${backgroundImage})` }}
-            >
-                <div className="absolute inset-0 bg-black/55 backdrop-blur-[1px]"></div>
-            </div>
+            {backgroundImages?.map((img, index) => (
+                <div
+                    key={index}
+                    className={`absolute inset-0 bg-cover bg-center z-0 transition-opacity duration-1000 ease-in-out ${index === currentImageIndex ? 'opacity-100' : 'opacity-0'
+                        }`}
+                    style={{ backgroundImage: `url(${img})` }}
+                >
+                    <div className="absolute inset-0 bg-black/55 backdrop-blur-[1px]"></div>
+                </div>
+            ))}
 
             {/* Minimal Navigation Layer */}
             <div className="absolute top-8 left-0 w-full h-24 z-20 flex justify-center items-center">
@@ -35,22 +51,33 @@ const Hero = () => {
             </div>
 
             <div className="relative z-10 text-center text-white max-w-4xl flex flex-col items-center drop-shadow-2xl">
-                <div className="mb-12 md:mb-10 animate-fade-in filter drop-shadow-[0_0_20_rgba(0,0,0,0.3)]">
+                <div className="mb-4 md:mb-6 animate-fade-in filter drop-shadow-[0_0_20_rgba(0,0,0,0.3)]">
                     <img
                         src={logoSrc}
                         alt={title}
-                        className="h-[32vh] md:h-[45vh] lg:h-[48vh] w-auto object-contain brightness-110"
+                        className="h-[28vh] md:h-[38vh] lg:h-[40vh] w-auto object-contain brightness-110"
                     />
                 </div>
-                <span className="text-xs md:text-sm uppercase tracking-[0.4em] block animate-fade-in opacity-90 font-medium text-white shadow-black/20 text-shadow-sm">
-                    {tagline}
-                </span>
+                <div className="flex flex-col gap-1.5 md:gap-2 animate-fade-in opacity-90 shadow-black/20 text-shadow-sm">
+                    {Array.isArray(tagline) ? (
+                        tagline.map((line, index) => (
+                            <span key={index} className="text-xs md:text-sm uppercase tracking-[0.4em] font-medium block">
+                                {line}
+                            </span>
+                        ))
+                    ) : (
+                        <span className="text-xs md:text-sm uppercase tracking-[0.4em] font-medium block">
+                            {tagline}
+                        </span>
+                    )}
+                </div>
             </div>
 
-            {/* Scroll Indicator */}
-            <div className="absolute bottom-2 left-1/2 -translate-x-1/2 animate-bounce flex flex-col items-center gap-4">
-                {/* <span className="text-[10px] uppercase tracking-[0.2em] text-white/40 rotate-180 [writing-mode:vertical-lr]">Scroll</span> */}
-                <div className="w-px h-12 bg-gradient-to-b from-white/50 to-transparent"></div>
+            <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex flex-col items-center gap-4">
+                <span className="text-[10px] uppercase tracking-[0.4em] text-white/40 font-light">Scroll</span>
+                <div className="w-[1px] h-10 bg-white/10 relative overflow-hidden">
+                    <div className="absolute top-0 left-0 w-full h-full bg-white/70 animate-scroll-line"></div>
+                </div>
             </div>
         </section>
     );

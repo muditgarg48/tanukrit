@@ -32,14 +32,16 @@ export const CONTENT = {
             { name: "Work", hash: "#products" },
             { name: "Our Story", hash: "#about" },
             { name: "Testimonials", hash: "#testimonials" },
+            { name: "FAQ", hash: "#faq" },
             { name: "Contact", hash: "#contact" },
         ],
     },
     hero: {
-        tagline: "Curated with Care. Designed with Intention.",
+        tagline: ["Curated with Care", "Designed with Intention"],
         title: "Tanukrit",
         logoSrc: heroLogo,
-        backgroundImage: heroBackground,
+        backgroundImages: [heroBackground, heroBackground, heroBackground, heroBackground],
+        imageTransitionInterval: 7000,
     },
     introduction: {
         story: {
@@ -52,7 +54,7 @@ export const CONTENT = {
             steps: [
                 { id: "01", title: "Share Your Requirement", description: "Tell us the occasion, quantity and hamper references (if any)." },
                 { id: "02", title: "We Curate Your Hampers", description: "Our team designs a personalised hamper concept for you." },
-                { id: "03", title: "Approve & Personalise", description: "Review the sample and add custom details." },
+                { id: "03", title: "Approve & Personalise", description: "We discuss the final look, personalisations and detailing of the hamper." },
                 { id: "04", title: "We Pack & Deliver", description: "Your hampers are beautifully packed and delivered on time." },
             ]
         },
@@ -80,8 +82,7 @@ export const CONTENT = {
             education: "Being a graduate of the prestigious College of Art, Delhi (Fine Arts with Packaging subsidiary) and having over 15 years of experience in teaching art and design, aesthetics have always been second nature to her. Her love for detail, thoughtful curation and artistic expression inspired her to begin Tanukrit.",
             stats: {
                 established: "2023",
-                orders: "40+",
-                experience: "Nearly 15 years"
+                orders: "100+"
             },
             founderImage: founderImage,
         }
@@ -90,16 +91,16 @@ export const CONTENT = {
         title: "Custom Hampers for every occasion",
         description: "Thoughtfully curated hampers designed for meaningful moments.",
         items: [
-            { id: 1, title: "Baby Shower", image: babyShowerImage },
-            { id: 2, title: "Corporate Hampers", image: corporateHampersImage },
-            { id: 3, title: "Wedding Favours", image: weddingFavoursImage },
-            { id: 4, title: "Festivals", image: festivalsImage },
-            { id: 5, title: "Milestone celebrations", image: milestoneCelebrationsImage },
-            { id: 6, title: "Wedding Invites", image: weddingInvitesImage },
-            { id: 7, title: "Return Favours", image: returnFavoursImage },
-            { id: 8, title: "Birthday Favours", image: birthdayFavoursImage },
-            { id: 9, title: "Trousseau", image: trousseauImage },
-            { id: 10, title: "Room Hampers", image: roomHampersImage },
+            { id: 1, title: "Baby Shower", coverImage: babyShowerImage, images: [babyShowerImage, babyShowerImage, babyShowerImage] },
+            { id: 2, title: "Corporate Hampers", coverImage: corporateHampersImage, images: [corporateHampersImage, corporateHampersImage, corporateHampersImage] },
+            { id: 3, title: "Wedding Favours", coverImage: weddingFavoursImage, images: [weddingFavoursImage, weddingFavoursImage, weddingFavoursImage] },
+            { id: 4, title: "Festivals", coverImage: festivalsImage, images: [festivalsImage, festivalsImage, festivalsImage] },
+            { id: 5, title: "Milestone celebrations", coverImage: milestoneCelebrationsImage, images: [milestoneCelebrationsImage, milestoneCelebrationsImage, milestoneCelebrationsImage] },
+            { id: 6, title: "Wedding Invites", coverImage: weddingInvitesImage, images: [weddingInvitesImage, weddingInvitesImage, weddingInvitesImage] },
+            { id: 7, title: "Return Favours", coverImage: returnFavoursImage, images: [returnFavoursImage, returnFavoursImage, returnFavoursImage] },
+            { id: 8, title: "Birthday Favours", coverImage: birthdayFavoursImage, images: [birthdayFavoursImage, birthdayFavoursImage, birthdayFavoursImage] },
+            { id: 9, title: "Trousseau", coverImage: trousseauImage, images: [trousseauImage, trousseauImage, trousseauImage] },
+            { id: 10, title: "Room Hampers", coverImage: roomHampersImage, images: [roomHampersImage, roomHampersImage, roomHampersImage] },
         ],
         cta: {
             title: "Love What You See?",
@@ -147,6 +148,16 @@ export const CONTENT = {
                 author: "Arjun Reddy",
                 role: "Luxury Consultant"
             }
+        ]
+    },
+    faq: {
+        title: "Frequently Asked Questions",
+        items: [
+            { id: 1, question: "What is your minimum order quantity?", answer: "Our minimum order quantity for custom hampers is 10 pieces. However, for specific requirements, please reach out to us." },
+            { id: 2, question: "How long does it take to deliver?", answer: "Delivery times vary based on the order size and customization level. Typically, it takes 2-3 weeks from design approval to delivery." },
+            { id: 3, question: "Do you ship across India?", answer: "Yes, we ship our luxury hampers Pan India through our trusted delivery partners." },
+            { id: 4, question: "Can I customize the products inside the hamper?", answer: "Absolutely! We specialize in creating custom hampers tailored to your specific occasion, preferences, and budget." },
+            { id: 5, question: "How do we start the process?", answer: "You can start by sharing your requirement through our contact form, email, or WhatsApp. Our team will get back to you to discuss concepts." }
         ]
     },
     contact: {

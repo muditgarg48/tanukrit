@@ -9,6 +9,7 @@ const BrandStory = lazy(() => import("./sections/BrandStory"));
 const Showcase = lazy(() => import("./sections/Showcase"));
 const Introduction = lazy(() => import("./sections/Introduction"));
 const Testimonials = lazy(() => import("./sections/Testimonials"));
+const FAQ = lazy(() => import("./sections/FAQ"));
 const Contact = lazy(() => import("./sections/Contact"));
 const Footer = lazy(() => import("./sections/Footer"));
 
@@ -26,6 +27,7 @@ function App() {
         <Showcase />
         <Introduction />
         <Testimonials />
+        <FAQ />
         <Contact />
         <Footer />
       </Suspense>
