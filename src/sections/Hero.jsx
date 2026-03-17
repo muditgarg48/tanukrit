@@ -26,13 +26,18 @@ const Hero = () => {
             {backgroundImages?.map((img, index) => (
                 <div
                     key={index}
-                    className={`absolute inset-0 bg-cover bg-center z-0 transition-opacity duration-1000 ease-in-out ${index === currentImageIndex ? 'opacity-100' : 'opacity-0'
+                    className={`absolute inset-0 bg-cover bg-center z-0 transition-opacity duration-[1500ms] ease-in-out will-change-opacity ${index === currentImageIndex ? 'opacity-100' : 'opacity-0'
                         }`}
-                    style={{ backgroundImage: `url(${img})` }}
-                >
-                    <div className="absolute inset-0 bg-black/55 backdrop-blur-[1px]"></div>
-                </div>
+                    style={{
+                        backgroundImage: `url(${img})`,
+                        backgroundSize: 'cover',
+                        backgroundPosition: 'center 45%'
+                    }}
+                />
             ))}
+
+            {/* Unified Overlay Layer (Better Performance) */}
+            <div className="absolute inset-0 bg-black/65 backdrop-blur-[1px]"></div>
 
             {/* Minimal Navigation Layer */}
             <div className="absolute top-8 left-0 w-full h-24 z-20 flex justify-center items-center">

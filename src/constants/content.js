@@ -1,8 +1,14 @@
 import navbarLogo from "../assets/tanukrit_logo_navbar.webp";
 import heroLogo from "../assets/tanukrit_logo.webp";
-import heroBackground from "../assets/hero_background.webp";
 import founderImage from "../assets/founder_image.webp";
 
+// Banners
+import babyshowerBanner from "../assets/banner/baby_shower_banner.webp";
+import goldenfrabricwrappingBanner from "../assets/banner/golden_fabric_wrapping_banner.webp";
+import waxsealBanner from "../assets/banner/wax_seal_banner.webp";
+import peacockwithresincardBanner from "../assets/banner/peacock_with_resin_card_banner.webp";
+import babyshowermessageBanner from "../assets/banner/baby_shower_message_banner.webp";
+import haldirambasketBanner from "../assets/banner/haldiram_basket_banner.webp";
 // Brands
 import metlzLogo from "../assets/brands/meltz_logo.webp";
 import publicissapientLogo from "../assets/brands/publicissapient_logo.webp";
@@ -41,8 +47,15 @@ export const CONTENT = {
         tagline: ["Curated with Care", "Designed with Intention"],
         title: "Tanukrit",
         logoSrc: heroLogo,
-        backgroundImages: [heroBackground, heroBackground, heroBackground, heroBackground],
-        imageTransitionInterval: 7000,
+        backgroundImages: [
+            babyshowerBanner,
+            goldenfrabricwrappingBanner,
+            waxsealBanner,
+            peacockwithresincardBanner,
+            babyshowermessageBanner,
+            haldirambasketBanner
+        ],
+        imageTransitionInterval: 3000,
     },
     introduction: {
         story: {
