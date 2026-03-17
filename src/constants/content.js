@@ -14,7 +14,8 @@ import metlzLogo from "../assets/brands/meltz_logo.webp";
 import publicissapientLogo from "../assets/brands/publicissapient_logo.webp";
 import wbiweddingsLogo from "../assets/brands/wbiweddings_logo.webp";
 import badhaihoeventsLogo from "../assets/brands/badhaihoevents_logo.webp";
-import mariottresortsLogo from "../assets/brands/mariottresorts_logo.webp";
+import marriottresortsLogo from "../assets/brands/marriottresorts_logo.webp";
+import jsfitnessstudioLogo from "../assets/brands/jsfitnessstudio_logo.webp";
 // Work
 import babyShowerImage from "../assets/work/baby_shower.webp";
 import birthdayFavoursImage from "../assets/work/birthday_favours.webp";
@@ -78,7 +79,8 @@ export const CONTENT = {
             { id: 3, name: "Publicis Sapient", logo: publicissapientLogo },
             { id: 4, name: "WBI", logo: wbiweddingsLogo },
             { id: 5, name: "Badhai Ho Events", logo: badhaihoeventsLogo },
-            { id: 6, name: "Mariott Resorts", logo: mariottresortsLogo }
+            { id: 6, name: "Marriott Resorts", logo: marriottresortsLogo }, 
+            { id: 7, name: "js Fitness Studio", logo: jsfitnessstudioLogo}
         ],
         trust: {
             title: "Why Brands Trust Us",
