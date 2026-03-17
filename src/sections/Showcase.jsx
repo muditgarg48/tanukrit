@@ -307,69 +307,114 @@ const Showcase = () => {
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         exit={{ opacity: 0 }}
-                        className="fixed inset-0 z-[100] bg-[#dca3d7]/15 backdrop-blur-xl border border-[#dca3d7]/30 flex flex-col items-center justify-center overflow-hidden touch-none"
+                        className="fixed inset-0 z-[100] bg-black/80 backdrop-blur-sm flex items-center justify-center md:p-6 lg:p-8 overflow-hidden touch-auto md:touch-none"
+                        onClick={closeGallery}
                     >
-                        {/* Header Controls */}
-                        <div className="absolute top-0 left-0 w-full p-4 md:p-6 flex justify-between items-start z-[110] pointer-events-none">
-                            <div className="bg-white/90 backdrop-blur-md px-4 py-2 md:px-6 md:py-3 rounded-full shadow-sm pointer-events-auto border border-white/50">
-                                <h3 className="text-primary text-base md:text-xl font-heading">{selectedItem.title}</h3>
-                            </div>
-                            <button
-                                onClick={closeGallery}
-                                className="bg-white/90 backdrop-blur-md pl-4 pr-3 py-2 md:pl-5 md:pr-4 md:py-3 rounded-full text-primary hover:bg-white transition-colors flex items-center gap-2 group shadow-sm pointer-events-auto border border-white/50"
-                            >
-                                <span className="text-[10px] md:text-xs uppercase tracking-[0.2em] font-bold hidden sm:block group-hover:-translate-x-1 transition-transform">Close</span>
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5 md:w-6 md:h-6">
-                                    <line x1="18" y1="6" x2="6" y2="18"></line>
-                                    <line x1="6" y1="6" x2="18" y2="18"></line>
-                                </svg>
-                            </button>
-                        </div>
-
-                        {/* Image Container */}
-                        <div
-                            className="w-full h-full flex flex-col justify-center items-center relative"
-                            onTouchStart={handleTouchStart}
-                            onTouchEnd={handleTouchEnd}
+                        <motion.div
+                            initial={{ scale: 0.9, opacity: 0 }}
+                            animate={{ scale: 1, opacity: 1 }}
+                            exit={{ scale: 0.9, opacity: 0 }}
+                            className="relative w-full h-full md:w-fit md:h-[94vh] md:max-w-[calc(100vw-4rem)] md:rounded-[3rem] overflow-hidden flex items-center justify-center shadow-2xl md:border md:border-white/10 bg-black/40 backdrop-blur-sm"
+                            onClick={(e) => e.stopPropagation()}
                         >
-                            <AnimatePresence mode="wait">
-                                <motion.img
-                                    key={activeGalleryIndex}
-                                    initial={{ opacity: 0 }}
-                                    animate={{ opacity: 1 }}
-                                    exit={{ opacity: 0 }}
-                                    transition={{ duration: 0.3 }}
-                                    src={selectedItem.images[activeGalleryIndex]}
-                                    alt=""
-                                    className="absolute inset-0 w-full h-full object-contain pointer-events-none select-none"
-                                />
-                            </AnimatePresence>
+                            {/* Integrated Image & Overlays */}
+                            <div className="relative w-full h-full flex items-center justify-center group/modal">
+                                <AnimatePresence mode="wait">
+                                    <motion.img
+                                        key={activeGalleryIndex}
+                                        initial={{ opacity: 0 }}
+                                        animate={{ opacity: 1 }}
+                                        exit={{ opacity: 0 }}
+                                        transition={{ duration: 0.4 }}
+                                        src={selectedItem.images[activeGalleryIndex]}
+                                        alt=""
+                                        className="w-full h-full object-contain pointer-events-auto select-none"
+                                        drag="x"
+                                        dragConstraints={{ left: 0, right: 0 }}
+                                        dragElastic={0.2}
+                                        onDragEnd={(_, info) => {
+                                            const swipeThreshold = 50;
+                                            const swipeVelocity = 500;
+                                            const { offset, velocity } = info;
 
-                            {/* Desktop Arrows - Floating pills */}
-                            <button
-                                onClick={(e) => { e.stopPropagation(); setActiveGalleryIndex((prev) => (prev > 0 ? prev - 1 : selectedItem.images.length - 1)); }}
-                                className="hidden md:flex absolute left-4 md:left-8 top-1/2 -translate-y-1/2 w-12 h-12 md:w-14 md:h-14 items-center justify-center rounded-full bg-white/90 backdrop-blur-md text-primary hover:bg-white transition-colors z-50 group shadow-sm border border-white/50"
-                            >
-                                <ChevronLeft className="w-6 h-6 md:w-8 md:h-8 group-hover:-translate-x-1 transition-transform" />
-                            </button>
-                            <button
-                                onClick={(e) => { e.stopPropagation(); setActiveGalleryIndex((prev) => (prev < selectedItem.images.length - 1 ? prev + 1 : 0)); }}
-                                className="hidden md:flex absolute right-4 md:right-8 top-1/2 -translate-y-1/2 w-12 h-12 md:w-14 md:h-14 items-center justify-center rounded-full bg-white/90 backdrop-blur-md text-primary hover:bg-white transition-colors z-50 group shadow-sm border border-white/50"
-                            >
-                                <ChevronRight className="w-6 h-6 md:w-8 md:h-8 group-hover:translate-x-1 transition-transform" />
-                            </button>
-                        </div>
+                                            if (offset.x < -swipeThreshold || velocity.x < -swipeVelocity) {
+                                                // Swipe Left -> Next
+                                                setActiveGalleryIndex((prev) => (prev < selectedItem.images.length - 1 ? prev + 1 : 0));
+                                            } else if (offset.x > swipeThreshold || velocity.x > swipeVelocity) {
+                                                // Swipe Right -> Prev
+                                                setActiveGalleryIndex((prev) => (prev > 0 ? prev - 1 : selectedItem.images.length - 1));
+                                            }
+                                        }}
+                                    />
+                                </AnimatePresence>
 
-                        {/* Footer Indicators */}
-                        <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-[110] flex justify-center items-center gap-3 bg-white/90 backdrop-blur-md px-5 py-3.5 rounded-full shadow-sm border border-white/50">
-                            {selectedItem.images.map((_, idx) => (
-                                <button
-                                    key={idx}
-                                    onClick={() => setActiveGalleryIndex(idx)}
-                                    className={`h-2 transition-all duration-300 rounded-full ${idx === activeGalleryIndex ? 'bg-primary w-8' : 'bg-primary/30 w-2 hover:bg-primary/50'}`}
-                                />
-                            ))}
-                        </div>
+                                {/* Aesthetic Gradients for Base Visibility */}
+                                <div className="absolute inset-0 pointer-events-none">
+                                    <div className="absolute top-0 inset-x-0 h-40 bg-gradient-to-b from-black/60 via-black/10 to-transparent" />
+                                    <div className="absolute bottom-0 inset-x-0 h-40 bg-gradient-to-t from-black/60 via-black/10 to-transparent" />
+                                </div>
+
+                                {/* Refined Overlays with Minimalist Visibility Islands (Unified Style) */}
+                                <div className="absolute inset-0 p-4 md:p-6 lg:p-8 pointer-events-none flex flex-col justify-between">
+                                    {/* Top Row */}
+                                    <div className="flex justify-between items-start">
+                                        {/* Top Left: Ultra-Refined Title Island */}
+                                        <motion.div
+                                            initial={{ x: -10, opacity: 0 }}
+                                            animate={{ x: 0, opacity: 1 }}
+                                            className="pointer-events-auto bg-black/30 backdrop-blur-md px-4 py-3 rounded-[1.2rem] border border-white/5 shadow-lg"
+                                        >
+                                            <h3 className="text-white text-base md:text-xl font-heading leading-tight">{selectedItem.title}</h3>
+                                            <div className="mt-1 flex items-center gap-1.5">
+                                                <div className="h-[1px] w-4 md:w-6 bg-white/30" />
+                                                <span className="text-white/40 text-[8px] md:text-[9px] uppercase tracking-[0.2em] font-bold">Item {activeGalleryIndex + 1} / {selectedItem.images.length}</span>
+                                            </div>
+                                        </motion.div>
+
+                                        {/* Top Right: Minimalist Close Island */}
+                                        <button
+                                            onClick={closeGallery}
+                                            className="pointer-events-auto p-2.5 md:p-3 bg-black/30 backdrop-blur-md rounded-full border border-white/5 shadow-lg text-white/40 hover:text-white transition-all transform hover:scale-105 active:scale-95"
+                                            aria-label="Close"
+                                        >
+                                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4 md:w-5 md:h-5">
+                                                <line x1="18" y1="6" x2="6" y2="18"></line>
+                                                <line x1="6" y1="6" x2="18" y2="18"></line>
+                                            </svg>
+                                        </button>
+                                    </div>
+
+                                    {/* Middle Row: Navigation Arrow Islands (Unified) */}
+                                    <div className="absolute top-1/2 left-0 right-0 -translate-y-1/2 flex justify-between px-3 md:px-6">
+                                        <button
+                                            onClick={(e) => { e.stopPropagation(); setActiveGalleryIndex((prev) => (prev > 0 ? prev - 1 : selectedItem.images.length - 1)); }}
+                                            className="pointer-events-auto p-2.5 md:p-3 bg-black/20 backdrop-blur-md rounded-full border border-white/5 shadow-lg text-white/40 hover:text-white transition-all transform hover:scale-105 active:scale-95"
+                                        >
+                                            <ChevronLeft className="w-4 h-4 md:w-5 md:h-5 stroke-[3px]" />
+                                        </button>
+                                        <button
+                                            onClick={(e) => { e.stopPropagation(); setActiveGalleryIndex((prev) => (prev < selectedItem.images.length - 1 ? prev + 1 : 0)); }}
+                                            className="pointer-events-auto p-2.5 md:p-3 bg-black/20 backdrop-blur-md rounded-full border border-white/5 shadow-lg text-white/40 hover:text-white transition-all transform hover:scale-105 active:scale-95"
+                                        >
+                                            <ChevronRight className="w-4 h-4 md:w-5 md:h-5 stroke-[3px]" />
+                                        </button>
+                                    </div>
+
+                                    {/* Bottom Row: Minimalist Page Indicator Island */}
+                                    <div className="flex justify-center items-center pointer-events-auto">
+                                        <div className="flex gap-1.5 bg-black/30 backdrop-blur-md px-4 py-2 rounded-full border border-white/5 shadow-lg">
+                                            {selectedItem.images.map((_, idx) => (
+                                                <button
+                                                    key={idx}
+                                                    onClick={() => setActiveGalleryIndex(idx)}
+                                                    className={`h-[1px] transition-all duration-500 rounded-full ${idx === activeGalleryIndex ? 'bg-white w-6 md:w-10' : 'bg-white/10 w-2 md:w-3 hover:bg-white/30'}`}
+                                                />
+                                            ))}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </motion.div>
                     </motion.div>
                 )}
             </AnimatePresence>
