@@ -79,8 +79,8 @@ export const CONTENT = {
             { id: 3, name: "Publicis Sapient", logo: publicissapientLogo },
             { id: 4, name: "WBI", logo: wbiweddingsLogo },
             { id: 5, name: "Badhai Ho Events", logo: badhaihoeventsLogo },
-            { id: 6, name: "Marriott Resorts", logo: marriottresortsLogo }, 
-            { id: 7, name: "js Fitness Studio", logo: jsfitnessstudioLogo}
+            { id: 6, name: "Marriott Resorts", logo: marriottresortsLogo },
+            { id: 7, name: "js Fitness Studio", logo: jsfitnessstudioLogo }
         ],
         trust: {
             title: "Why Brands Trust Us",
@@ -170,11 +170,36 @@ export const CONTENT = {
     faq: {
         title: "Frequently Asked Questions",
         items: [
-            { id: 1, question: "What is your minimum order quantity?", answer: "Our minimum order quantity for custom hampers is 10 pieces. However, for specific requirements, please reach out to us." },
-            { id: 2, question: "How long does it take to deliver?", answer: "Delivery times vary based on the order size and customization level. Typically, it takes 2-3 weeks from design approval to delivery." },
-            { id: 3, question: "Do you ship across India?", answer: "Yes, we ship our luxury hampers Pan India through our trusted delivery partners." },
-            { id: 4, question: "Can I customize the products inside the hamper?", answer: "Absolutely! We specialize in creating custom hampers tailored to your specific occasion, preferences, and budget." },
-            { id: 5, question: "How do we start the process?", answer: "You can start by sharing your requirement through our contact form, email, or WhatsApp. Our team will get back to you to discuss concepts." }
+            {
+                id: 1,
+                question: "What is your minimum order quantity?",
+                answer: "Since we specialize in bulk gifting, we usually work with a minimum order quantity. Please share your requirement with us and we'll guide you accordingly."
+            },
+            {
+                id: 2,
+                question: "Do you take bulk orders?",
+                answer: "Yes. In fact, we specialise in bulk gifting and large scale hamper production. Whether it's corporate events, weddings or festive gifting, our systems are designed to handle bulk orders smoothly."
+            },
+            {
+                id: 3,
+                question: "How much in advance should we place the order?",
+                answer: "This depends on the order size and level of customization. Once you share your requirement with us, we'll guide you on the ideal timeline and ensure everything is planned and delivered smoothly."
+            },
+            {
+                id: 4,
+                question: "Can I customize the products inside the hamper?",
+                answer: "Absolutely. Customization and personalization are at the heart of what we do. We don't just design hampers around an occasion, we thoughtfully curate them around the people receiving them and what they would genuinely love. Every element is intentionally selected so that the hamper feels meaningful, thoughtful and never random."
+            },
+            {
+                id: 5,
+                question: "Can you add our company logo or branding?",
+                answer: "Yes, we can incorporate custom branding such as logos, brand colors, personalized notes, custom sleeves, tags and packaging to match your brand identity."
+            },
+            {
+                id: 6,
+                question: "Do you ship across India?",
+                answer: "Yes, we ship pan India through our trusted delivery partners to ensure your hampers reach safely and on time."
+            },
         ]
     },
     contact: {
