@@ -37,7 +37,7 @@ export const CONTENT = {
         logoSrc: navbarLogo,
         links: [
             { name: "Work", hash: "#products" },
-            { name: "Our Story", hash: "#about" },
+            { name: "Our Story", hash: "#founder" },
             { name: "Testimonials", hash: "#testimonials" },
             { name: "FAQ", hash: "#faq" },
             { name: "Contact", hash: "#contact" },
