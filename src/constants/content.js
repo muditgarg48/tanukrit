@@ -16,17 +16,55 @@ import wbiweddingsLogo from "../assets/brands/wbiweddings_logo.webp";
 import badhaihoeventsLogo from "../assets/brands/badhaihoevents_logo.webp";
 import marriottresortsLogo from "../assets/brands/marriottresorts_logo.webp";
 import jsfitnessstudioLogo from "../assets/brands/jsfitnessstudio_logo.webp";
-// Work
-import babyShowerCoverImage from "../assets/work/baby_shower_cover.webp";
-import birthdayFavoursCoverImage from "../assets/work/birthday_favours_cover.webp";
-import corporateHampersCoverImage from "../assets/work/corporate_hampers_cover.webp";
-import festivalsCoverImage from "../assets/work/festivals_cover.webp";
-import milestoneCelebrationsCoverImage from "../assets/work/milestone_celebrations_cover.webp";
-import returnFavoursCoverImage from "../assets/work/return_favours_cover.webp";
-import roomHampersCoverImage from "../assets/work/room_hampers_cover.webp";
-import trousseauCoverImage from "../assets/work/trousseau_cover.webp";
-import weddingFavoursCoverImage from "../assets/work/wedding_favours_cover.webp";
-import weddingInvitesCoverImage from "../assets/work/wedding_invites_cover.webp";
+// Showcase Cover Images
+import babyShowerCoverImage from "../assets/showcase_covers/baby_shower_cover.webp";
+import birthdayFavoursCoverImage from "../assets/showcase_covers/birthday_favours_cover.webp";
+import corporateHampersCoverImage from "../assets/showcase_covers/corporate_hampers_cover.webp";
+import festivalsCoverImage from "../assets/showcase_covers/festivals_cover.webp";
+import milestoneCelebrationsCoverImage from "../assets/showcase_covers/milestone_celebrations_cover.webp";
+import returnFavoursCoverImage from "../assets/showcase_covers/return_favours_cover.webp";
+import roomHampersCoverImage from "../assets/showcase_covers/room_hampers_cover.webp";
+import trousseauCoverImage from "../assets/showcase_covers/trousseau_cover.webp";
+import weddingFavoursCoverImage from "../assets/showcase_covers/wedding_favours_cover.webp";
+import weddingInvitesCoverImage from "../assets/showcase_covers/wedding_invites_cover.webp";
+// Showcase Gallery Images
+import babyShower1 from "../assets/showcase_galleries/baby_shower_1.webp";
+import babyShower2 from "../assets/showcase_galleries/baby_shower_2.webp";
+import babyShower3 from "../assets/showcase_galleries/baby_shower_3.webp";
+import birthdayFavors1 from "../assets/showcase_galleries/birthday_favors_1.webp";
+import birthdayFavors2 from "../assets/showcase_galleries/birthday_favors_2.webp";
+import birthdayFavors3 from "../assets/showcase_galleries/birthday_favors_3.webp";
+import birthdayFavors4 from "../assets/showcase_galleries/birthday_favors_4.webp";
+import corporateHampers1 from "../assets/showcase_galleries/corporate_hampers_1.webp";
+import corporateHampers2 from "../assets/showcase_galleries/corporate_hampers_2.webp";
+import corporateHampers3 from "../assets/showcase_galleries/corporate_hampers_3.webp";
+import corporateHampers4 from "../assets/showcase_galleries/corporate_hampers_4.webp";
+import festivals1 from "../assets/showcase_galleries/festivals_1.webp";
+import festivals2 from "../assets/showcase_galleries/festivals_2.webp";
+import festivals3 from "../assets/showcase_galleries/festivals_3.webp";
+import festivals4 from "../assets/showcase_galleries/festivals_4.webp";
+import festivals5 from "../assets/showcase_galleries/festivals_5.webp";
+import festivals6 from "../assets/showcase_galleries/festivals_6.webp";
+import festivals7 from "../assets/showcase_galleries/festivals_7.webp";
+import milestoneCelebrations1 from "../assets/showcase_galleries/milestone_celebrations_1.webp";
+import milestoneCelebrations2 from "../assets/showcase_galleries/milestone_celebrations_2.webp";
+import milestoneCelebrations3 from "../assets/showcase_galleries/milestone_celebrations_3.webp";
+import milestoneCelebrations4 from "../assets/showcase_galleries/milestone_celebrations_4.webp";
+import milestoneCelebrations5 from "../assets/showcase_galleries/milestone_celebrations_5.webp";
+import returnFavors1 from "../assets/showcase_galleries/return_favors_1.webp";
+import returnFavors2 from "../assets/showcase_galleries/return_favors_2.webp";
+import returnFavors3 from "../assets/showcase_galleries/return_favors_3.webp";
+import returnFavors4 from "../assets/showcase_galleries/return_favors_4.webp";
+import roomHampers1 from "../assets/showcase_galleries/room_hampers_1.webp";
+import roomHampers2 from "../assets/showcase_galleries/room_hampers_2.webp";
+import trousseau1 from "../assets/showcase_galleries/trousseau_1.webp";
+import trousseau2 from "../assets/showcase_galleries/trousseau_2.webp";
+import trousseau3 from "../assets/showcase_galleries/trousseau_3.webp";
+import weddingFavours1 from "../assets/showcase_galleries/wedding_favours_1.webp";
+import weddingFavours2 from "../assets/showcase_galleries/wedding_favours_2.webp";
+import weddingFavours3 from "../assets/showcase_galleries/wedding_favours_3.webp";
+import weddingInvites1 from "../assets/showcase_galleries/wedding_invites_1.webp";
+import weddingInvites2 from "../assets/showcase_galleries/wedding_invites_2.webp";
 
 export const CONTENT = {
     locationIndicator: {
@@ -108,16 +146,16 @@ export const CONTENT = {
         title: "Custom Hampers for every occasion",
         description: "Thoughtfully curated hampers designed for meaningful moments.",
         items: [
-            { id: 1, title: "Baby Shower", coverImage: babyShowerCoverImage, images: [babyShowerCoverImage, babyShowerCoverImage, babyShowerCoverImage] },
-            { id: 2, title: "Corporate Hampers", coverImage: corporateHampersCoverImage, images: [corporateHampersCoverImage, corporateHampersCoverImage, corporateHampersCoverImage] },
-            { id: 3, title: "Wedding Favours", coverImage: weddingFavoursCoverImage, images: [weddingFavoursCoverImage, weddingFavoursCoverImage, weddingFavoursCoverImage] },
-            { id: 4, title: "Festivals", coverImage: festivalsCoverImage, images: [festivalsCoverImage, festivalsCoverImage, festivalsCoverImage] },
-            { id: 5, title: "Milestone celebrations", coverImage: milestoneCelebrationsCoverImage, images: [milestoneCelebrationsCoverImage, milestoneCelebrationsCoverImage, milestoneCelebrationsCoverImage] },
-            { id: 6, title: "Wedding Invites", coverImage: weddingInvitesCoverImage, images: [weddingInvitesCoverImage, weddingInvitesCoverImage, weddingInvitesCoverImage] },
-            { id: 7, title: "Return Favours", coverImage: returnFavoursCoverImage, images: [returnFavoursCoverImage, returnFavoursCoverImage, returnFavoursCoverImage] },
-            { id: 8, title: "Birthday Favours", coverImage: birthdayFavoursCoverImage, images: [birthdayFavoursCoverImage, birthdayFavoursCoverImage, birthdayFavoursCoverImage] },
-            { id: 9, title: "Trousseau", coverImage: trousseauCoverImage, images: [trousseauCoverImage, trousseauCoverImage, trousseauCoverImage] },
-            { id: 10, title: "Room Hampers", coverImage: roomHampersCoverImage, images: [roomHampersCoverImage, roomHampersCoverImage, roomHampersCoverImage] },
+            { id: 1, title: "Baby Shower", coverImage: babyShowerCoverImage, images: [babyShowerCoverImage, babyShower1, babyShower2, babyShower3] },
+            { id: 2, title: "Corporate Hampers", coverImage: corporateHampersCoverImage, images: [corporateHampersCoverImage, corporateHampers1, corporateHampers2, corporateHampers3, corporateHampers4] },
+            { id: 3, title: "Wedding Favours", coverImage: weddingFavoursCoverImage, images: [weddingFavoursCoverImage, weddingFavours1, weddingFavours2, weddingFavours3] },
+            { id: 4, title: "Festivals", coverImage: festivalsCoverImage, images: [festivalsCoverImage, festivals1, festivals2, festivals3, festivals4, festivals5, festivals6, festivals7] },
+            { id: 5, title: "Milestone celebrations", coverImage: milestoneCelebrationsCoverImage, images: [milestoneCelebrationsCoverImage, milestoneCelebrations1, milestoneCelebrations2, milestoneCelebrations3, milestoneCelebrations4, milestoneCelebrations5] },
+            { id: 6, title: "Wedding Invites", coverImage: weddingInvitesCoverImage, images: [weddingInvitesCoverImage, weddingInvites1, weddingInvites2] },
+            { id: 7, title: "Return Favours", coverImage: returnFavoursCoverImage, images: [returnFavoursCoverImage, returnFavors1, returnFavors2, returnFavors3, returnFavors4] },
+            { id: 8, title: "Birthday Favours", coverImage: birthdayFavoursCoverImage, images: [birthdayFavoursCoverImage, birthdayFavors1, birthdayFavors2, birthdayFavors3, birthdayFavors4] },
+            { id: 9, title: "Trousseau", coverImage: trousseauCoverImage, images: [trousseauCoverImage, trousseau1, trousseau2, trousseau3] },
+            { id: 10, title: "Room Hampers", coverImage: roomHampersCoverImage, images: [roomHampersCoverImage, roomHampers1, roomHampers2] },
         ],
         cta: {
             title: "Love What You See?",
