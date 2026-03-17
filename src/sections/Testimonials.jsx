@@ -43,11 +43,11 @@ const Testimonials = () => {
                         >
                             {items.map((item) => (
                                 <SwiperSlide key={item.id} className="!h-auto">
-                                    <div className="group relative p-8 md:p-12 rounded-[2.5rem] bg-stone-50/50 border border-stone-100 flex flex-col h-full hover:bg-primary transition-all duration-500 shadow-sm hover:shadow-2xl border-b-4 border-b-transparent hover:border-b-white/20">
+                                    <div className="group relative p-6 md:p-8 rounded-[2.5rem] bg-stone-50/50 border border-stone-100 flex flex-col h-full hover:bg-primary transition-all duration-500 shadow-sm hover:shadow-2xl border-b-4 border-b-transparent hover:border-b-white/20">
                                         <span className="text-7xl text-primary/20 font-serif absolute top-6 left-8 pointer-events-none group-hover:text-white/20 transition-colors leading-none">“</span>
 
-                                        <div className="flex-grow flex items-center mb-10 mt-6">
-                                            <p className="text-sm md:text-base lg:text-lg font-light leading-relaxed text-gray-700 relative z-10 italic group-hover:text-white transition-colors">
+                                        <div className="flex-grow flex items-center mb-6 mt-4">
+                                            <p className="text-sm md:text-base font-light leading-relaxed text-gray-700 relative z-10 italic group-hover:text-white transition-colors">
                                                 {item.quote}
                                             </p>
                                         </div>
@@ -96,6 +96,33 @@ const Testimonials = () => {
                 .swiper-pagination-custom .swiper-pagination-bullet-active {
                     width: 32px;
                     opacity: 1;
+                }
+
+                @media (max-width: 767px) {
+                    .testimonials-swiper .swiper-slide-active .group {
+                        background-color: var(--color-primary) !important;
+                        border-bottom-color: rgba(255, 255, 255, 0.2) !important;
+                        box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25) !important;
+                    }
+                    .testimonials-swiper .swiper-slide-active .group span.text-7xl {
+                        color: rgba(255, 255, 255, 0.2) !important;
+                    }
+                    .testimonials-swiper .swiper-slide-active .group p {
+                        color: white !important;
+                    }
+                    .testimonials-swiper .swiper-slide-active .group .border-t {
+                        border-top-color: rgba(255, 255, 255, 0.2) !important;
+                    }
+                    .testimonials-swiper .swiper-slide-active .group .w-10 {
+                        background-color: rgba(255, 255, 255, 0.2) !important;
+                        color: white !important;
+                    }
+                    .testimonials-swiper .swiper-slide-active .group h4 {
+                        color: white !important;
+                    }
+                    .testimonials-swiper .swiper-slide-active .group .block {
+                        color: rgba(255, 255, 255, 0.6) !important;
+                    }
                 }
             `}} />
         </section>

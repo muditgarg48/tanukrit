@@ -131,39 +131,45 @@ export const CONTENT = {
         items: [
             {
                 id: 1,
-                quote: "Tanukrit doesn't just package gifts; they package emotions. The attention to detail in our corporate hampers was unlike anything we've seen before.",
-                author: "Ananya Sharma",
-                role: "Marketing Director"
+                quote: "I've been ordering from Tanukrit for two years now for both corporate and personal gifting. The gifts are always thoughtfully curated, beautifully packed, and perfectly aligned with our event themes. Their attention to detail and creativity truly stand out!",
+                author: "Dakshata",
+                role: "Agile Program Manager, Publicis Sapient"
             },
             {
                 id: 2,
-                quote: "The milestone gift created for my parents' anniversary was breathtaking. It wasn't just a present; it was a beautiful conversation piece that brought tears of joy.",
-                author: "Rohan Mehra",
-                role: "Entrepreneur"
+                quote: "Thanks Tanu for arranging hampers. It was well appreciated by our all friends. In future we will be associated for more celebrations with you.",
+                author: "Prakrati Agrawal",
+                role: ""
             },
             {
                 id: 3,
-                quote: "Sophisticated, intentional, and truly artistic. Tanu has a way of understanding exactly what you want to convey and translating it into a physical form.",
-                author: "Priyanka Chopra",
-                role: "Family Client"
+                quote: "I got hampers made for my friends on my special day and Tanu did an amazing job with going out of the way and choosing the best gourmet food. The presentation, packaging and food was very well done and my friends loved it",
+                author: "Shambhavi Agarwal",
+                role: ""
             },
             {
                 id: 4,
-                quote: "Working with Tanukrit was a breeze. They understood our brand ethos perfectly and delivered something that truly resonated with our partners.",
-                author: "Vikram Sethi",
-                role: "Creative Lead"
+                quote: "I loved the hampers prepared for the Dusit Thani Nepal networking event. Everything in it felt thoughtful and even my friends loved it. My favourite part was the packaging and the wardrobe freshener. The hamper was beautiful, thoughtful and memorable",
+                author: "Somya",
+                role: "Reporter, BOTT"
             },
             {
                 id: 5,
-                quote: "Every touchpoint, from the initial consultation to the final delivery, was handled with such grace and professionalism. Highly recommended.",
-                author: "Sneha Kapoor",
-                role: "Event Planner"
+                quote: "This is was simply superb. Loved the effort put in by you and your team to get the final fabulous result.",
+                author: "Ankit Sharma",
+                role: "POC, Dusit Thani"
             },
             {
                 id: 6,
-                quote: "The packaging itself is a gift. My clients were so impressed with the presentation that they didn't want to open them! Absolutely stunning work.",
-                author: "Arjun Reddy",
-                role: "Luxury Consultant"
+                quote: "I absolutely loved worked with Tanu. Everything from the initial conversation to the final delivery was handled so smoothly. We always get our festive hampers made from Tanukrit. Would highly recommend! ",
+                author: "Sanjana Sehgal",
+                role: "Founder, Meltz"
+            },
+            {
+                id: 7,
+                quote: "Hey, we all really appreciated the giveaways made for our conference. What I liked the most was how thoughtfully everything was put together. Each and every element was designed keeping in mind that it was for fitness influencers. Absolutely loved the work, keep it up! 💯",
+                author: "Supreet Sehgal",
+                role: "Founder, JS Fitness Studio"
             }
         ]
     },
