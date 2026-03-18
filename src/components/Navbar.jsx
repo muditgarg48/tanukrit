@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { CONTENT } from "../constants/content";
-import { motion, AnimatePresence } from "framer-motion";
+import { AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import { scrollToHash } from "../utils/scroll";
 import LocationIndicator from "./LocationIndicator";

@@ -1,5 +1,4 @@
 import { CONTENT } from "../constants/content";
-import { motion } from "framer-motion";
 
 const BrandStory = () => {
     const { story } = CONTENT.introduction;

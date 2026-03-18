@@ -1,6 +1,6 @@
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect, useLayoutEffect, useCallback } from "react";
 import { CONTENT } from "../constants/content";
-import { motion, AnimatePresence } from "framer-motion";
+import { AnimatePresence } from "framer-motion";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import ImageWithLoader from "../components/ImageWithLoader";
 
@@ -46,16 +46,25 @@ const Showcase = () => {
     const openGallery = (item) => {
         setSelectedItem(item);
         setActiveGalleryIndex(0);
-        document.body.style.overflow = 'hidden';
     };
 
     const closeGallery = () => {
         setSelectedItem(null);
-        document.body.style.overflow = 'auto';
     };
 
-    // Infinite loop jump
     useEffect(() => {
+        if (selectedItem) {
+            document.body.style.overflow = 'hidden';
+        } else {
+            document.body.style.overflow = 'auto';
+        }
+        return () => {
+            document.body.style.overflow = 'auto';
+        };
+    }, [selectedItem]);
+
+    // Infinite loop jump — useLayoutEffect avoids a visible flash when jumping
+    useLayoutEffect(() => {
         if (displayIndex >= items.length * 2) {
             setEnableTransitions(false);
             setDisplayIndex(displayIndex - items.length);
@@ -70,7 +79,7 @@ const Showcase = () => {
     const isProgrammaticScroll = useRef(false);
     const programmaticTarget = useRef(null);
 
-    const scrollToIndex = (index, behavior = "smooth") => {
+    const scrollToIndex = useCallback((index, behavior = "smooth") => {
         const container = mobileScrollRef.current;
         if (!container || container.clientWidth === 0) return;
 
@@ -83,7 +92,7 @@ const Showcase = () => {
             const targetScrollLeft = targetElement.offsetLeft - (container.clientWidth / 2) + (targetElement.clientWidth / 2);
             container.scrollTo({ left: targetScrollLeft, behavior: behavior });
         }
-    };
+    }, [items.length]);
 
     const handleMobileScroll = (e) => {
         const container = e.target;
@@ -126,36 +135,13 @@ const Showcase = () => {
         }
     };
 
+    // Intentionally only runs on breakpoint change — not on every activeIndex update
     useEffect(() => {
         if (isMobile && mobileScrollRef.current) {
             scrollToIndex(activeIndex, "instant");
         }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [isMobile]);
-
-    // Swipe handling for gallery modal
-    const touchStartX = useRef(null);
-
-    const handleTouchStart = (e) => {
-        touchStartX.current = e.touches[0].clientX;
-    };
-
-    const handleTouchEnd = (e) => {
-        if (touchStartX.current === null) return;
-
-        const touchEndX = e.changedTouches[0].clientX;
-        const deltaX = touchStartX.current - touchEndX;
-        const swipeThreshold = 50;
-
-        if (deltaX > swipeThreshold) {
-            // Swipe left -> next image
-            setActiveGalleryIndex((prev) => (prev < selectedItem.images.length - 1 ? prev + 1 : 0));
-        } else if (deltaX < -swipeThreshold) {
-            // Swipe right -> prev image
-            setActiveGalleryIndex((prev) => (prev > 0 ? prev - 1 : selectedItem.images.length - 1));
-        }
-
-        touchStartX.current = null;
-    };
 
     return (
         <section id="products" data-nav-theme="light" className="min-h-screen flex flex-col bg-[#F9F9F9] px-4 pt-16 md:pt-24 pb-12 lg:pt-28 lg:pb-16">

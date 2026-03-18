@@ -1,4 +1,3 @@
-import { motion } from "framer-motion";
 import brandLogo from "../assets/tanukrit_logo_navbar.webp";
 
 const LoadingSection = ({ className = "" }) => {
