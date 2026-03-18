@@ -4,6 +4,7 @@ import FloatingActions from "./components/FloatingActions";
 import Hero from "./sections/Hero";
 import Ribbon from "./components/Ribbon";
 import { CONTENT } from "./constants/content";
+import LoadingSection from "./components/LoadingSection";
 
 const BrandStory = lazy(() => import("./sections/BrandStory"));
 const Showcase = lazy(() => import("./sections/Showcase"));
@@ -19,16 +20,26 @@ function App() {
       <Navbar />
       <FloatingActions />
       <Hero />
-      <Suspense fallback={null}>
+      <Suspense fallback={<LoadingSection className="min-h-[60vh]" />}>
         <BrandStory />
-        <Ribbon
-          text={CONTENT.ribbons.brandStoryToShowcase}
-        />
+      </Suspense>
+      <Ribbon text={CONTENT.ribbons.brandStoryToShowcase} />
+      <Suspense fallback={<LoadingSection className="min-h-[80vh]" />}>
         <Showcase />
+      </Suspense>
+      <Suspense fallback={<LoadingSection className="min-h-[60vh]" />}>
         <Introduction />
+      </Suspense>
+      <Suspense fallback={<LoadingSection className="min-h-[40vh]" />}>
         <Testimonials />
+      </Suspense>
+      <Suspense fallback={<LoadingSection className="min-h-[40vh]" />}>
         <FAQ />
+      </Suspense>
+      <Suspense fallback={<LoadingSection className="min-h-[40vh]" />}>
         <Contact />
+      </Suspense>
+      <Suspense fallback={<LoadingSection className="min-h-[20vh]" />}>
         <Footer />
       </Suspense>
     </main>

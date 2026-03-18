@@ -23,18 +23,27 @@ const Hero = () => {
                 <LocationIndicator variant="hero" />
             </div>
             {/* Background Image Layer */}
-            {backgroundImages?.map((img, index) => (
-                <div
-                    key={index}
-                    className={`absolute inset-0 bg-cover bg-center z-0 transition-opacity duration-[1500ms] ease-in-out will-change-opacity ${index === currentImageIndex ? 'opacity-100' : 'opacity-0'
-                        }`}
-                    style={{
-                        backgroundImage: `url(${img})`,
-                        backgroundSize: 'cover',
-                        backgroundPosition: 'center 45%'
-                    }}
-                />
-            ))}
+            {backgroundImages?.map((img, index) => {
+                // Render current, next (for preloading), and previous (for smooth fade-out)
+                const isActive = index === currentImageIndex;
+                const isNext = index === (currentImageIndex + 1) % backgroundImages.length;
+                const isPrev = index === (currentImageIndex - 1 + backgroundImages.length) % backgroundImages.length;
+                
+                if (!isActive && !isNext && !isPrev) return null;
+
+                return (
+                    <div
+                        key={index}
+                        className={`absolute inset-0 bg-cover bg-center z-0 transition-opacity duration-[1500ms] ease-in-out will-change-opacity ${isActive ? 'opacity-100' : 'opacity-0'
+                            }`}
+                        style={{
+                            backgroundImage: `url(${img})`,
+                            backgroundSize: 'cover',
+                            backgroundPosition: 'center 45%'
+                        }}
+                    />
+                );
+            })}
 
             {/* Unified Overlay Layer (Better Performance) */}
             <div className="absolute inset-0 bg-black/65 backdrop-blur-[1px]"></div>
