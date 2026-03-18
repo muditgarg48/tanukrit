@@ -1,5 +1,5 @@
 import { useEffect, useRef } from "react";
-import { useMotionValue, useTransform, animate, useInView } from "framer-motion";
+import { useMotionValue, useTransform, animate, useInView, motion } from "framer-motion";
 
 const Counter = ({ target, duration = 1.5, suffix = "" }) => {
     const ref = useRef(null);
