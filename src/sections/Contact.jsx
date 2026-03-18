@@ -1,6 +1,7 @@
 import { ExternalLink } from "lucide-react";
 import { CONTENT } from "../constants/content";
 import logo from "../assets/tanukrit_logo.webp";
+import ImageWithLoader from "../components/ImageWithLoader";
 
 const Contact = () => {
     const { title, description, email, phone, location, footer } = CONTENT.contact;
@@ -59,7 +60,7 @@ const Contact = () => {
                         </div>
 
                         <div className="select-none pointer-events-none ml-1 md:ml-2 mt-4 md:mt-0">
-                            <img
+                            <ImageWithLoader
                                 src={logo}
                                 alt="Tanukrit Logo"
                                 className="h-24 md:h-32 object-contain mix-blend-screen brightness-200 transition-all duration-300 -ml-1 md:-ml-4"

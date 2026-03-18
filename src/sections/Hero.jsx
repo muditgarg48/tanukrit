@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { CONTENT } from "../constants/content";
 import { scrollToHash } from "../utils/scroll";
 import LocationIndicator from "../components/LocationIndicator";
+import ImageWithLoader from "../components/ImageWithLoader";
 
 const Hero = () => {
     const { tagline, title, logoSrc, backgroundImages, imageTransitionInterval } = CONTENT.hero;
@@ -66,7 +67,7 @@ const Hero = () => {
 
             <div className="relative z-10 text-center text-white max-w-4xl flex flex-col items-center drop-shadow-2xl">
                 <div className="mb-4 md:mb-6 animate-fade-in filter drop-shadow-[0_0_20_rgba(0,0,0,0.3)]">
-                    <img
+                    <ImageWithLoader
                         src={logoSrc}
                         alt={title}
                         className="h-[28vh] md:h-[38vh] lg:h-[40vh] w-auto object-contain brightness-110"

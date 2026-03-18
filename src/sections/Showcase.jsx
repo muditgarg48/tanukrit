@@ -2,6 +2,7 @@ import { useState, useRef, useEffect } from "react";
 import { CONTENT } from "../constants/content";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronLeft, ChevronRight } from "lucide-react";
+import ImageWithLoader from "../components/ImageWithLoader";
 
 const useWindowSize = () => {
     const [isMobile, setIsMobile] = useState(false);
@@ -192,13 +193,13 @@ const Showcase = () => {
                                         >
                                             {/* No-Crop Aesthetic: Blurred backdrop + object-contain */}
                                             {isActive && (
-                                                <img
+                                                <ImageWithLoader
                                                     src={item.coverImage}
                                                     alt=""
-                                                    className="absolute inset-0 w-full h-full object-cover blur-2xl opacity-40 scale-110"
+                                                    className="absolute inset-0 w-full h-full object-contain blur-2xl opacity-40 scale-110"
                                                 />
                                             )}
-                                            <img
+                                            <ImageWithLoader
                                                 src={item.coverImage}
                                                 alt={item.title}
                                                 loading="lazy"
@@ -241,7 +242,7 @@ const Showcase = () => {
                                             onClick={() => isActive ? openGallery(item) : null}
                                             className={`shrink-0 w-[80vw] aspect-[3/4] snap-center relative rounded-[2rem] overflow-hidden isolate transform-gpu group shadow-sm transition-all duration-500 ease-out bg-black/5 ${isActive ? 'scale-100 opacity-100' : 'scale-85 opacity-60'}`}
                                         >
-                                            <img
+                                            <ImageWithLoader
                                                 src={item.coverImage}
                                                 alt={item.title}
                                                 loading="lazy"

@@ -8,6 +8,7 @@ import {
 } from "lucide-react";
 import Ribbon from "../components/Ribbon";
 import Counter from "../components/Counter";
+import ImageWithLoader from "../components/ImageWithLoader";
 
 const icons = {
     Gift,
@@ -93,7 +94,7 @@ const Introduction = () => {
                         {[...trustedBy, ...trustedBy].map((brand, idx) => (
                             <div key={`${brand.id}-${idx}`} className="group relative flex flex-col items-center">
                                 <div className="h-16 md:h-20 flex items-center justify-center opacity-100 group-hover:opacity-100 group-hover:scale-110 transition-all duration-500 ease-out cursor-pointer">
-                                    <img
+                                    <ImageWithLoader
                                         src={brand.logo}
                                         alt={brand.name}
                                         className="h-full w-auto object-contain max-w-[120px] md:max-w-[160px]"
@@ -125,7 +126,7 @@ const Introduction = () => {
                         {/* 2. Image Area - Spans both rows on desktop */}
                         <div className="w-full max-w-md mx-auto relative order-2 md:col-start-2 md:row-start-1 md:row-span-2">
                             <div className="aspect-[4/5] rounded-[3rem] bg-primary/5 overflow-hidden shadow-2xl relative">
-                                <img
+                                <ImageWithLoader
                                     src={founder.founderImage}
                                     alt={founder.name}
                                     className="w-full h-full object-cover transition-all duration-1000"

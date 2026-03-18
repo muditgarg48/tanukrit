@@ -4,13 +4,14 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import { scrollToHash } from "../utils/scroll";
 import LocationIndicator from "./LocationIndicator";
+import ImageWithLoader from "./ImageWithLoader";
 
 const DesktopNavbar = ({ isLight }) => (
     <div className="flex flex-col items-center w-full relative z-10 transition-[opacity,transform] duration-500">
         <div className={`px-8 py-2.5 rounded-full flex justify-between items-center shadow-lg transition-[background-color,border-color,color,transform] duration-500 relative z-10 w-full ${isLight ? "bg-[#dca3d7]/15 backdrop-blur-md border border-[#dca3d7]/30" : "bg-white/20 backdrop-blur-md border border-white/30"
             }`}>
             <a href="#" className="h-12 relative z-20">
-                <img
+                <ImageWithLoader
                     src={isLight ? CONTENT.navbar.logoSrc : CONTENT.hero.logoSrc}
                     alt={CONTENT.navbar.logo}
                     className={`h-full w-auto object-contain transition-[opacity,transform] duration-500`}
@@ -41,7 +42,7 @@ const MobileNavbarToggle = ({ isLight, toggleMenu, isMenuOpen }) => (
             href="#"
             className="h-10 w-auto relative z-20 flex items-center"
         >
-            <img
+            <ImageWithLoader
                 src={isLight ? CONTENT.navbar.logoSrc : CONTENT.hero.logoSrc}
                 alt={CONTENT.navbar.logo}
                 className={`h-full w-auto object-contain transition-[opacity,transform] duration-500`}
@@ -106,7 +107,7 @@ const MobileSidebar = ({ toggleMenu, sidebarVariants, backdropVariants }) => (
             </div>
 
             <div className="absolute bottom-12 left-1/2 -translate-x-1/2">
-                <img
+                <ImageWithLoader
                     src={CONTENT.navbar.logoSrc}
                     alt={CONTENT.navbar.logo}
                     className="h-16 w-auto opacity-30 grayscale"

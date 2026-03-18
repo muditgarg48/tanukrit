@@ -3,8 +3,8 @@ import brandLogo from "../assets/tanukrit_logo_navbar.webp";
 
 const LoadingSection = ({ className = "" }) => {
   return (
-    <div className={`w-full flex flex-col items-center justify-center bg-[#F9F9F9] overflow-hidden ${className}`}>
-      <div className="max-w-7xl mx-auto w-full px-4 flex flex-col items-center justify-center h-full">
+    <div className={`w-full h-full flex flex-col items-center justify-center overflow-hidden ${className}`}>
+      <div className="w-full h-full flex flex-col items-center justify-center">
         {/* Actual Branded Logo with 100-0-100 Opacity Oscillation */}
         <motion.div
           animate={{
@@ -15,7 +15,7 @@ const LoadingSection = ({ className = "" }) => {
             repeat: Infinity,
             ease: "easeInOut"
           }}
-          className="w-32 md:w-48 lg:w-56 aspect-square flex items-center justify-center"
+          className="w-[80%] h-[80%] flex items-center justify-center"
         >
           <img
             src={brandLogo}
