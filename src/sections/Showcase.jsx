@@ -15,7 +15,41 @@ const useWindowSize = () => {
     return isMobile;
 };
 
+const GalleryImage = ({ src, onSwipe }) => {
+    return (
+        <motion.div
+            className="absolute inset-0 flex items-center justify-center"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.4 }}
+        >
+            {/* ImageWithLoader handles the branded loading placeholder + image */}
+            <ImageWithLoader
+                src={src}
+                alt=""
+                className="absolute inset-0 w-full h-full object-contain"
+            />
+            {/* Transparent drag-capture overlay for swipe gestures */}
+            <motion.div
+                className="absolute inset-0 z-20"
+                drag="x"
+                dragConstraints={{ left: 0, right: 0 }}
+                dragElastic={0.2}
+                onDragEnd={(_, info) => {
+                    const swipeThreshold = 50;
+                    const swipeVelocity = 500;
+                    const { offset, velocity } = info;
+                    if (offset.x < -swipeThreshold || velocity.x < -swipeVelocity) onSwipe("left");
+                    else if (offset.x > swipeThreshold || velocity.x > swipeVelocity) onSwipe("right");
+                }}
+            />
+        </motion.div>
+    );
+};
+
 const Showcase = () => {
+
     const isMobile = useWindowSize();
     const { title, description, items, cta } = CONTENT.showcase;
     const [displayIndex, setDisplayIndex] = useState(items.length); // Start in middle set
@@ -307,30 +341,12 @@ const Showcase = () => {
                             {/* Integrated Image & Overlays */}
                             <div className="relative w-full h-full flex items-center justify-center group/modal">
                                 <AnimatePresence mode="wait">
-                                    <motion.img
+                                    <GalleryImage
                                         key={activeGalleryIndex}
-                                        initial={{ opacity: 0 }}
-                                        animate={{ opacity: 1 }}
-                                        exit={{ opacity: 0 }}
-                                        transition={{ duration: 0.4 }}
                                         src={selectedItem.images[activeGalleryIndex]}
-                                        alt=""
-                                        className="w-full h-full object-contain pointer-events-auto select-none"
-                                        drag="x"
-                                        dragConstraints={{ left: 0, right: 0 }}
-                                        dragElastic={0.2}
-                                        onDragEnd={(_, info) => {
-                                            const swipeThreshold = 50;
-                                            const swipeVelocity = 500;
-                                            const { offset, velocity } = info;
-
-                                            if (offset.x < -swipeThreshold || velocity.x < -swipeVelocity) {
-                                                // Swipe Left -> Next
-                                                setActiveGalleryIndex((prev) => (prev < selectedItem.images.length - 1 ? prev + 1 : 0));
-                                            } else if (offset.x > swipeThreshold || velocity.x > swipeVelocity) {
-                                                // Swipe Right -> Prev
-                                                setActiveGalleryIndex((prev) => (prev > 0 ? prev - 1 : selectedItem.images.length - 1));
-                                            }
+                                        onSwipe={(dir) => {
+                                            if (dir === "left") setActiveGalleryIndex((prev) => (prev < selectedItem.images.length - 1 ? prev + 1 : 0));
+                                            else setActiveGalleryIndex((prev) => (prev > 0 ? prev - 1 : selectedItem.images.length - 1));
                                         }}
                                     />
                                 </AnimatePresence>
