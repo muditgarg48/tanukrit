@@ -15,6 +15,8 @@ const DesktopNavbar = ({ isLight }) => (
                     src={isLight ? CONTENT.navbar.logoSrc : CONTENT.hero.logoSrc}
                     alt={CONTENT.navbar.logo}
                     className={`h-full w-auto object-contain transition-[opacity,transform] duration-500`}
+                    loading="eager"
+                    fetchpriority="high"
                 />
             </a>
             <div className="flex gap-8">
@@ -46,6 +48,8 @@ const MobileNavbarToggle = ({ isLight, toggleMenu, isMenuOpen }) => (
                 src={isLight ? CONTENT.navbar.logoSrc : CONTENT.hero.logoSrc}
                 alt={CONTENT.navbar.logo}
                 className={`h-full w-auto object-contain transition-[opacity,transform] duration-500`}
+                loading="eager"
+                fetchpriority="high"
             />
         </a>
 
@@ -111,6 +115,7 @@ const MobileSidebar = ({ toggleMenu, sidebarVariants, backdropVariants }) => (
                     src={CONTENT.navbar.logoSrc}
                     alt={CONTENT.navbar.logo}
                     className="h-16 w-auto opacity-30 grayscale"
+                    loading="eager"
                 />
             </div>
         </motion.div>

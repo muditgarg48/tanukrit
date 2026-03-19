@@ -1,7 +1,7 @@
 import { useState } from "react";
 import LoadingSection from "./LoadingSection";
 
-const ImageWithLoader = ({ src, alt, className, ...props }) => {
+const ImageWithLoader = ({ src, alt, className, loading = "lazy", decoding = "async", ...props }) => {
   const [isLoading, setIsLoading] = useState(true);
   const [hasError, setHasError] = useState(false);
 
@@ -27,6 +27,8 @@ const ImageWithLoader = ({ src, alt, className, ...props }) => {
         onLoad={handleLoad}
         onError={handleError}
         className={`${className} ${isLoading || hasError ? "opacity-0" : "opacity-100"} transition-opacity duration-300`}
+        loading={loading}
+        decoding={decoding}
         {...props}
       />
     </div>

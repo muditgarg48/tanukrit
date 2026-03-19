@@ -71,6 +71,8 @@ const Hero = () => {
                         src={logoSrc}
                         alt={title}
                         className="h-[28vh] md:h-[38vh] lg:h-[40vh] w-auto object-contain brightness-110"
+                        loading="eager"
+                        fetchpriority="high"
                     />
                 </div>
                 <div className="flex flex-col gap-1.5 md:gap-2 animate-fade-in opacity-90 shadow-black/20 text-shadow-sm">
