@@ -199,7 +199,7 @@ export const CONTENT = {
             },
             {
                 id: 6,
-                quote: "I absolutely loved worked with Tanu. Everything from the initial conversation to the final delivery was handled so smoothly. We always get our festive hampers made from Tanukrit. Would highly recommend! ",
+                quote: "I absolutely loved working with Tanu. Everything from the initial conversation to the final delivery was handled so smoothly. We always get our festive hampers made from Tanukrit. Would highly recommend! ",
                 author: "Sanjana Sehgal",
                 role: "Founder, Meltz"
             },

@@ -9,9 +9,8 @@ const Testimonials = () => {
     const { title, items } = CONTENT.testimonials;
 
     return (
-        <section id="testimonials" data-nav-theme="light" className="min-h-screen flex flex-col bg-white px-4 pb-12 md:pb-24 overflow-x-hidden">
-            <div className="flex-1 flex flex-col justify-center">
-                <div className="max-w-7xl mx-auto relative group/nav w-full">
+        <section id="testimonials" data-nav-theme="light" className="bg-white px-4 py-12 md:py-24 overflow-x-hidden">
+            <div className="max-w-7xl mx-auto relative group/nav w-full">
                     <div className="text-center mb-8 md:mb-12 px-4">
                         <h2 className="text-2xl md:text-3xl font-heading text-primary">{title}</h2>
                     </div>
@@ -44,9 +43,9 @@ const Testimonials = () => {
                             {items.map((item) => (
                                 <SwiperSlide key={item.id} className="!h-auto">
                                     <div className="group relative p-6 md:p-8 rounded-[2.5rem] bg-stone-50/50 border border-stone-100 flex flex-col h-full hover:bg-primary transition-all duration-500 shadow-sm hover:shadow-2xl border-b-4 border-b-transparent hover:border-b-white/20">
-                                        <span className="text-7xl text-primary/20 font-serif absolute top-6 left-8 pointer-events-none group-hover:text-white/20 transition-colors leading-none">“</span>
+                                        <span className="text-7xl text-primary/20 font-serif absolute top-6 left-6 md:left-8 pointer-events-none group-hover:text-white/20 transition-colors leading-none">“</span>
 
-                                        <div className="flex-grow flex items-center mb-6 mt-4">
+                                        <div className="flex-grow flex items-center mb-6 mt-10 md:mt-12">
                                             <p className="text-sm md:text-base font-light leading-relaxed text-gray-700 relative z-10 italic group-hover:text-white transition-colors">
                                                 {item.quote}
                                             </p>
@@ -80,7 +79,6 @@ const Testimonials = () => {
                         <div className="swiper-pagination-custom flex justify-center gap-2 mt-8"></div>
                     </div>
                 </div>
-            </div>
 
             <style dangerouslySetInnerHTML={{
                 __html: `
