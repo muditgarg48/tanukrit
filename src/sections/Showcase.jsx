@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect, useLayoutEffect, useCallback } from "react";
+import { useState, useRef, useEffect, useLayoutEffect, useCallback, useMemo } from "react";
 import { CONTENT } from "../constants/content";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronLeft, ChevronRight } from "lucide-react";
@@ -24,33 +24,48 @@ const Showcase = () => {
     const [activeGalleryIndex, setActiveGalleryIndex] = useState(0);
     const mobileScrollRef = useRef(null);
 
-    const extendedItems = [...items, ...items, ...items];
+    const extendedItems = useMemo(() => [...items, ...items, ...items], [items]);
     const activeIndex = displayIndex % items.length;
 
-    const handlePrev = () => {
+    const scrollToIndex = useCallback((index, behavior = "smooth") => {
+        const container = mobileScrollRef.current;
+        if (!container || container.clientWidth === 0) return;
+
+        isProgrammaticScroll.current = true;
+        programmaticTarget.current = index;
+
+        const itemElements = container.querySelectorAll('.snap-center');
+        const targetElement = itemElements[index + items.length];
+        if (targetElement) {
+            const targetScrollLeft = targetElement.offsetLeft - (container.clientWidth / 2) + (targetElement.clientWidth / 2);
+            container.scrollTo({ left: targetScrollLeft, behavior: behavior });
+        }
+    }, [items.length]);
+
+    const handlePrev = useCallback(() => {
         setDisplayIndex((prev) => {
             const next = prev - 1;
             if (isMobile) scrollToIndex((next % items.length + items.length) % items.length);
             return next;
         });
-    };
+    }, [isMobile, items.length, scrollToIndex]);
 
-    const handleNext = () => {
+    const handleNext = useCallback(() => {
         setDisplayIndex((prev) => {
             const next = prev + 1;
             if (isMobile) scrollToIndex((next % items.length + items.length) % items.length);
             return next;
         });
-    };
+    }, [isMobile, items.length, scrollToIndex]);
 
-    const openGallery = (item) => {
+    const openGallery = useCallback((item) => {
         setSelectedItem(item);
         setActiveGalleryIndex(0);
-    };
+    }, []);
 
-    const closeGallery = () => {
+    const closeGallery = useCallback(() => {
         setSelectedItem(null);
-    };
+    }, []);
 
     useEffect(() => {
         if (selectedItem) {
@@ -79,20 +94,7 @@ const Showcase = () => {
     const isProgrammaticScroll = useRef(false);
     const programmaticTarget = useRef(null);
 
-    const scrollToIndex = useCallback((index, behavior = "smooth") => {
-        const container = mobileScrollRef.current;
-        if (!container || container.clientWidth === 0) return;
-
-        isProgrammaticScroll.current = true;
-        programmaticTarget.current = index;
-
-        const itemElements = container.querySelectorAll('.snap-center');
-        const targetElement = itemElements[index + items.length];
-        if (targetElement) {
-            const targetScrollLeft = targetElement.offsetLeft - (container.clientWidth / 2) + (targetElement.clientWidth / 2);
-            container.scrollTo({ left: targetScrollLeft, behavior: behavior });
-        }
-    }, [items.length]);
+    // scrollToIndex was moved up
 
     const handleMobileScroll = (e) => {
         const container = e.target;
@@ -141,7 +143,7 @@ const Showcase = () => {
             scrollToIndex(activeIndex, "instant");
         }
         // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [isMobile]);
+    }, [isMobile, scrollToIndex]);
 
     return (
         <section id="products" data-nav-theme="light" className="min-h-screen flex flex-col bg-[#F9F9F9] px-4 pt-16 md:pt-24 pb-12 lg:pt-28 lg:pb-16">
@@ -179,10 +181,10 @@ const Showcase = () => {
                                         >
                                             {/* No-Crop Aesthetic: Blurred backdrop + object-contain */}
                                             {isActive && (
-                                                <ImageWithLoader
+                                                <img
                                                     src={item.coverImage}
                                                     alt=""
-                                                    className="absolute inset-0 w-full h-full object-contain blur-2xl opacity-40 scale-110"
+                                                    className="absolute inset-0 w-full h-full object-cover blur-2xl opacity-40 scale-125 pointer-events-none"
                                                 />
                                             )}
                                             <ImageWithLoader
