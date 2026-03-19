@@ -59,11 +59,11 @@ const Contact = () => {
                             </div>
                         </div>
 
-                        <div className="select-none pointer-events-none ml-1 md:ml-2 mt-4 md:mt-0">
+                        <div className="select-none pointer-events-none mt-4 md:mt-0 w-full flex justify-start">
                             <ImageWithLoader
                                 src={logo}
                                 alt="Tanukrit Logo"
-                                className="h-24 md:h-32 object-contain mix-blend-screen brightness-200 transition-all duration-300 -ml-1 md:-ml-4"
+                                className="h-24 md:h-32 w-auto object-contain object-left mix-blend-screen brightness-200 transition-all duration-300"
                             />
                         </div>
                     </div>
