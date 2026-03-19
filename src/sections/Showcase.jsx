@@ -306,13 +306,13 @@ const Showcase = () => {
                         >
                             {/* Integrated Image & Overlays */}
                             <div className="relative w-full h-full flex items-center justify-center group/modal">
-                                <AnimatePresence mode="wait">
+                                <AnimatePresence mode="popLayout">
                                     <motion.img
                                         key={activeGalleryIndex}
                                         initial={{ opacity: 0 }}
                                         animate={{ opacity: 1 }}
                                         exit={{ opacity: 0 }}
-                                        transition={{ duration: 0.4 }}
+                                        transition={{ duration: 0.6 }}
                                         src={selectedItem.images[activeGalleryIndex]}
                                         alt=""
                                         className="w-full h-full object-contain pointer-events-auto select-none"
