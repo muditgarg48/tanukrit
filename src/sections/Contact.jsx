@@ -108,7 +108,7 @@ const Contact = () => {
                                         Developer &amp; Maintainer:
                                     </span>
                                     <a
-                                        href="https://muditgarg48.github.io"
+                                        href="https://muditgarg48.vercel.app"
                                         target="_blank"
                                         rel="noopener noreferrer"
                                         className="relative text-white/70 text-[10px] md:text-xs font-semibold uppercase tracking-[0.2em] transition-all duration-300 hover:text-white hover:tracking-[0.3em]"
