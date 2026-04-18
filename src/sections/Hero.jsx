@@ -1,8 +1,12 @@
+"use client";
+
 import { useState, useEffect } from "react";
 import { CONTENT } from "../constants/content";
 import { scrollToHash } from "../utils/scroll";
 import LocationIndicator from "../components/LocationIndicator";
 import ImageWithLoader from "../components/ImageWithLoader";
+import Image from "next/image";
+import { getSrc } from "../utils/image";
 
 const Hero = () => {
     const { tagline, title, logoSrc, backgroundImages, imageTransitionInterval } = CONTENT.hero;
@@ -35,14 +39,19 @@ const Hero = () => {
                 return (
                     <div
                         key={index}
-                        className={`absolute inset-0 bg-cover bg-center z-0 transition-opacity duration-[1500ms] ease-in-out will-change-opacity ${isActive ? 'opacity-100' : 'opacity-0'
+                        className={`absolute inset-0 z-0 transition-opacity duration-[1500ms] ease-in-out will-change-opacity ${isActive ? 'opacity-100' : 'opacity-0'
                             }`}
-                        style={{
-                            backgroundImage: `url(${img})`,
-                            backgroundSize: 'cover',
-                            backgroundPosition: 'center 45%'
-                        }}
-                    />
+                    >
+                        <Image
+                            src={img}
+                            alt=""
+                            fill
+                            priority={isActive || isNext}
+                            className="object-cover object-[center_45%]"
+                            sizes="100vw"
+                            quality={85}
+                        />
+                    </div>
                 );
             })}
 
@@ -71,9 +80,9 @@ const Hero = () => {
                         src={logoSrc}
                         alt={title}
                         className="h-[28vh] md:h-[38vh] lg:h-[40vh] w-auto object-contain brightness-110"
-                        loading="eager"
-                        fetchpriority="high"
+                        priority={true}
                     />
+                    <h1 className="sr-only">Tanukrit Premium Customised Gift Hampers</h1>
                 </div>
                 <div className="flex flex-col gap-1.5 md:gap-2 animate-fade-in opacity-90 shadow-black/20 text-shadow-sm">
                     {Array.isArray(tagline) ? (

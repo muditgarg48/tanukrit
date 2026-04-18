@@ -1,3 +1,5 @@
+"use client";
+
 import { useState, useEffect } from "react";
 import { CONTENT } from "../constants/content";
 import { motion, AnimatePresence } from "framer-motion";
@@ -15,8 +17,7 @@ const DesktopNavbar = ({ isLight }) => (
                     src={isLight ? CONTENT.navbar.logoSrc : CONTENT.hero.logoSrc}
                     alt={CONTENT.navbar.logo}
                     className={`h-full w-auto object-contain transition-[opacity,transform] duration-500`}
-                    loading="eager"
-                    fetchpriority="high"
+                    priority={true}
                 />
             </a>
             <div className="flex gap-8">
@@ -48,8 +49,7 @@ const MobileNavbarToggle = ({ isLight, toggleMenu, isMenuOpen }) => (
                 src={isLight ? CONTENT.navbar.logoSrc : CONTENT.hero.logoSrc}
                 alt={CONTENT.navbar.logo}
                 className={`h-full w-auto object-contain transition-[opacity,transform] duration-500`}
-                loading="eager"
-                fetchpriority="high"
+                priority={true}
             />
         </a>
 
@@ -126,7 +126,7 @@ const Navbar = () => {
     const [scrolled, setScrolled] = useState(false);
     const [navTheme, setNavTheme] = useState("dark"); // Default for hero
     const [isMenuOpen, setIsMenuOpen] = useState(false);
-    const [isDesktop, setIsDesktop] = useState(window.innerWidth >= 768);
+    const [isDesktop, setIsDesktop] = useState(true);
 
     useEffect(() => {
         const handleResize = () => {

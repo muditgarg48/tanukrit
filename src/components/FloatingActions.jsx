@@ -1,3 +1,5 @@
+"use client";
+
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Instagram, MessageCircle, MessageSquare, X } from "lucide-react";
@@ -5,7 +7,7 @@ import { CONTENT } from "../constants/content";
 
 const FloatingActions = () => {
     const [isOpen, setIsOpen] = useState(false);
-    const [isDesktop, setIsDesktop] = useState(window.innerWidth >= 768);
+    const [isDesktop, setIsDesktop] = useState(true);
     const [navTheme, setNavTheme] = useState("dark");
     const { socials } = CONTENT.contact;
 

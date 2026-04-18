@@ -273,5 +273,20 @@ export const CONTENT = {
     ribbons: {
         brandStoryToShowcase: ["We curate gifts that say:", "“I see you”", "“I value you”", "“You matter”"],
         howItWorksToTrustedBy: ["Artfully packed", "Emotionally Delivered"]
+    },
+    seo: {
+        title: "Tanukrit | Premium Gift Hampers | Wedding & Corporate Gifting",
+        description: "Tanukrit offers premium custom gift hampers pan India for weddings, corporate gifting, and special occasions. Bulk orders only.",
+        siteUrl: "https://tanukrit.com",
+        logoUrl: "https://tanukrit.com/favicon-96x96.png",
+        keywords: ["gift hampers india", "wedding favours india", "corporate gifting india", "luxury hampers india", "customized gifts india"],
+        address: {
+            street: "2nd Floor, C-526, Vikaspuri",
+            city: "Delhi",
+            zip: "110018",
+            country: "IN",
+            lat: 28.637133,
+            lng: 77.0733064,
+        }
     }
 };

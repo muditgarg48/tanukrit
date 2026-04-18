@@ -1,5 +1,6 @@
 import brandLogo from "../assets/tanukrit_logo_navbar.webp";
 import { motion } from "framer-motion";
+import { getSrc } from "../utils/image";
 
 const LoadingSection = ({ className = "" }) => {
   return (
@@ -18,7 +19,7 @@ const LoadingSection = ({ className = "" }) => {
           className="w-[80%] h-[80%] flex items-center justify-center"
         >
           <img
-            src={brandLogo}
+            src={getSrc(brandLogo)}
             alt="Tanukrit Logo"
             className="w-full h-full object-contain"
           />

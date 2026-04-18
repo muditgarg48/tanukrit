@@ -1,3 +1,5 @@
+"use client";
+
 import { CONTENT } from "../constants/content";
 import {
     Gift,

@@ -1,8 +1,11 @@
+"use client";
+
 import { useState, useRef, useEffect, useLayoutEffect, useCallback, useMemo } from "react";
 import { CONTENT } from "../constants/content";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import ImageWithLoader from "../components/ImageWithLoader";
+import { getSrc } from "../utils/image";
 
 const useWindowSize = () => {
     const [isMobile, setIsMobile] = useState(false);
@@ -15,10 +18,16 @@ const useWindowSize = () => {
     return isMobile;
 };
 
-const Showcase = () => {
+const Showcase = ({ excludeId = null }) => {
     const isMobile = useWindowSize();
-    const { title, description, items, cta } = CONTENT.showcase;
-    const [displayIndex, setDisplayIndex] = useState(items.length); // Start in middle set
+    const { title, description, items: allItems, cta } = CONTENT.showcase;
+    
+    const items = useMemo(() => {
+        if (!excludeId) return allItems;
+        return allItems.filter(item => item.id !== excludeId);
+    }, [excludeId, allItems]);
+
+    const [displayIndex, setDisplayIndex] = useState(items.length); 
     const [enableTransitions, setEnableTransitions] = useState(true);
     const [selectedItem, setSelectedItem] = useState(null);
     const [activeGalleryIndex, setActiveGalleryIndex] = useState(0);
@@ -182,7 +191,7 @@ const Showcase = () => {
                                             {/* No-Crop Aesthetic: Blurred backdrop + object-contain */}
                                             {isActive && (
                                                 <img
-                                                    src={item.coverImage}
+                                                    src={getSrc(item.coverImage)}
                                                     alt=""
                                                     className="absolute inset-0 w-full h-full object-cover blur-2xl opacity-40 scale-125 pointer-events-none"
                                                 />
@@ -315,7 +324,7 @@ const Showcase = () => {
                                         animate={{ opacity: 1 }}
                                         exit={{ opacity: 0 }}
                                         transition={{ duration: 0.6 }}
-                                        src={selectedItem.images[activeGalleryIndex]}
+                                        src={getSrc(selectedItem.images[activeGalleryIndex])}
                                         alt=""
                                         className="w-full h-full object-contain pointer-events-auto select-none"
                                         drag="x"

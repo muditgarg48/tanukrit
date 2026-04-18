@@ -1,3 +1,5 @@
+"use client";
+
 import { useState } from "react";
 import { CONTENT } from "../constants/content";
 
