@@ -46,6 +46,8 @@ import festivals4 from "../assets/showcase_galleries/festivals_4.webp";
 import festivals5 from "../assets/showcase_galleries/festivals_5.webp";
 import festivals6 from "../assets/showcase_galleries/festivals_6.webp";
 import festivals7 from "../assets/showcase_galleries/festivals_7.webp";
+import festivals8 from "../assets/showcase_galleries/festivals_8.webp";
+import festivals9 from "../assets/showcase_galleries/festivals_9.webp";
 import milestoneCelebrations1 from "../assets/showcase_galleries/milestone_celebrations_1.webp";
 import milestoneCelebrations2 from "../assets/showcase_galleries/milestone_celebrations_2.webp";
 import milestoneCelebrations3 from "../assets/showcase_galleries/milestone_celebrations_3.webp";
@@ -59,6 +61,7 @@ import roomHampers2 from "../assets/showcase_galleries/room_hampers_2.webp";
 import trousseau1 from "../assets/showcase_galleries/trousseau_1.webp";
 import trousseau2 from "../assets/showcase_galleries/trousseau_2.webp";
 import trousseau3 from "../assets/showcase_galleries/trousseau_3.webp";
+import trousseau4 from "../assets/showcase_galleries/trousseau_4.webp";
 import weddingFavours1 from "../assets/showcase_galleries/wedding_favours_1.webp";
 import weddingFavours2 from "../assets/showcase_galleries/wedding_favours_2.webp";
 import weddingFavours3 from "../assets/showcase_galleries/wedding_favours_3.webp";
@@ -149,12 +152,12 @@ export const CONTENT = {
             { id: 1, title: "Baby Shower", coverImage: babyShowerCoverImage, images: [babyShowerCoverImage, babyShower1, babyShower2, babyShower3] },
             { id: 2, title: "Corporate Hampers", coverImage: corporateHampersCoverImage, images: [corporateHampersCoverImage, corporateHampers1, corporateHampers2, corporateHampers3, corporateHampers4] },
             { id: 3, title: "Wedding Favours", coverImage: weddingFavoursCoverImage, images: [weddingFavoursCoverImage, weddingFavours1, weddingFavours2, weddingFavours3] },
-            { id: 4, title: "Festivals", coverImage: festivalsCoverImage, images: [festivalsCoverImage, festivals1, festivals2, festivals3, festivals4, festivals5, festivals6, festivals7] },
+            { id: 4, title: "Festivals", coverImage: festivalsCoverImage, images: [festivalsCoverImage, festivals1, festivals2, festivals3, festivals4, festivals5, festivals6, festivals7, festivals8, festivals9] },
             { id: 5, title: "Milestone celebrations", coverImage: milestoneCelebrationsCoverImage, images: [milestoneCelebrationsCoverImage, milestoneCelebrations1, milestoneCelebrations2, milestoneCelebrations3, milestoneCelebrations4] },
             { id: 6, title: "Wedding Invites", coverImage: weddingInvitesCoverImage, images: [weddingInvitesCoverImage, weddingInvites1, weddingInvites2, weddingInvites3] },
             { id: 7, title: "Return Favours", coverImage: returnFavoursCoverImage, images: [returnFavoursCoverImage, returnFavors1, returnFavors2, returnFavors3, returnFavors4] },
             { id: 8, title: "Birthday Favours", coverImage: birthdayFavoursCoverImage, images: [birthdayFavoursCoverImage, birthdayFavors1, birthdayFavors2, birthdayFavors3, birthdayFavors4] },
-            { id: 9, title: "Trousseau", coverImage: trousseauCoverImage, images: [trousseauCoverImage, trousseau1, trousseau2, trousseau3] },
+            { id: 9, title: "Trousseau", coverImage: trousseauCoverImage, images: [trousseauCoverImage, trousseau1, trousseau2, trousseau3, trousseau4] },
             { id: 10, title: "Room Hampers", coverImage: roomHampersCoverImage, images: [roomHampersCoverImage, roomHampers1, roomHampers2] },
         ],
         cta: {
