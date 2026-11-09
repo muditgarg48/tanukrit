@@ -1,49 +1,65 @@
 import { useState } from "react";
 import Image from "next/image";
 import { getSrc } from "../utils/image";
-import LoadingSection from "./LoadingSection";
 
-const ImageWithLoader = ({ src, alt, className, loading = "lazy", decoding = "async", ...props }) => {
+const ImageWithLoader = ({
+  src,
+  alt,
+  className = "",
+  fill = false,
+  sizes,
+  quality = 75,
+  loading = "lazy",
+  decoding = "async",
+  ...props
+}) => {
   const [isLoading, setIsLoading] = useState(true);
   const [hasError, setHasError] = useState(false);
 
-  // If src is a string, we treat it as an external URL or static path
-  // If src is an object (Next.js import), next/image handles it natively
-  const isNextImage = typeof src === "object" && src !== null;
+  const isStatic = typeof src === "object" && src !== null;
+  const isRemote = typeof src === "string" && /^https?:\/\//.test(src);
+  const isSvg = typeof src === "string" && /\.svg(\?|$)/i.test(src);
+  const useNext = (isStatic || isRemote) && !isSvg;
+  const resolvedSizes = sizes ?? "100vw";
+
+  const handleLoad = () => setIsLoading(false);
+  const handleError = () => {
+    setIsLoading(false);
+    setHasError(true);
+  };
+
+  const imageClassName = `${className} ${isLoading || hasError ? "opacity-0" : "opacity-100"} transition-opacity duration-300`;
 
   return (
-    <div className={`relative ${className}`}>
+    <div className={`relative ${fill ? "h-full w-full " : ""}${className}`}>
       {(isLoading || hasError) && (
-        <div className="absolute inset-0 flex items-center justify-center z-10 p-4">
-          <LoadingSection className="w-auto h-auto max-w-full max-h-full" />
-        </div>
+        <div
+          className={`absolute inset-0 z-10 pointer-events-none ${hasError ? "bg-black/10" : "bg-black/[0.06] animate-pulse"}`}
+          aria-hidden
+        />
       )}
-      
-      {isNextImage ? (
+
+      {useNext ? (
         <Image
           src={src}
           alt={alt || ""}
-          onLoad={() => setIsLoading(false)}
-          onError={() => {
-            setIsLoading(false);
-            setHasError(true);
-          }}
-          className={`${className} ${isLoading || hasError ? "opacity-0" : "opacity-100"} transition-opacity duration-300`}
+          sizes={resolvedSizes}
+          quality={quality}
+          onLoad={handleLoad}
+          onError={handleError}
+          className={imageClassName}
+          {...(fill ? { fill: true } : {})}
           {...props}
         />
       ) : (
         <img
           src={getSrc(src)}
           alt={alt || ""}
-          onLoad={() => setIsLoading(false)}
-          onError={() => {
-            setIsLoading(false);
-            setHasError(true);
-          }}
-          className={`${className} ${isLoading || hasError ? "opacity-0" : "opacity-100"} transition-opacity duration-300`}
+          onLoad={handleLoad}
+          onError={handleError}
+          className={imageClassName}
           loading={loading}
           decoding={decoding}
-          {...props}
         />
       )}
     </div>

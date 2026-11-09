@@ -97,7 +97,7 @@ export const CONTENT = {
             babyshowercardBanner,
             haldirambasketBanner
         ],
-        imageTransitionInterval: 3000,
+        imageTransitionInterval: 5500,
     },
     introduction: {
         story: {

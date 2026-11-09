@@ -95,11 +95,13 @@ const Introduction = () => {
                         {/* Double the items for seamless CSS marquee loop */}
                         {[...trustedBy, ...trustedBy].map((brand, idx) => (
                             <div key={`${brand.id}-${idx}`} className="group relative flex flex-col items-center">
-                                <div className="h-16 md:h-20 flex items-center justify-center opacity-100 group-hover:opacity-100 group-hover:scale-110 transition-all duration-500 ease-out cursor-pointer">
+                                <div className="relative h-16 md:h-20 w-[120px] md:w-[160px] flex items-center justify-center opacity-100 group-hover:opacity-100 group-hover:scale-110 transition-all duration-500 ease-out cursor-pointer">
                                     <ImageWithLoader
                                         src={brand.logo}
                                         alt={brand.name}
-                                        className="h-full w-auto object-contain max-w-[120px] md:max-w-[160px]"
+                                        fill
+                                        sizes="160px"
+                                        className="object-contain"
                                     />
                                 </div>
                                 {/* Name revealed on hover */}
@@ -131,7 +133,9 @@ const Introduction = () => {
                                 <ImageWithLoader
                                     src={founder.founderImage}
                                     alt={founder.name}
-                                    className="w-full h-full object-cover transition-all duration-1000"
+                                    fill
+                                    sizes="(max-width: 768px) 92vw, 448px"
+                                    className="object-cover transition-all duration-1000"
                                 />
                                 <div className="absolute inset-x-0 bottom-0 p-8 bg-gradient-to-t from-black/60 to-transparent text-white">
                                     <div className="text-2xl font-heading">{founder.name}</div>

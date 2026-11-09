@@ -4,8 +4,8 @@ import { useState, useRef, useEffect, useLayoutEffect, useCallback, useMemo } fr
 import { CONTENT } from "../constants/content";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronLeft, ChevronRight } from "lucide-react";
+import Image from "next/image";
 import ImageWithLoader from "../components/ImageWithLoader";
-import { getSrc } from "../utils/image";
 
 const useWindowSize = () => {
     const [isMobile, setIsMobile] = useState(false);
@@ -174,34 +174,38 @@ const Showcase = ({ excludeId = null }) => {
                                     const isVisible = absDist <= 3;
                                     const isActive = index === displayIndex;
 
+                                    if (!isVisible) return null;
+
                                     return (
                                         <div
                                             key={`${item.id}-${index}`}
                                             onClick={() => isActive ? openGallery(item) : setDisplayIndex(index)}
                                             style={{
-                                                flex: isVisible ? (isActive ? 4.5 : (absDist === 1 ? 1.5 : (absDist === 2 ? 0.8 : 0.4))) : 0,
-                                                opacity: isVisible ? (absDist === 3 ? 0.4 : 1) : 0,
-                                                margin: isVisible ? "0 10px" : "0",
-                                                minWidth: isVisible ? "20px" : "0",
-                                                height: isVisible ? (isActive ? "100%" : (absDist === 1 ? "85%" : (absDist === 2 ? "70%" : "55%"))) : "55%",
+                                                flex: isActive ? 4.5 : (absDist === 1 ? 1.5 : (absDist === 2 ? 0.8 : 0.4)),
+                                                opacity: absDist === 3 ? 0.4 : 1,
+                                                margin: "0 10px",
+                                                minWidth: "20px",
+                                                height: isActive ? "100%" : (absDist === 1 ? "85%" : (absDist === 2 ? "70%" : "55%")),
                                                 transition: enableTransitions ? "flex 0.6s cubic-bezier(0.32, 0.72, 0, 1), height 0.6s cubic-bezier(0.32, 0.72, 0, 1), opacity 0.4s ease, margin 0.6s ease" : "none"
                                             }}
                                             className="relative rounded-[2rem] overflow-hidden cursor-pointer group shadow-md hover:shadow-xl min-w-0 bg-black/5"
                                         >
-                                            {/* No-Crop Aesthetic: Blurred backdrop + object-contain */}
                                             {isActive && (
-                                                <img
-                                                    src={getSrc(item.coverImage)}
+                                                <Image
+                                                    src={item.coverImage}
                                                     alt=""
-                                                    className="absolute inset-0 w-full h-full object-cover blur-2xl opacity-40 scale-125 pointer-events-none"
+                                                    fill
+                                                    sizes="(max-width: 1024px) 70vw, 42vw"
+                                                    quality={75}
+                                                    className="object-cover blur-2xl opacity-40 scale-125 pointer-events-none"
                                                 />
                                             )}
                                             <ImageWithLoader
                                                 src={item.coverImage}
                                                 alt={item.title}
-                                                loading="lazy"
-                                                decoding="async"
-                                                className={`absolute inset-0 w-full h-full rounded-[2rem] transition-transform duration-700 group-hover:scale-105 z-10 ${isActive ? "object-contain" : "object-cover"}`}
+                                                fill
+                                                sizes="(max-width: 1024px) 70vw, 42vw"
+                                                className={`rounded-[2rem] transition-transform duration-700 group-hover:scale-105 z-10 ${isActive ? "object-contain" : "object-cover"}`}
                                             />
                                             <div
                                                 className={`absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent p-5 flex flex-col justify-end transition-opacity duration-300 z-20 ${isActive ? 'opacity-100' : 'opacity-0'}`}
@@ -242,9 +246,9 @@ const Showcase = ({ excludeId = null }) => {
                                             <ImageWithLoader
                                                 src={item.coverImage}
                                                 alt={item.title}
-                                                loading="lazy"
-                                                decoding="async"
-                                                className="absolute inset-0 w-full h-full object-cover rounded-[2rem] transition-transform duration-700 scale-100 group-hover:scale-110 z-10"
+                                                fill
+                                                sizes="80vw"
+                                                className="object-cover rounded-[2rem] transition-transform duration-700 scale-100 group-hover:scale-110 z-10"
                                             />
                                             <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent p-8 flex flex-col justify-end z-20">
                                                 <h3 className="text-white text-xl font-heading">{item.title}</h3>
@@ -318,15 +322,13 @@ const Showcase = ({ excludeId = null }) => {
                             {/* Integrated Image & Overlays */}
                             <div className="relative w-full h-full flex items-center justify-center group/modal">
                                 <AnimatePresence mode="popLayout">
-                                    <motion.img
+                                    <motion.div
                                         key={activeGalleryIndex}
                                         initial={{ opacity: 0 }}
                                         animate={{ opacity: 1 }}
                                         exit={{ opacity: 0 }}
                                         transition={{ duration: 0.6 }}
-                                        src={getSrc(selectedItem.images[activeGalleryIndex])}
-                                        alt=""
-                                        className="w-full h-full object-contain pointer-events-auto select-none"
+                                        className="absolute inset-0"
                                         drag="x"
                                         dragConstraints={{ left: 0, right: 0 }}
                                         dragElastic={0.2}
@@ -336,14 +338,22 @@ const Showcase = ({ excludeId = null }) => {
                                             const { offset, velocity } = info;
 
                                             if (offset.x < -swipeThreshold || velocity.x < -swipeVelocity) {
-                                                // Swipe Left -> Next
                                                 setActiveGalleryIndex((prev) => (prev < selectedItem.images.length - 1 ? prev + 1 : 0));
                                             } else if (offset.x > swipeThreshold || velocity.x > swipeVelocity) {
-                                                // Swipe Right -> Prev
                                                 setActiveGalleryIndex((prev) => (prev > 0 ? prev - 1 : selectedItem.images.length - 1));
                                             }
                                         }}
-                                    />
+                                    >
+                                        <Image
+                                            src={selectedItem.images[activeGalleryIndex]}
+                                            alt={`${selectedItem.title} ${activeGalleryIndex + 1}`}
+                                            fill
+                                            sizes="90vw"
+                                            quality={75}
+                                            className="object-contain pointer-events-none select-none"
+                                            priority
+                                        />
+                                    </motion.div>
                                 </AnimatePresence>
 
                                 {/* Aesthetic Gradients for Base Visibility */}

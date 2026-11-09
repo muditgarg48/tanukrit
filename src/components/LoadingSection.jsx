@@ -1,30 +1,7 @@
-import brandLogo from "../assets/tanukrit_logo_navbar.webp";
-import { motion } from "framer-motion";
-import { getSrc } from "../utils/image";
-
 const LoadingSection = ({ className = "" }) => {
   return (
-    <div className={`w-full h-full flex flex-col items-center justify-center overflow-hidden ${className}`}>
-      <div className="w-full h-full flex flex-col items-center justify-center">
-        {/* Actual Branded Logo with 100-0-100 Opacity Oscillation */}
-        <motion.div
-          animate={{
-            opacity: [0.7, 0.3, 0.7],
-          }}
-          transition={{
-            duration: 2,
-            repeat: Infinity,
-            ease: "easeInOut"
-          }}
-          className="w-[80%] h-[80%] flex items-center justify-center"
-        >
-          <img
-            src={getSrc(brandLogo)}
-            alt="Tanukrit Logo"
-            className="w-full h-full object-contain"
-          />
-        </motion.div>
-      </div>
+    <div className={`w-full h-full flex items-center justify-center overflow-hidden ${className}`}>
+      <div className="w-[40%] max-w-16 aspect-square rounded-full bg-black/10 animate-pulse" aria-hidden />
     </div>
   );
 };

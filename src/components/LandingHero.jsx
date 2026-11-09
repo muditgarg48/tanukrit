@@ -95,7 +95,9 @@ const LandingHero = ({ title, paragraphs, images }) => {
                 <ImageWithLoader
                   src={images[currentIndex]}
                   alt={`${title} - Tanukrit Custom Gift Hampers`}
-                  className="w-full h-full object-cover"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 100vw, 50vw"
                   priority={currentIndex === 0}
                 />
               </motion.div>

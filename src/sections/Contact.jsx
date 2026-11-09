@@ -66,6 +66,7 @@ const Contact = () => {
                                 src={logo}
                                 alt="Tanukrit Logo"
                                 className="h-24 md:h-32 w-auto object-contain object-left mix-blend-screen brightness-200 transition-all duration-300"
+                                sizes="128px"
                             />
                         </div>
                     </div>

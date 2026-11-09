@@ -6,59 +6,67 @@ import { scrollToHash } from "../utils/scroll";
 import LocationIndicator from "../components/LocationIndicator";
 import ImageWithLoader from "../components/ImageWithLoader";
 import Image from "next/image";
-import { getSrc } from "../utils/image";
 
 const Hero = () => {
     const { tagline, title, logoSrc, backgroundImages, imageTransitionInterval } = CONTENT.hero;
     const [currentImageIndex, setCurrentImageIndex] = useState(0);
+    const [heroReady, setHeroReady] = useState(false);
 
     useEffect(() => {
-        if (!backgroundImages || backgroundImages.length <= 1) return;
+        const timeoutId = setTimeout(() => setHeroReady(true), 2500);
+        return () => clearTimeout(timeoutId);
+    }, []);
+
+    useEffect(() => {
+        if (!heroReady || !backgroundImages || backgroundImages.length <= 1) return;
 
         const intervalId = setInterval(() => {
             setCurrentImageIndex((prev) => (prev + 1) % backgroundImages.length);
         }, imageTransitionInterval || 5000);
 
         return () => clearInterval(intervalId);
-    }, [backgroundImages, imageTransitionInterval]);
+    }, [heroReady, backgroundImages, imageTransitionInterval]);
 
     return (
         <section data-nav-theme="dark" className="relative h-screen flex flex-col items-center justify-center overflow-hidden bg-primary px-4">
             <div className="absolute top-0 left-0 w-full z-30">
                 <LocationIndicator variant="hero" />
             </div>
-            {/* Background Image Layer */}
             {backgroundImages?.map((img, index) => {
-                // Render current, next (for preloading), and previous (for smooth fade-out)
                 const isActive = index === currentImageIndex;
                 const isNext = index === (currentImageIndex + 1) % backgroundImages.length;
                 const isPrev = index === (currentImageIndex - 1 + backgroundImages.length) % backgroundImages.length;
-                
+
                 if (!isActive && !isNext && !isPrev) return null;
+                if (!heroReady && !isActive) return null;
 
                 return (
                     <div
                         key={index}
-                        className={`absolute inset-0 z-0 transition-opacity duration-[1500ms] ease-in-out will-change-opacity ${isActive ? 'opacity-100' : 'opacity-0'
+                        className={`absolute inset-0 z-0 transition-opacity duration-[1500ms] ease-in-out will-change-opacity ${isActive ? "opacity-100" : "opacity-0"
                             }`}
                     >
                         <Image
                             src={img}
                             alt=""
                             fill
-                            priority={isActive || isNext}
+                            priority={index === 0}
                             className="object-cover object-[center_45%]"
                             sizes="100vw"
-                            quality={85}
+                            quality={75}
+                            onLoad={() => {
+                                if (index === 0) setHeroReady(true);
+                            }}
+                            onError={() => {
+                                if (index === 0) setHeroReady(true);
+                            }}
                         />
                     </div>
                 );
             })}
 
-            {/* Unified Overlay Layer (Better Performance) */}
-            <div className="absolute inset-0 bg-black/65 backdrop-blur-[1px]"></div>
+            <div className="absolute inset-0 bg-black/65"></div>
 
-            {/* Minimal Navigation Layer */}
             <div className="absolute top-8 left-0 w-full h-24 z-20 flex justify-center items-center">
                 <div className="flex flex-wrap justify-center gap-x-6 gap-y-2 md:gap-x-14 px-4 drop-shadow-md">
                     {CONTENT.navbar.links.map((link) => (
@@ -80,7 +88,8 @@ const Hero = () => {
                         src={logoSrc}
                         alt={title}
                         className="h-[28vh] md:h-[38vh] lg:h-[40vh] w-auto object-contain brightness-110"
-                        priority={true}
+                        sizes="(max-width: 768px) 220px, 360px"
+                        priority
                     />
                     <h1 className="sr-only">Tanukrit Premium Customised Gift Hampers</h1>
                 </div>
