@@ -42,7 +42,7 @@ const LandingHero = ({ title, paragraphs, images }) => {
   };
 
   return (
-    <section data-nav-theme="light" className="bg-white py-12 md:py-24 px-4 overflow-hidden border-b border-gray-50">
+    <section data-nav-theme="light" className="bg-white pt-36! md:pt-44! pb-12 md:pb-24 px-4 overflow-hidden border-b border-gray-50">
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row gap-12 lg:gap-24 items-center">
         
         {/* Left Side: Content */}

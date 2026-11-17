@@ -13,9 +13,10 @@ import Footer from "@/sections/Footer";
 
 export default function Home() {
   return (
-    <main className="font-body selection:bg-primary/30 selection:text-white overflow-x-hidden bg-primary">
-      <Navbar />
-      <FloatingActions />
+    <>
+    <Navbar />
+    <FloatingActions />
+    <main id="main-content" className="font-body selection:bg-primary/30 selection:text-white overflow-x-hidden bg-primary">
       <Hero />
       <BrandStory />
       <Ribbon text={CONTENT.ribbons.brandStoryToShowcase} />
@@ -26,5 +27,6 @@ export default function Home() {
       <Contact />
       <Footer />
     </main>
+    </>
   );
 }

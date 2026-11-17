@@ -1,7 +1,6 @@
 import { notFound } from "next/navigation";
 import Navbar from "@/components/Navbar";
 import FloatingActions from "@/components/FloatingActions";
-import Hero from "@/sections/Hero";
 import BrandStory from "@/sections/BrandStory";
 import Ribbon from "@/components/Ribbon";
 import Showcase from "@/sections/Showcase";
@@ -52,12 +51,12 @@ export default async function Page({ params }) {
   const categoryData = CONTENT.showcase.items.find((item) => item.id === categoryId);
 
   return (
-    <main className="font-body selection:bg-primary/30 selection:text-white overflow-x-hidden bg-primary">
-      <Navbar />
-      <FloatingActions />
-      <Hero />
-      
-      <LandingHero 
+    <>
+    {/* No generic Hero here: search visitors should land on the category they searched for */}
+    <Navbar alwaysVisible />
+    <FloatingActions />
+    <main id="main-content" className="font-body selection:bg-primary/30 selection:text-white overflow-x-hidden bg-primary">
+      <LandingHero
         title={landingData.title}
         paragraphs={landingData.paragraphs}
         images={categoryData.images}
@@ -75,5 +74,6 @@ export default async function Page({ params }) {
       <Contact />
       <Footer />
     </main>
+    </>
   );
 }

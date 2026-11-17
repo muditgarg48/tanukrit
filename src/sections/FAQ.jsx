@@ -7,7 +7,7 @@ const FAQItem = ({ faq, isOpen, onClick }) => {
     return (
         <div className="border-b border-stone-200 last:border-0">
             <button
-                className="w-full py-6 text-left flex justify-between items-center focus:outline-none group"
+                className="w-full py-6 text-left flex justify-between items-center group"
                 onClick={onClick}
             >
                 <h3 className="text-lg md:text-xl font-heading text-text group-hover:text-primary transition-colors pr-8">

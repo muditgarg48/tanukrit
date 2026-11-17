@@ -39,11 +39,18 @@ const FloatingActions = () => {
             }
         };
 
+        // Coalesce scroll events to one update per frame.
+        let frame = 0;
+        const onScroll = () => {
+            if (!frame) frame = requestAnimationFrame(() => { frame = 0; updateState(); });
+        };
+
         updateState();
-        window.addEventListener("scroll", updateState, { passive: true });
+        window.addEventListener("scroll", onScroll, { passive: true });
         window.addEventListener("resize", handleResize);
         return () => {
-            window.removeEventListener("scroll", updateState);
+            cancelAnimationFrame(frame);
+            window.removeEventListener("scroll", onScroll);
             window.removeEventListener("resize", handleResize);
         };
     }, []);

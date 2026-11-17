@@ -2,6 +2,7 @@ import { Cormorant_Garamond, Inter } from "next/font/google";
 import "./globals.css";
 import { CONTENT } from "@/constants/content";
 import Script from "next/script";
+import MotionProvider from "@/components/MotionProvider";
 
 const cormorant = Cormorant_Garamond({
   subsets: ["latin"],
@@ -110,7 +111,13 @@ export default function RootLayout({ children }) {
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
-        {children}
+        <a
+          href="#main-content"
+          className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[100] focus:px-4 focus:py-2 focus:rounded-full focus:bg-white focus:text-primary focus:shadow-lg"
+        >
+          Skip to content
+        </a>
+        <MotionProvider>{children}</MotionProvider>
       </body>
     </html>
   );

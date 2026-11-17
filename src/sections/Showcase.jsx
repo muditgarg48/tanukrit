@@ -328,7 +328,8 @@ const Showcase = ({ excludeId = null }) => {
                                         animate={{ opacity: 1 }}
                                         exit={{ opacity: 0 }}
                                         transition={{ duration: 0.6 }}
-                                        className="absolute inset-0"
+                                        // In flow (not absolute) so the image's own width sizes the md:w-fit modal
+                                        className="h-full flex items-center justify-center"
                                         drag="x"
                                         dragConstraints={{ left: 0, right: 0 }}
                                         dragElastic={0.2}
@@ -347,10 +348,9 @@ const Showcase = ({ excludeId = null }) => {
                                         <Image
                                             src={selectedItem.images[activeGalleryIndex]}
                                             alt={`${selectedItem.title} ${activeGalleryIndex + 1}`}
-                                            fill
                                             sizes="90vw"
                                             quality={75}
-                                            className="object-contain pointer-events-none select-none"
+                                            className="h-full w-auto max-w-full object-contain pointer-events-none select-none"
                                             priority
                                         />
                                     </motion.div>

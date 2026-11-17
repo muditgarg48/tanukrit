@@ -122,9 +122,9 @@ const MobileSidebar = ({ toggleMenu, sidebarVariants, backdropVariants }) => (
     </>
 );
 
-const Navbar = () => {
-    const [scrolled, setScrolled] = useState(false);
-    const [navTheme, setNavTheme] = useState("dark"); // Default for hero
+const Navbar = ({ alwaysVisible = false }) => {
+    const [scrolled, setScrolled] = useState(alwaysVisible);
+    const [navTheme, setNavTheme] = useState(alwaysVisible ? "light" : "dark"); // Default for hero
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const [isDesktop, setIsDesktop] = useState(true);
 
@@ -138,7 +138,7 @@ const Navbar = () => {
         };
 
         const updateNavState = () => {
-            setScrolled(window.scrollY > 100);
+            setScrolled(alwaysVisible || window.scrollY > 100);
 
             // Probe the pixel that sits at the navbar's visual center.
             // The nav is fixed at top-6 (24px) and is ~40px tall, so its centre
@@ -162,15 +162,22 @@ const Navbar = () => {
             }
         };
 
+        // Coalesce scroll events to one update per frame.
+        let frame = 0;
+        const onScroll = () => {
+            if (!frame) frame = requestAnimationFrame(() => { frame = 0; updateNavState(); });
+        };
+
         updateNavState();
-        window.addEventListener("scroll", updateNavState, { passive: true });
+        window.addEventListener("scroll", onScroll, { passive: true });
         window.addEventListener("resize", handleResize);
 
         return () => {
-            window.removeEventListener("scroll", updateNavState);
+            cancelAnimationFrame(frame);
+            window.removeEventListener("scroll", onScroll);
             window.removeEventListener("resize", handleResize);
         };
-    }, []);
+    }, [alwaysVisible]);
 
     const isLight = navTheme === "light";
     const toggleMenu = () => setIsMenuOpen(!isMenuOpen);

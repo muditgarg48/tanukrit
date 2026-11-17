@@ -143,6 +143,25 @@ h4,
     animation: scroll-line 2.5s cubic-bezier(0.45, 0, 0.55, 1) infinite;
 }
 
+:focus-visible {
+    outline: 2px solid currentColor;
+    outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
 * {
     scrollbar-width: thin;
     scrollbar-color: var(--color-primary) transparent;
