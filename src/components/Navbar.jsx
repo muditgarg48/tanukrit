@@ -66,7 +66,7 @@ const MobileNavbarToggle = ({ isLight, toggleMenu, isMenuOpen }) => (
     </div>
 );
 
-const MobileSidebar = ({ toggleMenu, sidebarVariants, backdropVariants }) => (
+const MobileSidebar = ({ isLight, toggleMenu, sidebarVariants, backdropVariants }) => (
     <>
         <motion.div
             initial="hidden"
@@ -74,24 +74,24 @@ const MobileSidebar = ({ toggleMenu, sidebarVariants, backdropVariants }) => (
             exit="hidden"
             variants={backdropVariants}
             onClick={toggleMenu}
-            className="fixed inset-0 z-[60] bg-black/40 backdrop-blur-sm"
+            className="fixed inset-0 z-[60] bg-black/10"
         />
         <motion.div
             initial="hidden"
             animate="visible"
             exit="hidden"
             variants={sidebarVariants}
-            className="fixed top-0 right-0 bottom-0 z-[70] w-[85%] max-w-sm h-full p-8 shadow-2xl flex flex-col items-start justify-center rounded-l-[2.5rem] border-l bg-white/95 backdrop-blur-2xl border-primary/10"
+            className={`fixed top-0 right-0 bottom-0 z-[70] w-[85%] max-w-sm h-full p-8 shadow-2xl flex flex-col items-start justify-center rounded-l-[2.5rem] border-l backdrop-blur-md transition-[background-color,border-color] duration-500 ${isLight ? "bg-[#dca3d7]/15 border-[#dca3d7]/30" : "bg-white/20 border-white/30"}`}
         >
             <button
                 onClick={toggleMenu}
-                className="absolute top-8 right-8 w-12 h-12 flex items-center justify-center rounded-full transition-colors duration-300 text-primary hover:bg-primary/10"
+                className={`absolute top-8 right-8 w-12 h-12 flex items-center justify-center rounded-full transition-colors duration-300 ${isLight ? "text-primary hover:bg-primary/10" : "text-white hover:bg-white/10"}`}
             >
                 <X size={28} />
             </button>
 
             <div className="absolute top-24 left-1/2 -translate-x-1/2 scale-150">
-                <LocationIndicator variant="navbar-mobile" isLight={true} />
+                <LocationIndicator variant="navbar-mobile" isLight={isLight} />
             </div>
 
             <div className="flex flex-col items-start gap-8 w-full pl-6 mt-12">
@@ -103,7 +103,7 @@ const MobileSidebar = ({ toggleMenu, sidebarVariants, backdropVariants }) => (
                         animate={{ opacity: 1, x: 0 }}
                         transition={{ delay: 0.1 + index * 0.105, type: "spring", stiffness: 200, damping: 25 }}
                         onClick={(e) => { e.preventDefault(); scrollToHash(link.hash); toggleMenu(); }}
-                        className="text-lg font-medium uppercase tracking-[0.25em] transition-all duration-300 hover:scale-110 origin-left text-primary/80 hover:text-primary"
+                        className={`text-lg font-medium uppercase tracking-[0.25em] transition-all duration-300 hover:scale-110 origin-left ${isLight ? "text-primary/80 hover:text-primary" : "text-white/80 hover:text-white"}`}
                     >
                         {link.name}
                     </motion.a>
@@ -112,7 +112,7 @@ const MobileSidebar = ({ toggleMenu, sidebarVariants, backdropVariants }) => (
 
             <div className="absolute bottom-12 left-1/2 -translate-x-1/2">
                 <ImageWithLoader
-                    src={CONTENT.navbar.logoSrc}
+                    src={isLight ? CONTENT.navbar.logoSrc : CONTENT.hero.logoSrc}
                     alt={CONTENT.navbar.logo}
                     className="h-16 w-auto opacity-30 grayscale"
                     sizes="64px"
@@ -246,6 +246,7 @@ const Navbar = ({ subpage = false }) => {
             <AnimatePresence>
                 {isMenuOpen && !isDesktop && (
                     <MobileSidebar
+                        isLight={isLight}
                         toggleMenu={toggleMenu}
                         sidebarVariants={sidebarVariants}
                         backdropVariants={backdropVariants}
