@@ -53,7 +53,7 @@ export default async function Page({ params }) {
   return (
     <>
     {/* No generic Hero here: search visitors should land on the category they searched for */}
-    <Navbar alwaysVisible />
+    <Navbar subpage />
     <FloatingActions />
     <main id="main-content" className="font-body selection:bg-primary/30 selection:text-white overflow-x-hidden bg-primary">
       <LandingHero

@@ -348,13 +348,25 @@ const Showcase = ({ excludeId = null }) => {
                                         <Image
                                             src={selectedItem.images[activeGalleryIndex]}
                                             alt={`${selectedItem.title} ${activeGalleryIndex + 1}`}
-                                            sizes="90vw"
+                                            sizes="(min-width: 768px) 75vh, 100vw"
                                             quality={75}
                                             className="h-full w-auto max-w-full object-contain pointer-events-none select-none"
                                             priority
                                         />
                                     </motion.div>
                                 </AnimatePresence>
+
+                                {/* Preload the next photo so swiping doesn't wait on the network */}
+                                {selectedItem.images.length > 1 && (
+                                    <Image
+                                        src={selectedItem.images[(activeGalleryIndex + 1) % selectedItem.images.length]}
+                                        alt=""
+                                        sizes="(min-width: 768px) 75vh, 100vw"
+                                        quality={75}
+                                        className="hidden"
+                                        priority
+                                    />
+                                )}
 
                                 {/* Aesthetic Gradients for Base Visibility */}
                                 <div className="absolute inset-0 pointer-events-none">

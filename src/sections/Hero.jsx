@@ -6,6 +6,7 @@ import { scrollToHash } from "../utils/scroll";
 import LocationIndicator from "../components/LocationIndicator";
 import ImageWithLoader from "../components/ImageWithLoader";
 import Image from "next/image";
+import ScrollIndicator from "../components/ScrollIndicator";
 
 const Hero = () => {
     const { tagline, title, logoSrc, backgroundImages, imageTransitionInterval } = CONTENT.hero;
@@ -108,12 +109,7 @@ const Hero = () => {
                 </div>
             </div>
 
-            <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex flex-col items-center gap-4">
-                <span className="text-[10px] uppercase tracking-[0.4em] text-white/40 font-light">Scroll</span>
-                <div className="w-[1px] h-10 bg-white/10 relative overflow-hidden">
-                    <div className="absolute top-0 left-0 w-full h-full bg-white/70 animate-scroll-line"></div>
-                </div>
-            </div>
+            <ScrollIndicator />
         </section>
     );
 };

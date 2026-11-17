@@ -122,9 +122,11 @@ const MobileSidebar = ({ toggleMenu, sidebarVariants, backdropVariants }) => (
     </>
 );
 
-const Navbar = ({ alwaysVisible = false }) => {
-    const [scrolled, setScrolled] = useState(alwaysVisible);
-    const [navTheme, setNavTheme] = useState(alwaysVisible ? "light" : "dark"); // Default for hero
+// subpage: navbar always shown on desktop; on mobile it waits until the full-screen hero is scrolled past,
+// with a floating hamburger (matching the contact FAB) standing in until then.
+const Navbar = ({ subpage = false }) => {
+    const [scrolled, setScrolled] = useState(false);
+    const [navTheme, setNavTheme] = useState("dark"); // Default for hero
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const [isDesktop, setIsDesktop] = useState(true);
 
@@ -138,7 +140,7 @@ const Navbar = ({ alwaysVisible = false }) => {
         };
 
         const updateNavState = () => {
-            setScrolled(alwaysVisible || window.scrollY > 100);
+            setScrolled(window.scrollY > (subpage ? window.innerHeight - 100 : 100));
 
             // Probe the pixel that sits at the navbar's visual center.
             // The nav is fixed at top-6 (24px) and is ~40px tall, so its centre
@@ -177,7 +179,7 @@ const Navbar = ({ alwaysVisible = false }) => {
             window.removeEventListener("scroll", onScroll);
             window.removeEventListener("resize", handleResize);
         };
-    }, [alwaysVisible]);
+    }, [subpage]);
 
     const isLight = navTheme === "light";
     const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
@@ -210,19 +212,36 @@ const Navbar = ({ alwaysVisible = false }) => {
     return (
         <>
             <nav
-                className={`fixed top-6 left-1/2 -translate-x-1/2 z-50 w-[90%] md:w-[85vw] max-w-6xl transition-[opacity,transform] duration-700 ease-in-out ${scrolled ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-4 pointer-events-none"
+                className={`fixed top-6 left-1/2 -translate-x-1/2 z-50 w-[90%] md:w-[85vw] max-w-6xl transition-[opacity,transform] duration-700 ease-in-out ${scrolled ? "opacity-100 translate-y-0" : `opacity-0 -translate-y-4 pointer-events-none ${subpage ? "md:opacity-100 md:translate-y-0 md:pointer-events-auto" : ""}`
                     }`}
             >
-                {isDesktop ? (
+                {/* CSS breakpoints, not isDesktop, so the server render matches the device (no desktop-bar flash on phones) */}
+                <div className="hidden md:block">
                     <DesktopNavbar isLight={isLight} />
-                ) : (
+                </div>
+                <div className="md:hidden">
                     <MobileNavbarToggle
                         isLight={isLight}
                         toggleMenu={toggleMenu}
                         isMenuOpen={isMenuOpen}
                     />
-                )}
+                </div>
             </nav>
+
+            {/* Same size, glass and edge offset as the contact FAB; top-12 clears the location strip */}
+            {subpage && (
+                <button
+                    onClick={toggleMenu}
+                    aria-label="Toggle menu"
+                    aria-expanded={isMenuOpen}
+                    className={`md:hidden fixed top-12 right-6 z-50 w-14 h-14 flex items-center justify-center rounded-full shadow-lg backdrop-blur-md border transition-[opacity,transform,background-color,border-color,color] duration-500 ${isLight
+                        ? "bg-[#dca3d7]/15 border-[#dca3d7]/30 text-primary"
+                        : "bg-white/20 border-white/30 text-white"
+                        } ${scrolled ? "opacity-0 -translate-y-4 pointer-events-none" : "opacity-100"}`}
+                >
+                    <Menu size={24} />
+                </button>
+            )}
 
             <AnimatePresence>
                 {isMenuOpen && !isDesktop && (
