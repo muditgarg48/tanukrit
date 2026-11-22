@@ -3,9 +3,11 @@
 import { useState, useRef, useEffect, useLayoutEffect, useCallback, useMemo } from "react";
 import { CONTENT } from "../constants/content";
 import { motion, AnimatePresence } from "framer-motion";
-import { ChevronLeft, ChevronRight } from "lucide-react";
+import { ChevronLeft, ChevronRight, Share2, Check } from "lucide-react";
 import Image from "next/image";
 import ImageWithLoader from "../components/ImageWithLoader";
+import { LANDING_CONTENT } from "../constants/landingContent";
+import { getSrc } from "../utils/image";
 
 const useWindowSize = () => {
     const [isMobile, setIsMobile] = useState(false);
@@ -75,6 +77,57 @@ const Showcase = ({ excludeId = null }) => {
     const closeGallery = useCallback(() => {
         setSelectedItem(null);
     }, []);
+
+    // Prefetch the current photo as a File: awaiting a fetch inside the click handler
+    // can expire the user gesture (Safari), which makes navigator.share throw.
+    const shareFileRef = useRef(null);
+    const [copied, setCopied] = useState(false);
+    useEffect(() => {
+        shareFileRef.current = null;
+        if (!selectedItem || !navigator.canShare) return;
+        let cancelled = false;
+        const src = getSrc(selectedItem.images[activeGalleryIndex]);
+        fetch(src)
+            .then((res) => res.blob())
+            .then(createImageBitmap)
+            // WhatsApp treats .webp as a document and drops the caption, so re-encode as JPEG
+            .then((bitmap) => new Promise((resolve) => {
+                const canvas = document.createElement("canvas");
+                canvas.width = bitmap.width;
+                canvas.height = bitmap.height;
+                canvas.getContext("2d").drawImage(bitmap, 0, 0);
+                canvas.toBlob(resolve, "image/jpeg", 0.9);
+            }))
+            .then((blob) => {
+                if (cancelled || !blob) return;
+                const name = src.split("/").pop().split("?")[0].split(".")[0];
+                const file = new File([blob], `${name}.jpg`, { type: "image/jpeg" });
+                if (navigator.canShare({ files: [file] })) shareFileRef.current = file;
+            })
+            .catch(() => {});
+        return () => { cancelled = true; };
+    }, [selectedItem, activeGalleryIndex]);
+
+    const handleShare = useCallback(async (e) => {
+        e.stopPropagation();
+        const slug = LANDING_CONTENT[selectedItem.id]?.slug;
+        const url = slug ? `${CONTENT.seo.siteUrl}/${slug}` : CONTENT.seo.siteUrl;
+        const text = CONTENT.showcase.shareCaption.replace("{title}", selectedItem.title).replace("{link}", url);
+        const file = shareFileRef.current;
+
+        if (navigator.share) {
+            try {
+                // Link lives inside `text`; also passing `url` makes some apps append it a second time
+                await navigator.share(file ? { files: [file], text } : { text });
+            } catch { /* user cancelled the share sheet */ }
+            return;
+        }
+        try {
+            await navigator.clipboard.writeText(text);
+            setCopied(true);
+            setTimeout(() => setCopied(false), 2000);
+        } catch { /* clipboard blocked: nothing else to fall back to */ }
+    }, [selectedItem]);
 
     useEffect(() => {
         if (selectedItem) {
@@ -391,7 +444,15 @@ const Showcase = ({ excludeId = null }) => {
                                             </div>
                                         </motion.div>
 
-                                        {/* Top Right: Minimalist Close Island */}
+                                        {/* Top Right: Share & Close Islands */}
+                                        <div className="flex gap-2">
+                                        <button
+                                            onClick={handleShare}
+                                            className="pointer-events-auto flex items-center gap-2 py-2.5 px-4 md:py-3 md:px-5 bg-primary hover:bg-primary/90 rounded-full border border-white/20 shadow-md hover:shadow-xl text-white transition-all transform hover:scale-105 active:scale-95"
+                                        >
+                                            {copied ? <Check className="w-4 h-4 md:w-5 md:h-5" /> : <Share2 className="w-4 h-4 md:w-5 md:h-5" />}
+                                            <span className="text-xs uppercase tracking-widest font-bold">{copied ? "Copied" : "Share"}</span>
+                                        </button>
                                         <button
                                             onClick={closeGallery}
                                             className="pointer-events-auto p-2.5 md:p-3 bg-black/30 backdrop-blur-md rounded-full border border-white/5 shadow-lg text-white/40 hover:text-white transition-all transform hover:scale-105 active:scale-95"
@@ -402,6 +463,7 @@ const Showcase = ({ excludeId = null }) => {
                                                 <line x1="6" y1="6" x2="18" y2="18"></line>
                                             </svg>
                                         </button>
+                                        </div>
                                     </div>
 
                                     {/* Middle Row: Navigation Arrow Islands (Unified) */}

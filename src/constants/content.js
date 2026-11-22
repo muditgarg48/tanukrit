@@ -148,6 +148,8 @@ export const CONTENT = {
     showcase: {
         title: "Custom Hampers for every occasion",
         description: "Thoughtfully curated hampers designed for meaningful moments.",
+        // {title} is replaced with the category name, {link} with that category's page URL
+        shareCaption: "Just came across this lovely {title} hampers by Tanukrit. Check out their full collection at {link}",
         items: [
             { id: 1, title: "Baby Shower", coverImage: babyShowerCoverImage, images: [babyShowerCoverImage, babyShower1, babyShower2, babyShower3] },
             { id: 2, title: "Corporate Hampers", coverImage: corporateHampersCoverImage, images: [corporateHampersCoverImage, corporateHampers1, corporateHampers2, corporateHampers3, corporateHampers4] },
