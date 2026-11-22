@@ -29,7 +29,7 @@ const Hero = () => {
     }, [heroReady, backgroundImages, imageTransitionInterval]);
 
     return (
-        <section data-nav-theme="dark" className="relative h-screen flex flex-col items-center justify-center overflow-hidden bg-primary px-4">
+        <section data-nav-theme="dark" className="relative h-svh flex flex-col items-center justify-center overflow-hidden bg-primary px-4">
             <div className="absolute top-0 left-0 w-full z-30">
                 <LocationIndicator variant="hero" />
             </div>
