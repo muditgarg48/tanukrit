@@ -430,22 +430,22 @@ const Showcase = ({ excludeId = null }) => {
                                 {/* Refined Overlays with Minimalist Visibility Islands (Unified Style) */}
                                 <div className="absolute inset-0 p-4 md:p-6 lg:p-8 pointer-events-none flex flex-col justify-between">
                                     {/* Top Row */}
-                                    <div className="flex justify-between items-start">
+                                    <div className="flex justify-between items-center">
                                         {/* Top Left: Ultra-Refined Title Island */}
                                         <motion.div
                                             initial={{ x: -10, opacity: 0 }}
                                             animate={{ x: 0, opacity: 1 }}
                                             className="pointer-events-auto bg-black/30 backdrop-blur-md px-4 py-3 rounded-[1.2rem] border border-white/5 shadow-lg"
                                         >
-                                            <h3 className="text-white text-base md:text-xl font-heading leading-tight">{selectedItem.title}</h3>
+                                            <h3 className="text-white text-xl md:text-2xl font-heading leading-tight">{selectedItem.title}</h3>
                                             <div className="mt-1 flex items-center gap-1.5">
                                                 <div className="h-[1px] w-4 md:w-6 bg-white/30" />
-                                                <span className="text-white/40 text-[8px] md:text-[9px] uppercase tracking-[0.2em] font-bold">Item {activeGalleryIndex + 1} / {selectedItem.images.length}</span>
+                                                <span className="text-white/40 text-[10px] md:text-[11px] uppercase tracking-[0.2em] font-bold">Item {activeGalleryIndex + 1} / {selectedItem.images.length}</span>
                                             </div>
                                         </motion.div>
 
                                         {/* Top Right: Share & Close Islands */}
-                                        <div className="flex gap-2">
+                                        <div className="flex items-center gap-2">
                                         <button
                                             onClick={handleShare}
                                             className="pointer-events-auto flex items-center gap-2 py-2.5 px-4 md:py-3 md:px-5 bg-primary hover:bg-primary/90 rounded-full border border-white/20 shadow-md hover:shadow-xl text-white transition-all transform hover:scale-105 active:scale-95"
