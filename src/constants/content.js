@@ -58,6 +58,9 @@ import returnFavors3 from "../assets/showcase_galleries/return_favors_3.webp";
 import returnFavors4 from "../assets/showcase_galleries/return_favors_4.webp";
 import roomHampers1 from "../assets/showcase_galleries/room_hampers_1.webp";
 import roomHampers2 from "../assets/showcase_galleries/room_hampers_2.webp";
+import roomHampers3 from "../assets/showcase_galleries/room_hampers_3.webp";
+import roomHampers4 from "../assets/showcase_galleries/room_hampers_4.webp";
+import roomHampers5 from "../assets/showcase_galleries/room_hampers_5.webp";
 import trousseau1 from "../assets/showcase_galleries/trousseau_1.webp";
 import trousseau2 from "../assets/showcase_galleries/trousseau_2.webp";
 import trousseau3 from "../assets/showcase_galleries/trousseau_3.webp";
@@ -160,7 +163,7 @@ export const CONTENT = {
             { id: 7, title: "Return Favours", coverImage: returnFavoursCoverImage, images: [returnFavoursCoverImage, returnFavors1, returnFavors2, returnFavors3, returnFavors4] },
             { id: 8, title: "Birthday Favours", coverImage: birthdayFavoursCoverImage, images: [birthdayFavoursCoverImage, birthdayFavors1, birthdayFavors2, birthdayFavors3, birthdayFavors4] },
             { id: 9, title: "Trousseau", coverImage: trousseauCoverImage, images: [trousseauCoverImage, trousseau1, trousseau2, trousseau3, trousseau4] },
-            { id: 10, title: "Room Hampers", coverImage: roomHampersCoverImage, images: [roomHampersCoverImage, roomHampers1, roomHampers2] },
+            { id: 10, title: "Room Hampers", coverImage: roomHampersCoverImage, images: [roomHampersCoverImage, roomHampers3, roomHampers1, roomHampers4, roomHampers2, roomHampers5] },
         ],
         cta: {
             title: "Love What You See?",
